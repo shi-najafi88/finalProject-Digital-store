@@ -1,11 +1,11 @@
 import React from 'react'
 import { Nav } from '../../components'
 
-export const ProductDetail = () => {
+export const Faild = () => {
   return (
     <div>
-      <Nav/>
-      <h1>this is a product detail page</h1>
+        <Nav/>
+        <h1>this is a faild payment page</h1>
     </div>
   )
 }
