@@ -1,12 +1,11 @@
 
 import './App.css';
-import Routing from './routs/index.routs';
-
+import { IndexApp } from './app/IndexApp';
 
 function App() {
   return (
     <div className="App">
-      <Routing/>  
+      <IndexApp/>
     </div>
   );
 }

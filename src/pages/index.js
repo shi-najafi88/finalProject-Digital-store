@@ -1,3 +1,4 @@
+import { Main } from "../layouts";
 import { Success } from "./SuccessPayment/Success.page";
 
 export { ProductDetail } from "./productDetail/ProductDetail.page";
@@ -13,3 +14,4 @@ export { Faild } from "./FailadPayment/Faild.page"
 export { Inventory } from "./Dashbord/Inventory/Inventory.page"
 export { Orders } from "./Dashbord/Orders/Orders.page"
 export { ProductsDashbord } from "./Dashbord/ProductsDashbord/ProductsDashbord.page"
+

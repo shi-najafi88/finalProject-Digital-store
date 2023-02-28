@@ -1,10 +1,12 @@
 import React, { Children } from 'react'
 import './Button.scss'
 
-export const Button = ({title}) => {
+export const Button = ({title,stateBtn}) => {
+  
   return (
-    <div>
-      <button>{title}</button>
-    </div>
+    <>
+   {stateBtn === 'loginBtn' ? <button className='loginBtn'>{title}</button>:
+   <button>{title}</button> }
+    </>
   )
 }

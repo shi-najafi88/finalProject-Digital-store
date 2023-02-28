@@ -1,6 +1,21 @@
 @import '../../asets/scss/variable';
+@import '../../asets/scss/color';
+@import '../../asets/scss/mixin';
 
+.nav{
+    display: flex;
+}
 .link{
     text-decoration: none;
-    margin: $m_smal ;
+    color: $gray;
+    font-weight: 600;
+    padding: $p_smal .7rem;
+    @include setdisplayflex(flex,0,0,0,$p_smal);
+    &:hover{
+        background-color: $medium_gray;
+        box-shadow: 0 1px 0px 0px rgb(255 255 255 / 20%) inset;
+        border-radius: 5px;
+        color: $orange;
+        
+    }
 }

@@ -1,5 +1,16 @@
 @import "../../asets/scss/color";
+@import "../../asets/scss/variable";
 
-h1{
-    color:$red
+.loginBtn{
+  padding: $p_smal $p_one-med;
+  border-radius: 5px;
+  border: 1px solid $orange;
+  background-color: $black;
+  color: $light;
+  font-size: .9rem;
+  cursor: pointer;
+  &:hover{
+    background-color: $orange;
+    color:$dark
+  }
 }
