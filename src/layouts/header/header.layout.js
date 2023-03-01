@@ -13,7 +13,7 @@ export const Header = () => {
       <div className='wrapper_logo'>
         <Link className='link' to="/loginDashbord"><Button stateBtn={'loginBtn'} title={'ورود'}></Button></Link>
         <div className='wrapper_search'>
-          <Input placeholder={"جستجو ..."} type={'search'} pad={'0.5rem'} raduce={'0 5px 5px 0'} w={'35vw'} color={'gray'} font={'1rem'}/>
+          <Input placeholder={"جستجو ..."} stateInput={'search'} type={'search'} />
           <div className='search_icon'><GoSearch style={{color:'white'}}/></div>
         </div>
         <img src= {logo} />
@@ -25,9 +25,7 @@ export const Header = () => {
           <IoLogoTwitter style={{color:'#d95b44'}}/>
           <span>f</span>
           <span>in</span>
-        </div>
-        
-        
+        </div>    
       </div>
       
     </div>

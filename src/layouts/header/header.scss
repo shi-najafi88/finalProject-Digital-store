@@ -23,10 +23,8 @@
 }
 
 .search_icon{
-    background-color: $orange;
-    padding: $p_smal .7rem;
-    border-radius: 5px 0 0 5px;
-    display: flex;
+    @include setdisplayflex(flex,0,center,center,0);
+    @include setInput($orange,0,none,none,5px 0 0 5px,$p_smal .7rem,$p_1);
 }
 
 .sotial-icon{

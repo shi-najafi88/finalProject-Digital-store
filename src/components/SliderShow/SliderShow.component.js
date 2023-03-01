@@ -10,22 +10,22 @@ import "swiper/css/navigation";
 
 import img1 from '../../asets/images/sliderShow/1.jpg'
 import img2 from '../../asets/images/sliderShow/2.jpg'
-import img3 from '../../asets/images/sliderShow/3.jpg'
-import img4 from '../../asets/images/sliderShow/4.jpg'
 
-// import "./styles.css";
+
+
+import "./SliderShow.scss";
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper";
 
-export default function Slide() {
+export const Slide = () =>{
   return (
     <>
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
         autoplay={{
-          delay: 2500,
+          delay: 4500,
           disableOnInteraction: false,
         }}
         pagination={{
@@ -36,9 +36,7 @@ export default function Slide() {
         className="mySwiper"
       >
         <SwiperSlide><img src={img1} /></SwiperSlide>
-        <SwiperSlide><img src={img2} /></SwiperSlide>
-        <SwiperSlide><img src={img3} /></SwiperSlide>
-        <SwiperSlide><img src={img4} /></SwiperSlide>
+        <SwiperSlide><img src={img2} /></SwiperSlide>  
       </Swiper>
     </>
   );

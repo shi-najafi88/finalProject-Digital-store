@@ -6,3 +6,13 @@
     gap: $gap
 }
 
+@mixin setInput($background-color,$color,$border,$outline,$border-radius,$padding,$with) {
+    background-color: $background-color;
+    color: $color;
+    border: $border; 
+    outline: $outline ; 
+    border-radius: $border-radius;
+    padding: $padding;
+    width: $with;
+}
+

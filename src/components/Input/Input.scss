@@ -1,5 +1,13 @@
+@import '../../asets/scss/color';
+@import '../../asets/scss/mixin';
+@import '../../asets/scss/variable';
 
-.input{
-    outline: none;
-    border: none;
+.inputLogin{
+    @include setInput($light_gray,$gray,none,none,3px,.4rem .5rem,65%);
+    margin-bottom: 1rem;
+}
+
+.search{
+    @include setInput($bg_color,$gray,none,none,0 5px 5px 0,$p_smal,35vw);
+    font-size: $p_1;
 }

@@ -1,13 +1,17 @@
 import React from 'react'
 import "./Input.scss"
 
-export const Input = ({placeholder,type,pad,raduce,w,color,font}) => {
+export const Input = ({placeholder,type,pad,raduce,w,color,font,stateInput}) => {
   return (
-    <input 
-    className='input'
-    placeholder={placeholder} 
-    type={type} 
-    style={{padding:pad, borderRadius:raduce, width:w, color:color, fontSize:font}}
-    />
+    <>
+    {stateInput === 'login'? 
+    <input className='inputLogin'placeholder={placeholder} type={type} />:
+
+    stateInput === 'search' ?
+    <input className='search'placeholder={placeholder} type={type} /> :
+    
+    <input className=''placeholder={placeholder} type={type} />
+  }
+    </>
   )
 }

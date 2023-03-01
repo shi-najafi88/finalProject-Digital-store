@@ -1,14 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { Nav } from "../../components";
+import { Slide } from "../../components";
 import { Header } from "../../layouts";
+import './Home.scss'
 
 export const Home = () => {
   return (
    <div>
-    <Header/>
-    {/* <Nav/> */}
-    {/* <Link className='link' to="/products">دسته بندی محصولات</Link> */}
+      <Header/>
+    <div className="wrapper_sliderShow">
+      <Slide/>
+    </div>
+    
     <h1>this is a home page</h1>
    </div>
   );

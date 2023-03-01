@@ -1,0 +1,50 @@
+@import '../../asets/scss/mixin';
+@import '../../asets/scss/variable';
+@import '../../asets/scss/color';
+
+.container-login{
+    width: 100vw;
+    height: 97vh;
+    @include setdisplayflex(flex,0,center,center,0);
+    background-image: url(../../asets/images/sliderShow/slider-background.jpg);
+}
+
+.wrapper_formLogin_image{
+    width: 70%;
+    height: 60%;
+    border-radius: 5px;
+    @include setdisplayflex(flex,0,center,center,0);
+    & img{
+        width: 65%;
+        height: 100%;
+    }
+
+    & form{
+        width: 100%;
+        text-align: center;
+        & .link{
+            display: block
+        }
+        & .back{
+            text-decoration: none;
+            color: $bg_color;
+            font-size: .8rem;
+            margin-left: $p_10;
+
+            &:hover{
+                color: $orange
+            }
+        }
+    }
+}
+
+.wrapper_form{
+    @include setdisplayflex(flex,column,center,center,0);
+    background-color: $dark;
+    height: 100%;
+
+   & h2{
+    color: $orange;
+    margin-bottom: $p_3;
+   }
+}

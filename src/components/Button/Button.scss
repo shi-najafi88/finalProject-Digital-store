@@ -1,16 +1,28 @@
 @import "../../asets/scss/color";
 @import "../../asets/scss/variable";
+@import "../../asets/scss/mixin";
 
 .loginBtn{
-  padding: $p_smal $p_one-med;
-  border-radius: 5px;
-  border: 1px solid $orange;
-  background-color: $black;
-  color: $light;
+
+  @include setInput( $black,$light,1px solid $orange,none,5px,$p_smal $p_one-med,$p_5);
   font-size: .9rem;
   cursor: pointer;
+
   &:hover{
     background-color: $orange;
-    color:$dark
+    color:$dark;
+    box-shadow: 0 1px 0px 0px rgb(255 255 255 / 20%) inset;
+  }
+}
+
+.dashbord_formBtn{
+  @include setInput( $dark,$light,1px solid $orange,none,3px,.4rem $p_smal,70%);
+  margin: $p_smal 0 $p_smal 0;
+  font-size: $p_1;
+  cursor: pointer;
+
+  &:hover{
+    background-color: $orange;
+    box-shadow: 0 1px 0px 0px rgb(255 255 255 / 20%) inset;   
   }
 }
