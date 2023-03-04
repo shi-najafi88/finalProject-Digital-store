@@ -14,7 +14,7 @@ export const Login = () => {
           <form>
             <Input placeholder={'نام کاربری'} type={'text'} stateInput={'login'} />
             <IconPass type={"password"}placeholder={" کلمه عبور"} />
-            <Link className='link' to="/loginDashbord/dashbord"><Button title={'ورود'} stateBtn={'dashbord_formBtn'} ></Button></Link>
+            <Link className='link' to="/loginDashbord/dashbordOrders"><Button title={'ورود'} stateBtn={'dashbord_formBtn'} ></Button></Link>
             <Link className='back' to="/">بازگشت به سایت</Link>
           </form>
         </div>

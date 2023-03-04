@@ -11,3 +11,12 @@
     @include setInput($bg_color,$gray,none,none,0 5px 5px 0,$p_smal,35vw);
     font-size: $p_1;
 }
+
+.dashboard_search{
+    @include setInput($bg_color,$gray,none,none,0 5px 5px 0,$p_smal,14vw);
+    font-size: .8rem;
+}
+
+.filter{
+    cursor: pointer;
+}

@@ -1,9 +1,12 @@
+
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { Button } from '../../../components'
 
 export const ProductsDashbord = () => {
   return (
     <div>
+     
         <nav >
             <Link className="link" to="/loginDashbord/dashbord/ProductsDashbord">کالاها</Link>
             <Link className="link" to="/loginDashbord/dashbord/inventory">موجودی و قیمت</Link>

@@ -1,0 +1,10 @@
+@import '../../asets/scss/mixin';
+@import '../../asets/scss/variable';
+
+
+.wrapperBox{
+    @include setdisplayflex(flex,0,0,center,$p_3); 
+    padding: $p_2; 
+    width: 100%;
+    height: fit-content;
+}

@@ -1,0 +1,38 @@
+@import '../../asets//scss/color';
+@import '../../asets//scss/variable';
+@import '../../asets//scss/mixin';
+
+.dashboard_sidebar{
+    width: 16%;
+    height: 81.7vh;
+    background-color: $dark;
+    padding: $p_1 $p_2;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+    & h3{
+        color: $gray; 
+        margin: 0 0 $p_2 0;
+        font-size: 1.3rem;
+    }
+
+    & .link{
+        text-decoration: none;
+        color: $gray;
+        font-size: 1.2rem;
+        
+        &:hover{
+            color:$orange
+        }
+    }
+}
+
+.wrapper_item{
+    @include setdisplayflex(flex,0,baseline,0,$p_smal);
+    color: $gray;
+    margin-bottom: $p_2;
+
+    &:hover{
+        color:$orange
+    }
+   
+}

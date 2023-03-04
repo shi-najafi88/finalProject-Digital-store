@@ -1,0 +1,2 @@
+export { DashboardHeader } from "../dashboardLayouts/dashboardHeadr/dashboardHeader.dashboardLayout";
+export { DashboardSidebar } from "../dashboardLayouts/dashboardSidebare/dashboardSidebar.dashboardLayout"

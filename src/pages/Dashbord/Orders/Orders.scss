@@ -1,0 +1,32 @@
+@import '../../../asets/scss/color';
+@import '../../../asets/scss/mixin';
+@import '../../../asets/scss/variable';
+
+.container_orders{
+   @include setInput($light_gray,0,none,none,0,0,100vw);
+   height: fit-content;
+}
+
+.container_main_side_dashboard{
+    display: flex;
+}
+
+.main-dashboard{
+    width: 78%;
+    @include setdisplayflex(flex,column,center,0,$p_smal);
+}
+
+.wrapper_RadioFilter{
+    @include setdisplayflex(flex,0,0,0,$p_1);
+}
+
+.wrapper_mangement_order{
+    & h3{
+        color: $orange;
+    }
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    @include setdisplayflex(flex,0,center,space-between,0);
+    @include setInput(0,$medium_gray,none,none,5px,0 $p_2,60%);
+}
+
+

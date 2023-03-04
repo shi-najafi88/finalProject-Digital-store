@@ -6,7 +6,6 @@ export { Products } from "./Products/Products.page";
 export { Payment } from "./Payment/Payment.page"
 export { Login } from "./LoginDashbord/Login.page"
 export { Home } from "./Home/Home.page"
-export { Dashbord } from "./Dashbord/Dashbord/Dashbord.page"
 export { Basket } from "./Basket/Basket.page"
 export { Register } from "./Register/Register.page"
 export { Success } from "./SuccessPayment/Success.page"

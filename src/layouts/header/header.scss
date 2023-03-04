@@ -16,16 +16,16 @@
     @include setdisplayflex(flex,0,center,space-between,0);
 }
 
-.wrapper_search{
-    display: flex;
-    border-radius:5px;
-    height: 6vh;
-}
+// .wrapper_search{
+//     display: flex;
+//     border-radius:5px;
+//     height: 6vh;
+// }
 
-.search_icon{
-    @include setdisplayflex(flex,0,center,center,0);
-    @include setInput($orange,0,none,none,5px 0 0 5px,$p_smal .7rem,$p_1);
-}
+// .search_icon{
+//     @include setdisplayflex(flex,0,center,center,0);
+//     @include setInput($orange,0,none,none,5px 0 0 5px,$p_smal .7rem,$p_1);
+// }
 
 .sotial-icon{
     color: $gray;

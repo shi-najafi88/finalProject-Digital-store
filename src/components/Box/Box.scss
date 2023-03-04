@@ -1,0 +1,25 @@
+@import '../../asets/scss/color';
+@import '../../asets/scss/variable';
+@import '../../asets/scss/mixin';
+
+.box{
+    @include setInput( $light,0,0,none,5px,$p_1,12vw);
+    @include setdisplayflex(flex,0,center,space-evenly,0);
+    height: 6vh; 
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.wrapper_dataBox{
+    @include setdisplayflex(flex,column,0,0,$p_smal);
+   
+    & .title{
+        font-size: 1.1rem;
+    }
+
+    & .number{
+        text-align: center;
+        font-size: larger;
+        font-weight: 700;
+    }
+
+}

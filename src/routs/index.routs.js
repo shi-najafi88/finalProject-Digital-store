@@ -16,10 +16,9 @@ import { Basket, Dashbord, Faild, Home, Inventory, Login, Orders, Payment, Produ
         <Route path="/basket/register/payment" element={<Payment />} />
         <Route path="/basket/register/payment/successPayment" element={<Success />} />
         <Route path="/basket/register/payment/faildPayment" element={<Faild />} />
-        <Route path="/loginDashbord/dashbord" element={<Dashbord />} />
-        <Route path="/loginDashbord/dashbord/orders" element={<Orders />} />
-        <Route path="/loginDashbord/dashbord/inventory" element={<Inventory />} />
-        <Route path="/loginDashbord/dashbord/ProductsDashbord" element={<ProductsDashbord  />} />
+        <Route path="/loginDashbord/dashbordOrders" element={<Orders />} />
+        <Route path="/loginDashbord/dashbordInventory" element={<Inventory />} />
+        <Route path="/loginDashbord/dashbord/ProductsDashbord" element={<ProductsDashbord />} />
       </Routes>
      
   )

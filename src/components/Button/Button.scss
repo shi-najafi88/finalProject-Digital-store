@@ -2,7 +2,7 @@
 @import "../../asets/scss/variable";
 @import "../../asets/scss/mixin";
 
-.loginBtn{
+.loginBtn {
 
   @include setInput( $black,$light,1px solid $orange,none,5px,$p_smal $p_one-med,$p_5);
   font-size: .9rem;
@@ -24,5 +24,16 @@
   &:hover{
     background-color: $orange;
     box-shadow: 0 1px 0px 0px rgb(255 255 255 / 20%) inset;   
+  }
+}
+
+.editPrice {
+  @include setInput( 0,$dark,1px solid $orange,none,5px,$p_smal $p_one-med,$p_5);
+  font-size: .9rem;
+  cursor: pointer;
+  
+  &:hover{
+    background-color: $orange;
+    color:$light;
   }
 }

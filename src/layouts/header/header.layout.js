@@ -1,9 +1,8 @@
 import React from 'react';
 import './header.scss';
 import logo from '../../asets/images/logo.png';
-import { Button, Input, Nav } from '../../components';
+import { Button, Nav, Search } from '../../components';
 import { Link } from 'react-router-dom';
-import { GoSearch } from 'react-icons/go';
 import { IoLogoTwitter } from 'react-icons/io'
 
 export const Header = () => {
@@ -12,10 +11,7 @@ export const Header = () => {
 
       <div className='wrapper_logo'>
         <Link className='link' to="/loginDashbord"><Button stateBtn={'loginBtn'} title={'ورود'}></Button></Link>
-        <div className='wrapper_search'>
-          <Input placeholder={"جستجو ..."} stateInput={'search'} type={'search'} />
-          <div className='search_icon'><GoSearch style={{color:'white'}}/></div>
-        </div>
+        <Search/>
         <img src= {logo} />
       </div>
     
