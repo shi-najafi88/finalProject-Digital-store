@@ -20,3 +20,12 @@
 .filter{
     cursor: pointer;
 }
+
+.inputInventori{
+    width: 5rem;
+    border: none;
+    background-color: $light;
+    &:hover{
+        background-color: $bg_color;
+    }
+}

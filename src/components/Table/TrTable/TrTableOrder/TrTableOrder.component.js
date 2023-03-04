@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './TrTable.scss'
 
-export const TrTable = () => {
+export const TrTableOrder = () => {
   return (
    
     <tr >

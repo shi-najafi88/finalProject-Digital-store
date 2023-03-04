@@ -8,6 +8,6 @@ export { Search } from "./Search/Search.component";
 export { Box } from "./Box/Box.component";
 export { TotalBox } from "./TotalBox/TotalBox.component";
 export { RadioFilter } from "./RadioFilter/RadioFilter.component";
-export { TrTable } from "./Table/TrTable/TrTable.component";
-export { PaginatedItems } from "./Pagination/Pagination.component"
-
+export { TrTableOrder } from "./Table/TrTable/TrTableOrder/TrTableOrder.component";
+export { TrTableInventori } from "./Table/TrTable/TrTableInventori/TrTableInventori.component";
+export { PaginatedItems } from "./Pagination/Pagination.component";
