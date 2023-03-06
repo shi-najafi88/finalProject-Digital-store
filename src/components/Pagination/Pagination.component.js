@@ -1,5 +1,5 @@
 import React from 'react'
-import './Pagination.scss'
+// import "bootstrap/dist/css/bootstrap.min.css";
 
 import  { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
@@ -12,7 +12,7 @@ function Items({ currentItems }) {
       <div className="items">
       {currentItems && currentItems.map((item) => (
         <div>
-          <h3>Item #{item}</h3>
+          {/* <h3>Item #{item}</h3> */}
         </div>
       ))}
         </div>

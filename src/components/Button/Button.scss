@@ -35,5 +35,30 @@
   &:hover{
     background-color: $orange;
     color:$light;
+    font-weight: 600;
+    transition: 0.3s;
   }
+}
+
+.addProduct{
+  @include setInput($orange,$light,0,none,5px,$p_smal $p_one-med,$p_7);
+  font-size: .9rem;
+  cursor: pointer;
+  box-shadow: 0 1px 0px 0px rgb(255 255 255 / 20%) inset;
+  
+  &:hover{
+    @include setInput($light_gray,$orange, 1px solid $orange,none,5px,$p_smal $p_one-med,$p_7);
+    font-weight: 600;
+    transition: 0.3s;
+  }
+}
+
+.deletModal_yes{
+  @include setInput($red,$light,0,none,5px,$p_smal $p_one-med,$p_7);
+  cursor: pointer;
+}
+
+.deletModal_no{
+  @include setInput($blue,$light,0,none,5px,$p_smal $p_one-med,$p_7);
+  cursor: pointer;
 }

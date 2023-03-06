@@ -1,5 +1,5 @@
 import React from "react";
-import { TrTableInventori, TrTableOrder } from "../../index";
+import { TrTableInventori, TrTableOrder, TrTableProduct } from "../../index";
 import "./Table.scss";
 
 export const Table = ({
@@ -11,7 +11,7 @@ export const Table = ({
 }) => {
   return (
     <>
-      {tableStatus === "tableOrder" ? (
+      {tableStatus === "tableOrder" ? 
         <table className="table">
           <thead>
             <tr>
@@ -29,7 +29,8 @@ export const Table = ({
       ))} */}
           </tbody>
         </table>
-      ) : tableStatus === "tableInventori" ? (
+
+       : tableStatus === "tableInventori" ? 
         <table className="table">
           <thead>
             <tr>
@@ -46,9 +47,28 @@ export const Table = ({
     ))} */}
           </tbody>
         </table>
-      ) : (
-        ""
-      )}
+       
+
+       : tableStatus === "tableProduct" ? 
+        <table className="table">
+          <thead>
+            <tr>
+              <th>{titleOne}</th>
+              <th>{titleTwo}</th>
+              <th>{titleThree}</th>
+              <th>{titleFour}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <TrTableProduct />
+
+            {/* {todoData.map((item) => (
+      <TodoTr item={item} />
+    ))} */}
+          </tbody>
+        </table>
+        :''
+      }
     </>
   );
 };

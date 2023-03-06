@@ -1,0 +1,13 @@
+@import "../../../asets/scss/mixin";
+@import "../../../asets/scss/variable";
+@import "../../../asets/scss/color";
+
+.container_modalDetail{
+    @include setdisplayflex(flex,column,0,0,$p_smal);
+    width: 90%;
+
+    & input{
+        @include setInput($light_gray,$medium_gray,none,none,5px,$p_smal,95%);
+        font-size: $p_1;
+    }
+}

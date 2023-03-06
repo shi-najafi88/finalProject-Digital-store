@@ -10,4 +10,10 @@ export { TotalBox } from "./TotalBox/TotalBox.component";
 export { RadioFilter } from "./RadioFilter/RadioFilter.component";
 export { TrTableOrder } from "./Table/TrTable/TrTableOrder/TrTableOrder.component";
 export { TrTableInventori } from "./Table/TrTable/TrTableInventori/TrTableInventori.component";
+export { TrTableProduct } from "./Table/TrTable/TrTableProduct/TrTableProduct.component";
+export{ ModalDashboard } from "./ModalDashboard/Modal_add_edit/ModalDashboard.component"
+export { ModalDelet } from "./ModalDashboard/ModalDelet/ModalDelet.component"
+export { ModalDetail } from "./ModalDashboard/ModalDetail/ModalDetail.component";
 export { PaginatedItems } from "./Pagination/Pagination.component";
+
+

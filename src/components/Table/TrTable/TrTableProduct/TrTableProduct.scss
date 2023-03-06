@@ -1,0 +1,10 @@
+@import "../../../../asets/scss/variable";
+@import "../../../../asets/scss/mixin";
+
+.thTwo_product{
+    width: 36%;
+}
+
+.wrapper_iconProduct{
+    @include setdisplayflex(flex,0,center,center,$p_smal);
+}

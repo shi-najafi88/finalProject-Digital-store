@@ -16,17 +16,12 @@ export const Inventory = () => {
 
           <div className="wrapper_mangement_order">
             <h3>مدیریت موجودی و قیمت ها</h3>
-
-            <Button title={'ذخیره'} stateBtn={'editPrice'} />
-            
-          </div>
-         
+            <Button title={'ذخیره'} stateBtn={'editPrice'} />   
+          </div>  
+             
             <Table tableStatus={'tableInventori'} titleOne={'کالا'} titleTwo={'قیمت'} titleThree={'موجودی'} />
-
         </section>
-
-      </div>
-      
+      </div>   
     </div>
     </div>
   )

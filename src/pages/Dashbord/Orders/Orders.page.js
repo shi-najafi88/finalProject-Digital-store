@@ -22,16 +22,10 @@ export const Orders = () => {
               />
             </div>
           </div>
-
             <Table tableStatus={'tableOrder'} titleOne={'نام کاربر'} titleTwo={'مجموع قیمت'} titleThree={'زمان ثبت سفارش'} titleFour={'وضعیت'}  />
-
-          
             
-
         </section>
-
       </div>
-      
     </div>
   );
 };

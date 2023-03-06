@@ -4,7 +4,7 @@ import Routing from '../routs/index.routs'
 export const IndexApp = () => {
   return (
     <div>
-      <Routing/>  
+      <Routing/> 
     </div>
   )
 }

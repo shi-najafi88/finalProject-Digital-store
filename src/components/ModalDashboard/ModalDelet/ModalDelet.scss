@@ -1,0 +1,19 @@
+@import "../../../asets/scss/mixin";
+@import "../../../asets/scss/variable";
+@import "../../../asets/scss/color";
+
+.wrapper_deletModal{
+    @include setdisplayflex(flex,column,center,center,$p_one-med);
+    @include setInput($bg_color,0,none,none,10px,$p_one-med,25vw);
+    margin-top: 1rem;
+    height: 22vh;
+
+    & p{
+        font-size: 1.2rem
+    }
+
+    & .btnContainer{
+        @include setdisplayflex(flex,0,center,center,0$p_smal);  
+    }
+}
+
