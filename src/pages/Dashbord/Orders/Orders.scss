@@ -4,7 +4,7 @@
 
 .container_orders{
    @include setInput($light_gray,0,none,none,0,0,100vw);
-   height: fit-content;
+   height: 100vh;
 }
 
 .container_main_side_dashboard{

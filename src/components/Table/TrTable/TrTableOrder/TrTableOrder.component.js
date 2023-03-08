@@ -1,16 +1,24 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import './TrTable.scss'
+import { useDispatch } from 'react-redux'
+import { OPEN_CheckOrderModal } from '../../../../redux/slices/index'
+import './TrTableOrder.scss'
 
-export const TrTableOrder = () => {
-  return (
-   
+export const TrTableOrder = ({item}) => {
+  const dispatch = useDispatch() 
+  
+  //open modal checkorder
+  const ChekOrder_handler = () =>{
+    dispatch(OPEN_CheckOrderModal())
+  }
+
+  return (  
     <tr >
-      <td>yyyy</td>
-      <td>rrrrr</td>
-      <td>1399/10/10</td>
-      <td><Link className='link' to="/">بررسی سفارشات</Link></td>       
-    </tr>
-   
+      <td>{item.username +' '+ item.lastname}</td>
+      <td>{item.prices}</td>
+      <td>
+        {new Date(item.createdAt).toLocaleDateString("fa")}
+      </td>
+      <td><span className='checkOrder' onClick={ChekOrder_handler} style={{cursor:'pointer'}}>بررسی سفارشات</span></td>       
+    </tr>   
   )
 }

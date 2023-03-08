@@ -48,3 +48,8 @@
     margin-bottom: $p_3;
    }
 }
+
+.inputLogin{
+    @include setInput($light_gray,$gray,none,none,3px,.4rem .5rem,65%);
+    margin-bottom: 1rem;
+}

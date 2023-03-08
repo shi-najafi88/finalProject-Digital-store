@@ -1,0 +1,9 @@
+@import "../../../../asets/scss/color";
+
+.checkOrder{
+    cursor: pointer;
+    &:hover{
+        color: $orange;
+        font-weight: 600;
+    }
+}

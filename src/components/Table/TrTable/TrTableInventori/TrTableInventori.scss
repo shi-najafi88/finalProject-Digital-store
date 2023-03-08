@@ -7,3 +7,12 @@
 .inventori_td{
     text-align: right;
 }
+
+.inputInventori{
+    width: 5rem;
+    border: none;
+    background-color: $light;
+    &:hover{
+        background-color: $bg_color;
+    }
+}

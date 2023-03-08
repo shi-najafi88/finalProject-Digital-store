@@ -2,7 +2,7 @@ import React from 'react'
 import './ModalDashboard.scss'
 import { AiOutlineClose } from 'react-icons/ai'
 import { Button, ModalDetail } from '../../index'
-import App from '../../CkEditor/CkEditor'
+import { CkEditors } from '../../CkEditor/CkEditor'
 import { useDispatch } from 'react-redux'
 import { CLOSE_MODAL } from '../../../redux/slices'
 
@@ -28,16 +28,17 @@ export const ModalDashboard = () => {
                 <div className='container_modalDetail'>
                     <labela>دسته بندی:</labela>
                     <select>
-                        <option value={'jjj'}></option>
+                        <option ></option>
+                        <option value={"لپتاپ"}>لپتاپ</option>
+                        <option value={"موبایل"}>موبایل</option>
+                        <option value={"تبلت"}>تبلت</option>
+                        <option value={"هدفون"}>هدفون</option>
                     </select>
                 </div>
 
                 <div className='wrapper_textarea'>
-                    <labela>توضیحات:</labela>
-                    
-                    <textarea >
-                    <App/>  
-                    </textarea>
+                    <labela>توضیحات:</labela> 
+                    <CkEditors/>      
                 </div>
 
                 <Button stateBtn={'editPrice'} title={'ذخیره'}/>

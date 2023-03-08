@@ -32,3 +32,17 @@ tr:hover{
 .th_inventori{
     text-align: right;
 }
+
+.tableCheckOrder{
+    margin-top: 0;
+    text-align: right;
+
+    & .thOne{
+        width: 70%;
+    }
+    & th{
+        text-align: right;
+    }
+}
+
+

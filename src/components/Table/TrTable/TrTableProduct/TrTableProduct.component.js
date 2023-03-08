@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import { OPEN_MODAL, OPEN_DeletMODAL } from '../../../../redux/slices'
 import './TrTableProduct.scss'
 
-export const TrTableProduct = () => {
+export const TrTableProduct = ({item}) => {
 
   const dispatch = useDispatch()
 
@@ -22,9 +22,9 @@ export const TrTableProduct = () => {
 
   return (
     <tr >
-       <td className="tdOne_product">image</td>
-       <td className="thTwo_product">rrrrr</td>
-       <td className="thTwo_product">hhhhh</td>
+       <td className="tdOne_product"><img src={`http://localhost:3002/files/${item.thumbnail}`} style={{width:'50px',height:'50px'}}/></td>
+       <td className="thTwo_product">{item.name}</td>
+       <td className="thTwo_product">{item.categoryName}</td>
        <td className="thThree_product">
         <Link to="">
           <div className='wrapper_iconProduct'>

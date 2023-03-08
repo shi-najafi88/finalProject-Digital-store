@@ -1,4 +1,13 @@
+@import '../../asets/scss/color';
+@import '../../asets/scss/mixin';
+
 .container_inputIcon{
   width: 25vw;
   position: relative;    
 }
+
+.inputLogin{
+    @include setInput($light_gray,$gray,none,none,3px,.4rem .5rem,65%);
+    margin-bottom: 1rem;
+}
+

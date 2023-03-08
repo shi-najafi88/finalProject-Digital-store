@@ -1,5 +1,6 @@
 import React from "react";
-import { TrTableInventori, TrTableOrder, TrTableProduct } from "../../index";
+import { useSelector } from "react-redux";
+import { TrTabelModalOrderCheck, TrTableInventori, TrTableOrder, TrTableProduct } from "../../index";
 import "./Table.scss";
 
 export const Table = ({
@@ -9,9 +10,11 @@ export const Table = ({
   titleThree,
   titleFour,
 }) => {
+  const state = useSelector(state => state.shopp);
+ 
   return (
     <>
-      {tableStatus === "tableOrder" ? 
+      {tableStatus === "tableOrder" ? (
         <table className="table">
           <thead>
             <tr>
@@ -22,15 +25,14 @@ export const Table = ({
             </tr>
           </thead>
           <tbody>
-            <TrTableOrder />
+            
+            { state.orderData.map(item => (
+            <TrTableOrder item={item} />
+            ))}
 
-            {/* {todoData.map((item) => (
-        <TodoTr item={item} />
-      ))} */}
           </tbody>
         </table>
-
-       : tableStatus === "tableInventori" ? 
+      ) : tableStatus === "tableInventori" ? (
         <table className="table">
           <thead>
             <tr>
@@ -40,16 +42,14 @@ export const Table = ({
             </tr>
           </thead>
           <tbody>
-            <TrTableInventori />
+            
+            { state.listData.map(item => (
+            <TrTableInventori item={item} />
+            ))}
 
-            {/* {todoData.map((item) => (
-      <TodoTr item={item} />
-    ))} */}
           </tbody>
         </table>
-       
-
-       : tableStatus === "tableProduct" ? 
+      ) : tableStatus === "tableProduct" ? (
         <table className="table">
           <thead>
             <tr>
@@ -60,15 +60,34 @@ export const Table = ({
             </tr>
           </thead>
           <tbody>
-            <TrTableProduct />
 
-            {/* {todoData.map((item) => (
-      <TodoTr item={item} />
-    ))} */}
+          { state.listData.map(item => (
+            <TrTableProduct item={item} />
+            ))}
+
           </tbody>
         </table>
-        :''
-      }
+      ) : tableStatus === "tableCheckOrder" ? (
+        <table className="table tableCheckOrder">
+          <thead>
+            <tr>
+              <th className="thOne">{titleOne}</th>
+              <th>{titleTwo}</th>
+              <th>{titleThree}</th>
+            </tr>
+          </thead>
+          <tbody>
+
+          { state.orderData.map(item => (
+            <TrTabelModalOrderCheck item={item.products} />
+            ))}
+
+          </tbody>
+        </table>
+      ):
+      (
+        ""
+      )}
     </>
   );
 };

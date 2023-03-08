@@ -1,20 +1,51 @@
 
-import React from 'react'
-import { Button, ModalDashboard, ModalDelet, PaginatedItems, Table, TotalBox } from '../../../components'
+import React, { useEffect } from 'react'
+import { Button, ModalDashboard, ModalDelet, Table, TotalBox } from '../../../components'
 import { DashboardHeader, DashboardSidebar } from '../../../dashboardLayouts'
 import { useDispatch, useSelector } from 'react-redux'
-import { OPEN_MODAL } from '../../../redux/slices'
+import { DATATABEL, OPEN_MODAL } from '../../../redux/slices'
+import { usePagination } from '../../../hook'
+import axios from 'axios'
+import './ProductsDashboard.scss'
+
 
 
 export const ProductsDashbord = () => {
-  
+ 
   const dispatch = useDispatch()
   const state = useSelector(state => state.shopp)
+  const { currentPage, rowsPerPage, setTotalPages, renderPaginationButtons } = usePagination(1,5);
+              
+ 
+  //fetch get data for product table and send all products for state
+  const getData = (currentPage,rowsPerPage)=> {
+    axios.get(`http://localhost:3002/products?_page=${currentPage}&_limit=${rowsPerPage}`)
+    .then(res => dispatch(DATATABEL(res.data)))
+  }
 
+  const dataPagination = (rowsPerPage) => {
+     axios.get('http://localhost:3002/products').then(res=> setTotalPages(Math.ceil(res.data.length/rowsPerPage)) )  
+  }
+
+  //show getdata for table
+  useEffect(()=>{
+    getData(currentPage,rowsPerPage)  
+  },[dispatch])
+
+  //show getdata for pagination
+  useEffect(()=>{
+    getData(currentPage,rowsPerPage) 
+  },[currentPage])
+
+  useEffect(()=>{
+    dataPagination(rowsPerPage)
+  },[])
+ 
   //click add product open modal
   const OpenModal_handler = ()=> {
     dispatch(OPEN_MODAL())
   }
+
 
   return (
     <div className="container_orders">
@@ -29,8 +60,8 @@ export const ProductsDashbord = () => {
             <Button clicked={OpenModal_handler} title={'افزودن کالا'} stateBtn={'addProduct'} />   
           </div>  
              
-            <Table tableStatus={'tableProduct'} titleOne={'تصویر'} titleTwo={'نام کالا'} titleThree={'دسته بندی'} titleFour={'وضعیت'} />
-            {/* <PaginatedItems itemsPerPage={4} /> */}
+            <Table listData={state.listData} tableStatus={'tableProduct'} titleOne={'تصویر'} titleTwo={'نام کالا'} titleThree={'دسته بندی'} titleFour={'وضعیت'} />
+            <div className='wrapper-pagination'>{renderPaginationButtons()}</div>         
         </section>
       </div> 
 
@@ -39,7 +70,6 @@ export const ProductsDashbord = () => {
 
       {/* show delet modal when click trash icon */}
       {state.modalDelet && (<ModalDelet/>)}
-
 
 </div>
   )

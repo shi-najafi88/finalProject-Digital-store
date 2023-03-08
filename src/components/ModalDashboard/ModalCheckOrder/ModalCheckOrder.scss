@@ -1,0 +1,24 @@
+@import "../../../asets/scss/mixin";
+@import "../../../asets/scss/variable";
+@import "../../../asets/scss/color";
+
+.wrapper-modal-checkOrder{
+    @include setdisplayflex(flex,column,center,0,$p_1);
+    @include setInput($bg_color,0,none,none,10px,$p_1 $p_1 $p_2 $p_1,47%);
+}
+
+.wrapper-customerInfo{
+    @include setdisplayflex(flex,0,center,right,$p_1);
+    height: 6vh;
+    & span{
+        color:$orange;
+        font-weight: bold     
+    }
+}
+
+.wrapper-table-modalCheckOrder{
+    @include setdisplayflex(flex,0,0,center,0);
+    overflow-y: scroll;
+    width: 95%;
+    margin-bottom: $p_1;
+}

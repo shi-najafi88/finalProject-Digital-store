@@ -1,0 +1,8 @@
+@import "../../../asets/scss/variable";
+@import "../../../asets/scss/mixin";
+
+.wrapper-pagination{
+    @include setdisplayflex(flex,0,center,center,$p_smal);
+    margin: $p_1;
+
+}
