@@ -27,16 +27,12 @@ export const ProductsDashbord = () => {
      axios.get('http://localhost:3002/products').then(res=> setTotalPages(Math.ceil(res.data.length/rowsPerPage)) )  
   }
 
-  //show getdata for table
+  //show getdata for table & pagination
   useEffect(()=>{
     getData(currentPage,rowsPerPage)  
-  },[dispatch])
+  },[dispatch,currentPage])
 
-  //show getdata for pagination
-  useEffect(()=>{
-    getData(currentPage,rowsPerPage) 
-  },[currentPage])
-
+  
   useEffect(()=>{
     dataPagination(rowsPerPage)
   },[])
@@ -60,7 +56,7 @@ export const ProductsDashbord = () => {
             <Button clicked={OpenModal_handler} title={'افزودن کالا'} stateBtn={'addProduct'} />   
           </div>  
              
-            <Table listData={state.listData} tableStatus={'tableProduct'} titleOne={'تصویر'} titleTwo={'نام کالا'} titleThree={'دسته بندی'} titleFour={'وضعیت'} />
+            <Table tableStatus={'tableProduct'} titleOne={'تصویر'} titleTwo={'نام کالا'} titleThree={'دسته بندی'} titleFour={'وضعیت'} />
             <div className='wrapper-pagination'>{renderPaginationButtons()}</div>         
         </section>
       </div> 

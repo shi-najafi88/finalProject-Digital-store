@@ -3,6 +3,6 @@
 
 .wrapper-pagination{
     @include setdisplayflex(flex,0,center,center,$p_smal);
-    margin: $p_1;
+    margin: $p_one-med 0 $p_3 0;
 
 }

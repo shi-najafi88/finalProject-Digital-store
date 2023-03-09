@@ -8,13 +8,14 @@ import { Table } from '../../Table/Table/Table.component'
 import './ModalCheckOrder.scss'
 
 export const ModalCheckOrder = () => {
+
     const dispatch = useDispatch()
     const state = useSelector(state => state.shopp)
 
     const CloseModalCheckPrder_handler = ()=> {
         dispatch(CLOSE_MODAL_CHECKORDER())
     }
-
+    
   return (
     <div className='overlay'>
         <div className='wrapper-modal-checkOrder'>
@@ -25,12 +26,14 @@ export const ModalCheckOrder = () => {
             </div>
 
             <section className='container-customerInfo'>
-                {state.orderData.map(item => (
-                    <>
+
+                {/* map for show costomer data in modal check order */}
+                {state.costomerData.map(item => (
+                <>
 
                 <div className='wrapper-customerInfo'>
                     <span>نام مشتری :</span>
-                    <p>{item.username}</p>
+                    <p>{item.username +' '+ item.lastname}</p>
                 </div>
 
                 <div className='wrapper-customerInfo'>

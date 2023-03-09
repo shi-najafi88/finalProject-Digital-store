@@ -1,3 +1,12 @@
+@import "../../../../asets//scss/variable";
+
 .tableCheckOrder-tdOne{
     text-align: right;
+}
+
+.tr-modalOrderCheck{
+    & td{
+        padding: $p_smal;
+    }
+  
 }

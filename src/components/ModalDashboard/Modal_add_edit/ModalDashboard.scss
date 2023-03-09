@@ -27,6 +27,7 @@
 .headerModal{
     @include setdisplayflex(flex,0,center,space-between,0); 
     width: 90%; 
+    height: $p_2;
 }
 
 .wrapper_textarea{

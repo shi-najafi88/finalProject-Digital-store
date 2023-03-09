@@ -26,7 +26,7 @@ export const Table = ({
           </thead>
           <tbody>
             
-            { state.orderData.map(item => (
+            {state.orderData.map(item => (
             <TrTableOrder item={item} />
             ))}
 
@@ -78,7 +78,7 @@ export const Table = ({
           </thead>
           <tbody>
 
-          { state.orderData.map(item => (
+          { state.costomerData.map(item => (
             <TrTabelModalOrderCheck item={item.products} />
             ))}
 

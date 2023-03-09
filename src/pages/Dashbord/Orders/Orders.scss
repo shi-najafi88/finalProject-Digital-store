@@ -9,10 +9,12 @@
 
 .container_main_side_dashboard{
     display: flex;
+    height: fit-content;
 }
 
 .main-dashboard{
     width: 78%;
+    background-color: $light_gray;
     @include setdisplayflex(flex,column,center,0,$p_smal);
 }
 
@@ -28,5 +30,6 @@
     @include setdisplayflex(flex,0,center,space-between,0);
     @include setInput(0,$medium_gray,none,none,5px,0 $p_2,60%);
 }
+
 
 

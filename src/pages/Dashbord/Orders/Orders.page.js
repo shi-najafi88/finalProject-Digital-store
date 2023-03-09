@@ -1,10 +1,10 @@
 import axios from "axios";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ModalCheckOrder, RadioFilter, Table, TotalBox } from "../../../components";
 import { DashboardHeader, DashboardSidebar } from "../../../dashboardLayouts";
 import { usePagination } from "../../../hook";
-import { DATAORDER, DATATABEL } from "../../../redux/slices";
+import { DATAORDER } from "../../../redux/slices/index";
 import "./Orders.scss";
 
 export const Orders = () => {
@@ -12,21 +12,39 @@ export const Orders = () => {
   const dispatch = useDispatch()
   const state = useSelector(state => state.shopp)
   const { currentPage, rowsPerPage, setTotalPages, renderPaginationButtons } = usePagination(1,5);
+  const [deliver, setDelivred] = useState(false)
 
-  const getData = ()=> {
-    axios.get('http://localhost:3002/orders')
-    .then(res => dispatch(DATAORDER(res.data)))
+
+  const getData = (currentPage, rowsPerPage,deliver)=> {
+   
+    axios.get(`http://localhost:3002/orders?delivered=${!deliver}&_page=${currentPage}&_limit=${rowsPerPage}`)
+    .then(res => dispatch(DATAORDER(res.data)) )  
   }
- 
+
+  const dataPagination = (rowsPerPage) => {
+    axios.get('http://localhost:3002/orders').then(res=> setTotalPages(Math.ceil(res.data.length/rowsPerPage)) )  
+ }
+
+ //for filtering
+ const ChekedRadioOne = ()=> {
+  setDelivred(false)
+ }
+
+ const ChekedRadioTwo = ()=> {
+  setDelivred(true)
+ }
+
   //show getdata for table
   useEffect(()=>{
-    getData()  
-  },[dispatch])
+    getData(currentPage, rowsPerPage, deliver)  
+  },[dispatch,currentPage,deliver])
+
+
+  useEffect(()=>{
+    dataPagination(rowsPerPage)
+  },[])
 
   
-
- 
-
   return (
     <div className="container_orders">
       <DashboardHeader />
@@ -38,10 +56,13 @@ export const Orders = () => {
           <div className="wrapper_mangement_order">
             <h3>مدیریت سفارشات</h3>
             <div className="wrapper_RadioFilter">
-              <RadioFilter title={"سفارشات تحویل شده"} />
+              
+              <RadioFilter changed={ChekedRadioOne} title={"سفارشات تحویل شده"} cheked={!deliver}/>
               <RadioFilter
-                title={"سفارشات در انتظار ارسال "}
-                cheked={"cheked"}
+              cheked={deliver}
+              changed={ChekedRadioTwo}
+              title={"سفارشات در انتظار ارسال "}
+               
               />
             </div>
           </div>

@@ -6,8 +6,7 @@ const initialState ={
     modalCheckOrder: false,
     listData:[],
     orderData:[],
-    
-   
+    costomerData:[]
 }
 const ShoppingSlice = createSlice({
     name:'shopping/redux',
@@ -43,11 +42,12 @@ const ShoppingSlice = createSlice({
 
         DATAORDER:(state,action)=> {
             state.orderData = action.payload
-        },
-
-       
+        }, 
+        
+        COSTOMERDATA:(state,action)=> {
+            state.costomerData = action.payload
+        }
     }
-
 })
-export const { OPEN_MODAL, OPEN_DeletMODAL, NO_DELETmodal, CLOSE_MODAL, DATATABEL, OPEN_CheckOrderModal, CLOSE_MODAL_CHECKORDER, DATAORDER} = ShoppingSlice.actions
+export const { OPEN_MODAL, OPEN_DeletMODAL, NO_DELETmodal, CLOSE_MODAL, DATATABEL, OPEN_CheckOrderModal, CLOSE_MODAL_CHECKORDER, DATAORDER, COSTOMERDATA} = ShoppingSlice.actions
 export default ShoppingSlice.reducer

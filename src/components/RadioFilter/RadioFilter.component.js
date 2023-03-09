@@ -2,10 +2,11 @@ import React from 'react'
 import { Input } from '../Input/Input.component'
 import './RadioFilter.scss'
 
-export const RadioFilter = ({title,cheked}) => {
+export const RadioFilter = ({title,cheked,changed}) => {
+
   return (
     <div className='wrapper_filter'>
-        <Input name='radio' type={'radio'} cheked={cheked} stateInput={'filter'}/>
+        <input className='filter' onChange={changed} name='radio' type={'radio'} checked={cheked} />
         <label>{title}</label>    
     </div>
   )

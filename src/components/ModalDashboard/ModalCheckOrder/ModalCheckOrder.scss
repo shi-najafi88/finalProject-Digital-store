@@ -4,7 +4,8 @@
 
 .wrapper-modal-checkOrder{
     @include setdisplayflex(flex,column,center,0,$p_1);
-    @include setInput($bg_color,0,none,none,10px,$p_1 $p_1 $p_2 $p_1,47%);
+    @include setInput($bg_color,0,none,none,10px,$p_2 $p_1 $p_2 $p_1,47%);
+   
 }
 
 .wrapper-customerInfo{
@@ -20,5 +21,6 @@
     @include setdisplayflex(flex,0,0,center,0);
     overflow-y: scroll;
     width: 95%;
+    height: 25vh;
     margin-bottom: $p_1;
 }
