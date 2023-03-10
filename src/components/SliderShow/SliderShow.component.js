@@ -7,10 +7,10 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-import img1 from '../../asets/images/sliderShow/1.jpg'
+// import img1 from '../../asets/images/sliderShow/1.jpg'
 import img2 from '../../asets/images/sliderShow/2.jpg'
 import img3 from '../../asets/images/sliderShow/3.jpg'
-import img4 from '../../asets/images/sliderShow/4.png'
+import img4 from '../../asets/images/sliderShow/4.jpg'
 
 import "./SliderShow.scss";
 
@@ -33,6 +33,7 @@ export const Slide = () =>{
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
       >
+        {/* <SwiperSlide><img src={img1} /></SwiperSlide> */}
         <SwiperSlide><img src={img4} /></SwiperSlide>
         <SwiperSlide><img src={img2} /></SwiperSlide>  
         <SwiperSlide><img src={img3} /></SwiperSlide>  

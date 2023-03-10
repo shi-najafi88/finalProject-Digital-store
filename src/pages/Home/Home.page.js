@@ -10,8 +10,7 @@ export const Home = () => {
     <div className="wrapper_sliderShow">
       <Slide/>
     </div>
-    
-    <h1>this is a home page</h1>
+  
    </div>
   );
 };

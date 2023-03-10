@@ -38,9 +38,9 @@ export const TotalBox = () => {
   return (
     <>
     <div className='wrapperBox'>  
-          <Box title={'مجموع سفارشات'} number={totalOrder} boxStatus={'totalOrder'} />
-          <Box title={'تعداد مشتری'} number={state.ordersData.length} boxStatus={'totalPrice'}/>
-          <Box title={'مجموع فروش'} number={totalSail} boxStatus={'totalSales'}/>
+          <Box title={'مجموع سفارشات'} number={totalOrder.toLocaleString("fa")} boxStatus={'totalOrder'} />
+          <Box title={'تعداد مشتری'} number={state.ordersData.length.toLocaleString("fa")} boxStatus={'totalPrice'}/>
+          <Box title={'مجموع فروش'} number={totalSail.toLocaleString("fa")} boxStatus={'totalSales'}/>
     </div>
     </>
   )

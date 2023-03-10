@@ -23,7 +23,7 @@ export const TrTableOrder = ({item}) => {
   return (  
     <tr >
       <td>{item.username +' '+ item.lastname}</td>
-      <td>{item.prices}</td>
+      <td>{item.prices.toLocaleString("fa")}</td>
       <td>
         {new Date(item.createdAt).toLocaleDateString("fa")}
       </td>
