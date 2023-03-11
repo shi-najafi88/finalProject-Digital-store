@@ -1,8 +1,5 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { usePagination } from "../../../hook";
-import { FILTERDATACATEGORY } from "../../../redux/slices";
+import React from "react";
+import { useSelector } from "react-redux";
 import { TrTabelModalOrderCheck, TrTableInventori, TrTableOrder, TrTableProduct } from "../../index";
 import "./Table.scss";
 
@@ -12,24 +9,16 @@ export const Table = ({
   titleTwo,
   titleThree,
   titleFour,
+  onFilterHandler
 }) => {
 
   const state = useSelector(state => state.shopp);
-  const dispatch = useDispatch();
-  const [selectValue , setSelectValue] = useState('')
-  const [headsetCategory , setHeadsetCategory] = useState([])
-  const {currentPage, rowsPerPage, setTotalPages, renderPaginationButtons } = usePagination(1,5);
-
-
+  
  // onchange select 
   const selectChange_handler = (event) => {
-
-    axios.get(`http://localhost:3002/products?categoryname=${event.target.value}&_page=${currentPage}&_limit=${rowsPerPage}`)
-    .then(res => dispatch(FILTERDATACATEGORY(res.data)))
-    
-    setSelectValue(event.target.value)
+    onFilterHandler(event.target.value)
   }
-console.log(state.dataCtegory);
+
 
   return (
     <>
@@ -90,26 +79,10 @@ console.log(state.dataCtegory);
           </thead>
           <tbody>
 
-          { selectValue === 'همه' ? state.listData.map(item => (
-            <TrTableProduct item={item} /> 
-            )) :
+            {state.listData.map(item => (
+              <TrTableProduct item={item} />
+            ))}
 
-              selectValue === 'گوشی موبایل' ? state.dataCtegory.map(item => (
-              <TrTableProduct item={item} /> 
-              )) :
-
-              selectValue === 'لپتاپ' ? state.dataCtegory.map(item => (
-              <TrTableProduct item={item} /> 
-              )) :
-
-              selectValue === 'تبلت' ? state.dataCtegory.map(item => (
-              <TrTableProduct item={item} /> 
-              )) :
-                
-              selectValue === 'هدفون' ? state.dataCtegory.map(item => (
-              <TrTableProduct item={item} /> 
-              )) :''
-          }
           </tbody>
         </table>
       ) : tableStatus === "tableCheckOrder" ? (
