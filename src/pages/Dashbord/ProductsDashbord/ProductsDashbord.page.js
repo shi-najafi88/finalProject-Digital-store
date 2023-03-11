@@ -1,5 +1,5 @@
 
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button, ModalDashboard, ModalDelet, Table, TotalBox } from '../../../components'
 import { DashboardHeader, DashboardSidebar } from '../../../dashboardLayouts'
 import { useDispatch, useSelector } from 'react-redux'
@@ -9,11 +9,11 @@ import axios from 'axios'
 import './ProductsDashboard.scss'
 
 
-
 export const ProductsDashbord = () => {
  
   const dispatch = useDispatch()
   const state = useSelector(state => state.shopp)
+  const [selectValue , setSelectValue] = useState('')
   const { currentPage, rowsPerPage, setTotalPages, renderPaginationButtons } = usePagination(1,5);
               
  
@@ -23,25 +23,46 @@ export const ProductsDashbord = () => {
     .then(res => dispatch(DATATABEL(res.data)))
   }
 
-  const dataPagination = (rowsPerPage) => {
-     axios.get('http://localhost:3002/products').then(res=> setTotalPages(Math.ceil(res.data.length/rowsPerPage)) )  
+  //fetch data for filter category
+  const getByCategory = (name) =>{
+    axios.get(`http://localhost:3002/products?categoryname=${name}&_page=${currentPage}&_limit=${rowsPerPage}`)
+    .then(res => dispatch(DATATABEL(res.data)))
   }
 
-  //show getdata for table & pagination
+
+  const dataPagination = (rowsPerPage) => {
+     if(!selectValue || selectValue === 'همه'){
+      axios.get('http://localhost:3002/products').then(res=> setTotalPages(Math.ceil(res.data.length/rowsPerPage)) ) 
+    }else{
+      axios.get(`http://localhost:3002/products?categoryname=${selectValue}`).then(res=> setTotalPages(Math.ceil(res.data.length/rowsPerPage)))
+    }
+  }
+
+  
+  //show data on table
   useEffect(()=>{
-    getData(currentPage,rowsPerPage)  
-  },[dispatch,currentPage])
+    
+    if(!selectValue || selectValue === 'همه'){
+      getData(currentPage,rowsPerPage) 
+    }else{
+      getByCategory(selectValue)
+    }
+     
+  },[dispatch,currentPage,selectValue])
 
   
   useEffect(()=>{
-    dataPagination(rowsPerPage)
-  },[])
+    dataPagination(rowsPerPage)  
+  },[selectValue])
  
   //click add product open modal
   const OpenModal_handler = ()=> {
     dispatch(OPEN_MODAL())
   }
 
+  const FilterHandler = (e) => {
+    setSelectValue(e) 
+  }
 
   return (
     <div className="container_orders">
@@ -56,7 +77,7 @@ export const ProductsDashbord = () => {
             <Button clicked={OpenModal_handler} title={'افزودن کالا'} stateBtn={'addProduct'} />   
           </div>  
              
-            <Table tableStatus={'tableProduct'} titleOne={'تصویر'} titleTwo={'نام کالا'} titleThree={'دسته بندی'} titleFour={'وضعیت'} />
+            <Table onFilterHandler={(e)=>FilterHandler(e)} tableStatus={'tableProduct'} titleOne={'تصویر'} titleTwo={'نام کالا'} titleThree={'دسته بندی'} titleFour={'وضعیت'} />
             <div className='wrapper-pagination'>{renderPaginationButtons()}</div>         
         </section>
       </div> 

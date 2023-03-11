@@ -9,9 +9,17 @@ export const Table = ({
   titleTwo,
   titleThree,
   titleFour,
+  onFilterHandler
 }) => {
+
   const state = useSelector(state => state.shopp);
- 
+  
+ // onchange select 
+  const selectChange_handler = (event) => {
+    onFilterHandler(event.target.value)
+  }
+
+
   return (
     <>
       {tableStatus === "tableOrder" ? (
@@ -55,14 +63,24 @@ export const Table = ({
             <tr>
               <th>{titleOne}</th>
               <th>{titleTwo}</th>
-              <th>{titleThree}</th>
+              <th>
+              {titleThree}
+                <select onChange={selectChange_handler}>
+                  <option className="optionTitle"value={'catagory'}></option>
+                  <option value={'همه'}>همه</option>
+                  <option value={'گوشی موبایل'}>گوشی موبایل</option>
+                  <option value={'لپتاپ'}>لپتاپ</option>
+                  <option value={'تبلت'}>تبلت</option>
+                  <option value={'هدفون'}>هدفون</option>
+                </select>
+              </th>
               <th>{titleFour}</th>
             </tr>
           </thead>
           <tbody>
 
-          { state.listData.map(item => (
-            <TrTableProduct item={item} />
+            {state.listData.map(item => (
+              <TrTableProduct item={item} />
             ))}
 
           </tbody>

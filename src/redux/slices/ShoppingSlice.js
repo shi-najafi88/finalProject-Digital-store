@@ -38,6 +38,7 @@ const ShoppingSlice = createSlice({
         },
 
         DATATABEL:(state,action)=> {
+            state.listData = []
             state.listData = action.payload
         },
 
