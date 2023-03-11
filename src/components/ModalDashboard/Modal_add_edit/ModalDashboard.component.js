@@ -13,7 +13,20 @@ export const ModalDashboard = () => {
     const CloseModal_handler = ()=> {
         dispatch(CLOSE_MODAL())
     }
+
+    const ChangeInputFile_handler = () => {
+        console.log('okk');
+    }
+
+    const ChangeInputName_handler = () => {
+        console.log('okklll');
+    }
   
+    const ChangeCategory_handler = (e) => {
+        console.log(e.target.value);
+    }
+
+   
     return(
         <div className= "overlay">
             <div className= "modalWrapper">
@@ -22,15 +35,15 @@ export const ModalDashboard = () => {
                     <AiOutlineClose onClick={CloseModal_handler} style={{color:'red', fontSize:'1.2rem',cursor:'pointer'}}/>   
                 </div>
                 
-                <ModalDetail type={'file'} title={'تصویر کالا:'}/>
-                <ModalDetail type={'text'} title={'نام کالا:'}/>
+                <ModalDetail type={'file'} title={'تصویر کالا:'} chengeVal={ChangeInputFile_handler} />
+                <ModalDetail type={'text'} title={'نام کالا:'} chengeVal={ChangeInputName_handler}/>
 
                 <div className='container_modalDetail'>
                     <labela>دسته بندی:</labela>
-                    <select>
+                    <select onChange={ChangeCategory_handler}>
                         <option ></option>
                         <option value={"لپتاپ"}>لپتاپ</option>
-                        <option value={"موبایل"}>موبایل</option>
+                        <option value={"گوشی موبایل"}>گوشی موبایل</option>
                         <option value={"تبلت"}>تبلت</option>
                         <option value={"هدفون"}>هدفون</option>
                     </select>
@@ -38,7 +51,7 @@ export const ModalDashboard = () => {
 
                 <div className='wrapper_textarea'>
                     <labela>توضیحات:</labela> 
-                    <CkEditors/>      
+                    <CkEditors />      
                 </div>
 
                 <Button stateBtn={'editPrice'} title={'ذخیره'}/>

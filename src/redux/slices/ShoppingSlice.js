@@ -7,7 +7,8 @@ const initialState ={
     listData:[],
     orderData:[],
     costomerData:[],
-    ordersData:[]
+    ordersData:[],
+    idProduct:0
 }
 const ShoppingSlice = createSlice({
     name:'shopping/redux',

@@ -11,7 +11,7 @@ export const TrTableProduct = ({item}) => {
   const dispatch = useDispatch()
 
   // open modal when click on edit icon
-  const OpenEditModal_handler = ()=> {
+  const OpenEditModal_handler = (id)=> {
     dispatch(OPEN_MODAL())
   }
 
@@ -28,7 +28,7 @@ export const TrTableProduct = ({item}) => {
        <td className="thThree_product">
         <Link to="">
           <div className='wrapper_iconProduct'>
-          <FaRegEdit onClick={OpenEditModal_handler} style={{fontSize:'1.2rem',color:'blue'}}/>
+          <FaRegEdit onClick={()=>OpenEditModal_handler(item.id)} style={{fontSize:'1.2rem',color:'blue'}}/>
           <RiDeleteBinLine onClick={OpenDeletModal_handler} style={{fontSize:'1.2rem',color:'red'}}/>
           </div>
         </Link></td>     
