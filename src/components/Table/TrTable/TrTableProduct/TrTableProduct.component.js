@@ -24,7 +24,7 @@ export const TrTableProduct = ({item}) => {
     <tr >
        <td className="tdOne_product"><img src={`http://localhost:3002/files/${item.thumbnail}`} style={{width:'50px',height:'50px'}}/></td>
        <td className="thTwo_product">{item.name}</td>
-       <td className="thTwo_product">{item.categoryName}</td>
+       <td className="thTwo_product">{item.categoryname}</td>
        <td className="thThree_product">
         <Link to="">
           <div className='wrapper_iconProduct'>

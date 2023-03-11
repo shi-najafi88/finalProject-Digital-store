@@ -23,9 +23,11 @@ export const ProductsDashbord = () => {
     .then(res => dispatch(DATATABEL(res.data)))
   }
 
+
   const dataPagination = (rowsPerPage) => {
      axios.get('http://localhost:3002/products').then(res=> setTotalPages(Math.ceil(res.data.length/rowsPerPage)) )  
   }
+
 
   //show getdata for table & pagination
   useEffect(()=>{
@@ -35,6 +37,8 @@ export const ProductsDashbord = () => {
   
   useEffect(()=>{
     dataPagination(rowsPerPage)
+    // dataPaginationMobile(rowsPerPage)
+     
   },[])
  
   //click add product open modal
