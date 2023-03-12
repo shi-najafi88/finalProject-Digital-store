@@ -1,6 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
-import { toast } from "react-toastify";
 
 const initialState ={
     modalEdit: false,
@@ -28,12 +26,21 @@ const ShoppingSlice = createSlice({
             state.modalAdd = true
         },
 
-        OPEN_DeletMODAL:(state) => {
+        OPEN_DeletMODAL:(state,action) => {
             state.modalDelet = true
+            state.productId = action.payload
         },
 
         OPEN_CheckOrderModal:(state) => {
             state.modalCheckOrder = true
+        },
+
+        YES_DELETmodal:(state,action) => {
+            state.modalDelet = false
+            
+            action.payload = action.payload.filter(
+                (item) => item.id !== state.productId
+            ); 
         },
 
         NO_DELETmodal:(state) => {
@@ -71,30 +78,15 @@ const ShoppingSlice = createSlice({
             console.log(state.allProduct);
         },
 
-        EDITBTNMODAL:(state,action)=> {
-            // state.itemProductInfo = action.payload
-            console.log(state.allProduct);
+        EDITBTNMODAL:(state,action)=> { 
             const FindeIndex = state.allProduct.findIndex(item => item.id === state.productId);
             state.allProduct.splice(FindeIndex, 1, action.payload);
- 
         },
 
         ADDPRODUCT:(state,action)=> {
              state.saveProductInfo = action.payload
-
-            try{
-                axios.post('http://localhost:3002/products',{
-                    thumbnail:state.saveProductInfo.image,
-                    name: state.saveProductInfo.name,
-                    categoryname:state.saveProductInfo.categoryname
-                })
-                .then(toast.success('Add is successfule') )
-            }
-            catch(err){
-                toast.error('Dont add product')
-            }          
         }
     }
 })
-export const { OPEN_EDITMODAL, OPEN_DeletMODAL, NO_DELETmodal, CLOSE_MODAL, DATATABEL, OPEN_CheckOrderModal, CLOSE_MODAL_CHECKORDER, DATAORDER, COSTOMERDATA, DATAORDERS, OPEN_AddMODAL, ALLPRODUCT, EDITBTNMODAL, ADDPRODUCT } = ShoppingSlice.actions
+export const { OPEN_EDITMODAL, OPEN_DeletMODAL, NO_DELETmodal, YES_DELETmodal, CLOSE_MODAL, DATATABEL, OPEN_CheckOrderModal, CLOSE_MODAL_CHECKORDER, DATAORDER, COSTOMERDATA, DATAORDERS, OPEN_AddMODAL, ALLPRODUCT, EDITBTNMODAL, ADDPRODUCT } = ShoppingSlice.actions
 export default ShoppingSlice.reducer

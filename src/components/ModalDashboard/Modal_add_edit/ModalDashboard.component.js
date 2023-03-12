@@ -6,7 +6,7 @@ import { CkEditors } from '../../CkEditor/CkEditor'
 import { useDispatch, useSelector } from 'react-redux'
 import { ADDPRODUCT, ALLPRODUCT, CLOSE_MODAL, EDITBTNMODAL } from '../../../redux/slices'
 import { useInputModal } from '../../../hook'
-import { ToastContainer} from 'react-toastify'
+import { toast, ToastContainer} from 'react-toastify'
 import axios from 'axios'
 
 
@@ -22,54 +22,67 @@ console.log(state.productId);
     const {inputValue:category, ValueChangeHandler:ChangeCategory_handler} = useInputModal()
     
    
-    // const getAllProducts = () => {
-    //     axios.get('http://localhost:3002/products')
-    //     .then(res=> dispatch(ALLPRODUCT(res.data)))
-    // }
-
-    
-    // useEffect(()=>{
-    //     getAllProducts()
-    // },[dispatch])
-
-
-    const EditBtn_modal = () => {   
-        // dispatch(EDITBTNMODAL(
-        //     {thumbnail:image,
-        //     name:productName,
-        //     categoryname:category}
-        // ))
-        // console.log(state.productId);
-        // axios.patch(`http://localhost:3002/products/?id=${state.productId}`,
-        //     {thumbnail:image,
-        //     name:productName,
-        //     categoryname:category}
-        // )     
+    const getAllProducts = () => {
+        axios.get('http://localhost:3002/products')
+        .then(res=> dispatch(ALLPRODUCT(res.data)))
     }
+
+    //edit product
+    const EditBtn_modal = () => { 
+        // getAllProducts() 
+         
+        dispatch(EDITBTNMODAL(
+            {thumbnail:image,
+            name:productName,
+            categoryname:category}
+        ))
+        
+        axios.patch(`http://localhost:3002/products/${state.productId}`,
+            {thumbnail:image,
+            name:productName,
+            categoryname:category}
+        )     
+    }
+
  
-    //add product to database
+    //add product 
     const AddBtn_modal = () => {
 
         dispatch(ADDPRODUCT(
             {thumbnail:image,
             name:productName,
             categoryname:category}
-        ))       
+        ))
+        
+        try{
+            axios.post('http://localhost:3002/products',{
+                thumbnail:state.saveProductInfo.image,
+                name: state.saveProductInfo.name,
+                categoryname:state.saveProductInfo.categoryname
+            })
+            .then(toast.success('Add is successfule'))
+        }
+        catch(err){
+            toast.error('Dont add product')
+        }          
     }
 
+    useEffect(()=>{
+        getAllProducts()
+    },[EditBtn_modal,AddBtn_modal,dispatch])
 
+    //close modal
     const CloseModal_handler = ()=> {
         dispatch(CLOSE_MODAL())
     }
 
   
     return(
-        <>
-        
-
+       
         <div className= "overlay">
         <ToastContainer/>
             <div className= "modalWrapper">
+
                 <div className='headerModal'>
                     <h3>افزودن / ویرایش کالا</h3>
                     <AiOutlineClose onClick={CloseModal_handler} style={{color:'red', fontSize:'1.2rem',cursor:'pointer'}}/>   
@@ -96,11 +109,9 @@ console.log(state.productId);
 
                 {state.modalEdit ? <Button clicked={EditBtn_modal} stateBtn={'editPrice'} title={'ویرایش'}/>:
                 <Button clicked={AddBtn_modal} stateBtn={'editPrice'} title={'ذخیره'}/>
-                }
-                
+                }      
     
             </div>
         </div>  
-        </>  
     )
 }

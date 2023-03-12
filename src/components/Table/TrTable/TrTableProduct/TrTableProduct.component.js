@@ -16,8 +16,8 @@ export const TrTableProduct = ({item}) => {
   }
 
   // open modal when click on delet icon
-  const OpenDeletModal_handler = ()=> {
-    dispatch(OPEN_DeletMODAL())
+  const OpenDeletModal_handler = (id)=> {
+    dispatch(OPEN_DeletMODAL(id))
   }
 
   return (
@@ -33,7 +33,7 @@ export const TrTableProduct = ({item}) => {
           </Link>
 
           <Link to="">
-          <RiDeleteBinLine onClick={OpenDeletModal_handler} style={{fontSize:'1.2rem',color:'red'}}/>
+          <RiDeleteBinLine onClick={()=>OpenDeletModal_handler(item.id)} style={{fontSize:'1.2rem',color:'red'}}/>
           </Link>
           </div>
         </td>     
