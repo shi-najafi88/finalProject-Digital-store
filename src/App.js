@@ -1,7 +1,7 @@
 
 import './App.css';
 import { IndexApp } from './app/IndexApp';
-import { PaginatedItems } from './components';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (

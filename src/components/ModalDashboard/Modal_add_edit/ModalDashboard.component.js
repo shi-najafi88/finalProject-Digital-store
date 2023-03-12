@@ -6,6 +6,7 @@ import { CkEditors } from '../../CkEditor/CkEditor'
 import { useDispatch, useSelector } from 'react-redux'
 import { ADDPRODUCT, ALLPRODUCT, CLOSE_MODAL, EDITBTNMODAL } from '../../../redux/slices'
 import { useInputModal } from '../../../hook'
+import { ToastContainer} from 'react-toastify'
 import axios from 'axios'
 
 
@@ -53,7 +54,7 @@ console.log(state.productId);
             {thumbnail:image,
             name:productName,
             categoryname:category}
-        ))    
+        ))       
     }
 
 
@@ -63,7 +64,11 @@ console.log(state.productId);
 
   
     return(
+        <>
+        
+
         <div className= "overlay">
+        <ToastContainer/>
             <div className= "modalWrapper">
                 <div className='headerModal'>
                     <h3>افزودن / ویرایش کالا</h3>
@@ -95,6 +100,7 @@ console.log(state.productId);
                 
     
             </div>
-        </div>    
+        </div>  
+        </>  
     )
 }

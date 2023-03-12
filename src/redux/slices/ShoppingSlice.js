@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const initialState ={
     modalEdit: false,
@@ -80,7 +81,6 @@ const ShoppingSlice = createSlice({
 
         ADDPRODUCT:(state,action)=> {
              state.saveProductInfo = action.payload
-             console.log(state.saveProductInfo);
 
             try{
                 axios.post('http://localhost:3002/products',{
@@ -88,12 +88,11 @@ const ShoppingSlice = createSlice({
                     name: state.saveProductInfo.name,
                     categoryname:state.saveProductInfo.categoryname
                 })
-                .then(res=> console.log(res.data))
+                .then(toast.success('Add is successfule') )
             }
             catch(err){
-                console.log(err);
-            }
-            
+                toast.error('Dont add product')
+            }          
         }
     }
 })
