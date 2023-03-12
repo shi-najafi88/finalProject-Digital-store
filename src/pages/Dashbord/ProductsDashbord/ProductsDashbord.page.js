@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Button, ModalDashboard, ModalDelet, Table, TotalBox } from '../../../components'
 import { DashboardHeader, DashboardSidebar } from '../../../dashboardLayouts'
 import { useDispatch, useSelector } from 'react-redux'
-import { DATATABEL, OPEN_MODAL } from '../../../redux/slices'
+import { DATATABEL, OPEN_AddMODAL } from '../../../redux/slices'
 import { usePagination } from '../../../hook'
 import axios from 'axios'
 import './ProductsDashboard.scss'
@@ -57,7 +57,8 @@ export const ProductsDashbord = () => {
  
   //click add product open modal
   const OpenModal_handler = ()=> {
-    dispatch(OPEN_MODAL())
+    dispatch(OPEN_AddMODAL())
+    
   }
 
   const FilterHandler = (e) => {
@@ -81,6 +82,9 @@ export const ProductsDashbord = () => {
             <div className='wrapper-pagination'>{renderPaginationButtons()}</div>         
         </section>
       </div> 
+
+      {/* show add modal when click add product btn */}
+      {state.modalAdd && (<ModalDashboard/>)}
 
       {/* show edit modal when click add product btn */}
       {state.modalEdit && (<ModalDashboard/>)}
