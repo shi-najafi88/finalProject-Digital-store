@@ -90,8 +90,20 @@ const ShoppingSlice = createSlice({
 
         CURRENTPAGE:(state,action)=> {
             state.getPage = action.payload
+        },
+
+        PRICEPRODUCTID:(state,action) => {
+            state.productId = action.payload
+        },
+
+        QUANTITYPRODUCTID:(state,action) => {
+            state.productId = action.payload
         }
+
     }
 })
-export const { OPEN_EDITMODAL, OPEN_DeletMODAL, NO_DELETmodal, YES_DELETmodal, CLOSE_MODAL, DATATABEL, OPEN_CheckOrderModal, CLOSE_MODAL_CHECKORDER, DATAORDER, COSTOMERDATA, DATAORDERS, OPEN_AddMODAL, ALLPRODUCT, EDITBTNMODAL, ADDPRODUCT,  CURRENTPAGE } = ShoppingSlice.actions
+export const { OPEN_EDITMODAL, OPEN_DeletMODAL, NO_DELETmodal, YES_DELETmodal,
+               CLOSE_MODAL, DATATABEL, OPEN_CheckOrderModal, CLOSE_MODAL_CHECKORDER,
+               DATAORDER, COSTOMERDATA, DATAORDERS, OPEN_AddMODAL, ALLPRODUCT,
+               EDITBTNMODAL, ADDPRODUCT,  CURRENTPAGE, PRICEPRODUCTID, QUANTITYPRODUCTID } = ShoppingSlice.actions
 export default ShoppingSlice.reducer
