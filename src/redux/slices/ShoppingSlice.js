@@ -62,6 +62,7 @@ const ShoppingSlice = createSlice({
             state.listData = action.payload
         },
 
+        //order table
         DATAORDER:(state,action)=> {
             state.orderData = action.payload
         }, 

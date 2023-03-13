@@ -1,11 +1,12 @@
 import React from 'react'
 import './ModalDetail.scss'
 
-export const ModalDetail = ({title,type,chengeVal,name}) => {
+export const ModalDetail = ({title,type,name,validation,error}) => {
   return (
     <div className='container_modalDetail'>
         <label>{title}</label>
-        <input onChange={chengeVal} type={type} name={name} />
+        <input type={type} name={name} {...validation}/>
+        <p className="error">{error}</p>
     </div>
   )
 }
