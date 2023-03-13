@@ -1,5 +1,6 @@
-// import { instance } from "../constants"
+import axios from "axios"
 
-// export const FetchAllProducts = (currentPage,rowsCount) =>{
-//    return instance.get(`/products?_page=${currentPage}&limit=${rowsCount}`);
-// }
+export const getAllProducts = (currentPage,rowsPerPage) => {
+    axios.get(`http://localhost:3002/products?_page=${currentPage}&_limit=${rowsPerPage}`)
+    
+}

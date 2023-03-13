@@ -3,10 +3,11 @@ import React, { useEffect, useState } from 'react'
 import { Button, ModalDashboard, ModalDelet, Table, TotalBox } from '../../../components'
 import { DashboardHeader, DashboardSidebar } from '../../../dashboardLayouts'
 import { useDispatch, useSelector } from 'react-redux'
-import { DATATABEL, OPEN_AddMODAL } from '../../../redux/slices'
+import { CURRENTPAGE, DATATABEL, OPEN_AddMODAL } from '../../../redux/slices'
 import { usePagination } from '../../../hook'
 import axios from 'axios'
 import './ProductsDashboard.scss'
+import { ToastContainer } from 'react-toastify'
 
 
 export const ProductsDashbord = () => {
@@ -54,6 +55,11 @@ export const ProductsDashbord = () => {
   useEffect(()=>{
     dataPagination(rowsPerPage)  
   },[selectValue])
+
+  useEffect(()=>{
+    dispatch(CURRENTPAGE(currentPage))
+  },[currentPage])
+
  
   //click add product open modal
   const OpenModal_handler = ()=> {
@@ -67,6 +73,7 @@ export const ProductsDashbord = () => {
 
   return (
     <div className="container_orders">
+      <ToastContainer/>
       <DashboardHeader />
       <div className="container_main_side_dashboard">
         <DashboardSidebar />

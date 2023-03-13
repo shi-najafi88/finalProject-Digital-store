@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import './ModalDashboard.scss'
 import { AiOutlineClose } from 'react-icons/ai'
 import { Button, ModalDetail } from '../../index'
 import { CkEditors } from '../../CkEditor/CkEditor'
 import { useDispatch, useSelector } from 'react-redux'
-import { ADDPRODUCT, ALLPRODUCT, CLOSE_MODAL, EDITBTNMODAL } from '../../../redux/slices'
+import { ADDPRODUCT, ALLPRODUCT, CLOSE_MODAL, DATATABEL, EDITBTNMODAL } from '../../../redux/slices'
 import { useInputModal } from '../../../hook'
 import { toast, ToastContainer} from 'react-toastify'
 import axios from 'axios'
@@ -13,8 +13,7 @@ import axios from 'axios'
 export const ModalDashboard = () => {
     const dispatch = useDispatch()
     const state = useSelector(state => state.shopp)
-    const [itemProduct,setItemProduct] = useState({})
-console.log(state.productId);
+    
 
     // custom hook
     const {inputValue:image, ValueChangeHandler:ChangeInputFile_handler} = useInputModal()
@@ -28,8 +27,7 @@ console.log(state.productId);
     }
 
     //edit product
-    const EditBtn_modal = () => { 
-        // getAllProducts() 
+    const EditBtn_modal = () => {  
          
         dispatch(EDITBTNMODAL(
             {thumbnail:image,
@@ -37,13 +35,19 @@ console.log(state.productId);
             categoryname:category}
         ))
         
-        axios.patch(`http://localhost:3002/products/${state.productId}`,
-            {thumbnail:image,
+        axios.patch(`http://localhost:3002/products/${state.productId}`,{
+            thumbnail:image,
             name:productName,
-            categoryname:category}
-        )     
-    }
+            categoryname:category
+        })  
+        .then(()=>{toast.success('Edit is successfule')
 
+        //for rerender page after edit
+        axios.get(`http://localhost:3002/products?_page=${state.getPage}&_limit=${5}`)
+        .then(res => dispatch(DATATABEL(res.data)))
+    })   
+    }
+    
  
     //add product 
     const AddBtn_modal = () => {
@@ -60,7 +64,12 @@ console.log(state.productId);
                 name: state.saveProductInfo.name,
                 categoryname:state.saveProductInfo.categoryname
             })
-            .then(toast.success('Add is successfule'))
+            .then(()=>{toast.success('Add is successfule')
+
+            //for rerender page after add
+            axios.get(`http://localhost:3002/products?_sort=createdAt&_order=desc&&_page=${1}&_limit=${5}`)
+            .then(res => dispatch(DATATABEL(res.data)))
+            })    
         }
         catch(err){
             toast.error('Dont add product')
@@ -71,12 +80,12 @@ console.log(state.productId);
         getAllProducts()
     },[EditBtn_modal,AddBtn_modal,dispatch])
 
+
     //close modal
     const CloseModal_handler = ()=> {
         dispatch(CLOSE_MODAL())
     }
 
-  
     return(
        
         <div className= "overlay">

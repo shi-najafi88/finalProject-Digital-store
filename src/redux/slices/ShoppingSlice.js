@@ -11,7 +11,8 @@ const initialState ={
     ordersData:[],
     productId:0,
     allProduct:[],
-    saveProductInfo:[]
+    saveProductInfo:[],
+    getPage:1
 }
 const ShoppingSlice = createSlice({
     name:'shopping/redux',
@@ -75,7 +76,6 @@ const ShoppingSlice = createSlice({
 
         ALLPRODUCT:(state,action)=> {
             state.allProduct = action.payload
-            console.log(state.allProduct);
         },
 
         EDITBTNMODAL:(state,action)=> { 
@@ -85,8 +85,12 @@ const ShoppingSlice = createSlice({
 
         ADDPRODUCT:(state,action)=> {
              state.saveProductInfo = action.payload
+        },
+
+        CURRENTPAGE:(state,action)=> {
+            state.getPage = action.payload
         }
     }
 })
-export const { OPEN_EDITMODAL, OPEN_DeletMODAL, NO_DELETmodal, YES_DELETmodal, CLOSE_MODAL, DATATABEL, OPEN_CheckOrderModal, CLOSE_MODAL_CHECKORDER, DATAORDER, COSTOMERDATA, DATAORDERS, OPEN_AddMODAL, ALLPRODUCT, EDITBTNMODAL, ADDPRODUCT } = ShoppingSlice.actions
+export const { OPEN_EDITMODAL, OPEN_DeletMODAL, NO_DELETmodal, YES_DELETmodal, CLOSE_MODAL, DATATABEL, OPEN_CheckOrderModal, CLOSE_MODAL_CHECKORDER, DATAORDER, COSTOMERDATA, DATAORDERS, OPEN_AddMODAL, ALLPRODUCT, EDITBTNMODAL, ADDPRODUCT,  CURRENTPAGE } = ShoppingSlice.actions
 export default ShoppingSlice.reducer
