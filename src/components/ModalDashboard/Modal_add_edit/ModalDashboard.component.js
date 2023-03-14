@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import './ModalDashboard.scss'
 import { AiOutlineClose } from 'react-icons/ai'
 import { Button, ModalDetail } from '../../index'
 import { CkEditors } from '../../CkEditor/CkEditor'
 import { useDispatch, useSelector } from 'react-redux'
-import { ADDPRODUCT, ALLPRODUCT, CLOSE_MODAL, DATATABEL, EDITBTNMODAL } from '../../../redux/slices'
-import { useAuthModalForm, useInputModal } from '../../../hook'
+import {  CLOSE_MODAL, DATATABEL } from '../../../redux/slices'
+import { useAuthModalForm } from '../../../hook'
 import { toast, ToastContainer} from 'react-toastify'
 import axios from 'axios'
 
@@ -15,23 +15,21 @@ export const ModalDashboard = () => {
     const state = useSelector(state => state.shopp)
     
 
-    // custom hook input value
-    // const {inputValue:image, ValueChangeHandler:ChangeInputFile_handler} = useInputModal()
-    // const {inputValue:productName, ValueChangeHandler:ChangeInputName_handler} = useInputModal()
-    // const {inputValue:category, ValueChangeHandler:ChangeCategory_handler} = useInputModal()
-
     //custom hook for form validation
-    const { register , handleSubmit , errors} = useAuthModalForm()
-    
-   
-    const getAllProducts = () => {
-        axios.get('http://localhost:3002/products')
-        .then(res=> dispatch(ALLPRODUCT(res.data)))
-    }
+    const { reset , register , handleSubmit , errors} = useAuthModalForm()
 
+    //upload image
+    // const uploadHandler = async(data) => {
+    //     let formData = new FormData();
+    //     formData.append("image", img);
+    //     await axios.post('http://localhost:3002/upload',getFormData) 
+    //     .then(res => console.log(res.data.filename))
+    // }
+    
     //edit product
     const EditBtn_modal = async(data) => {  
-          
+        // uploadHandler()
+         
         await axios.patch(`http://localhost:3002/products/${state.productId}`,data)  
         .then(()=>{toast.success('Edit is successfule')
 
@@ -40,16 +38,10 @@ export const ModalDashboard = () => {
         .then(res => dispatch(DATATABEL(res.data)))
     })   
     }
+   
     
- 
     //add product 
     const AddBtn_modal = async(data) => {
-
-        // dispatch(ADDPRODUCT(
-        //     {thumbnail:image,
-        //     name:productName,
-        //     categoryname:category}
-        // ))
         
         try{
             await axios.post('http://localhost:3002/products',data)
@@ -66,6 +58,17 @@ export const ModalDashboard = () => {
     }
 
 
+    const submitForm = (data) => {
+
+        if(state.modalEdit){
+            EditBtn_modal(data)
+            
+        }else if(state.modalAdd){
+            AddBtn_modal(data)
+        }  
+    }
+
+    // useEffect(()=>{},[])
 
     //close modal
     const CloseModal_handler = ()=> {
@@ -77,7 +80,7 @@ export const ModalDashboard = () => {
        
         <div className= "overlay">
         <ToastContainer/>
-            <form className="modalWrapper" onSubmit={handleSubmit(EditBtn_modal,AddBtn_modal)} >
+            <form className="modalWrapper" onSubmit={handleSubmit(submitForm)} >
 
                 <div className='headerModal'>
                     <h3>افزودن / ویرایش کالا</h3>
@@ -128,12 +131,10 @@ export const ModalDashboard = () => {
                     <CkEditors />      
                 </div>
 
-                {state.modalEdit ? <Button  type={'submit'} stateBtn={'editPrice'} title={'ویرایش'}/>:
-                <Button clicked={AddBtn_modal} stateBtn={'editPrice'} title={'ذخیره'}/>
-                } 
-
+                <Button type={'submit'} stateBtn={'editPrice'} title={'ویرایش'}/>
                 
-    
+                
+
             </form>
         </div>  
     )
