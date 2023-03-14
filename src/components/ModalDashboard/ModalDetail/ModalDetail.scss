@@ -6,12 +6,20 @@
     @include setdisplayflex(flex,column,0,0,$p_smal);
     width: 90%;
 
+    & label{
+        padding-right: $p_smal;
+    }
+
     & input{
-        @include setInput($light_gray,$medium_gray,none,none,5px,$p_smal,95%);
+        @include setInput($light_gray,$medium_gray,none,none,5px,.4rem,95%);
         font-size: $p_1;
     }
+
+    
 }
 
 .error{
     color: $red;
+    margin: 0;
+    font-size: .8rem;
 }

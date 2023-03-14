@@ -83,24 +83,44 @@ export const ModalDashboard = () => {
                     <h3>افزودن / ویرایش کالا</h3>
                     <AiOutlineClose onClick={CloseModal_handler} style={{color:'red', fontSize:'1.2rem',cursor:'pointer'}}/>   
                 </div>
-              
-                <ModalDetail type={'file'} title={'تصویر کالا:'} 
-                 error={errors.image?.message} validation={{...register('image')}} />
 
-                <ModalDetail type={'text'} title={'نام کالا:'} 
-                 error={errors.name?.message} validation={{...register('name')}} />
-                 
+                <div className='wrapper-modal-data'>
+                    <ModalDetail type={'file'} title={'تصویر کالا:'} 
+                    error={errors.thumbnail?.message} validation={{...register('thumbnail')}} />
 
-                <div className='container_modalDetail'>
-                    <labela>دسته بندی:</labela>
-                    <select {...register("categoryname")}>
-                        {/* <option></option> */}
-                        <option value={"لپتاپ"}>لپتاپ</option>
-                        <option value={"گوشی موبایل"}>گوشی موبایل</option>
-                        <option value={"تبلت"}>تبلت</option>
-                        <option value={"هدفون"}>هدفون</option>
-                    </select>
-                    <p className="error">{errors.categoryname?.message}</p>
+                    <ModalDetail type={'file'} title={'تصاویر کالا:'} 
+                    error={errors.image?.message} validation={{...register('image')}} />
+                </div>
+
+                <div className='wrapper-modal-data'>
+                    <ModalDetail type={'text'} title={'نام کالا:'} 
+                    error={errors.name?.message} validation={{...register('name')}} />
+
+                    <ModalDetail type={'text'} title={'برند:'} 
+                    error={errors.brand?.message} validation={{...register('brand')}} />
+                </div>
+
+                <div className='wrapper-modal-data'>
+                    <div className='container_modalDetail'>
+                        <labela>دسته بندی:</labela>
+                        <select {...register("categoryname")}>
+                            <option></option>
+                            <option value={"لپتاپ"}>لپتاپ</option>
+                            <option value={"گوشی موبایل"}>گوشی موبایل</option>
+                            <option value={"تبلت"}>تبلت</option>
+                            <option value={"هدفون"}>هدفون</option>
+                        </select>
+                        <p className="error">{errors.categoryname?.message}</p>
+                    </div>
+
+                    <ModalDetail type={'text'} title={'قیمت:'} 
+                    error={errors.price?.message} validation={{...register('price')}} />
+
+                </div>
+
+                <div className='wrapper-quantity'>
+                    <ModalDetail type={'number'} title={'تعداد :'} 
+                    error={errors.quantity?.message} validation={{...register('quantity')}} />
                 </div>
 
                 <div className='wrapper_textarea'>

@@ -16,25 +16,37 @@
 
 .modalWrapper{
     @include setdisplayflex(flex,column,center,0,$p_1);
-    @include setInput($bg_color,0,none,none,10px,$p_1,36%);
+    @include setInput($bg_color,0,none,none,10px,$p_1 $p_2,45%);
+    height: 85vh;
+    overflow: scroll;
 
     & select{
-        @include setInput($light_gray,$medium_gray,none,none,5px,$p_smal,100%);
+        @include setInput($light_gray,$medium_gray,none,none,5px,.4rem,100%);
         font-size: $p_1;
     }
-}
+
 
 .headerModal{
     @include setdisplayflex(flex,0,center,space-between,0); 
-    width: 90%; 
+    width: 100%; 
     height: $p_2;
+    margin-bottom: $p_2
+}
+
+.wrapper-modal-data {
+    @include setdisplayflex(flex,0,center,space-between,$p_2); 
+    height: $p_4;
+    width: 100%;
+    margin-bottom: $p_1
+}
+
+.wrapper-quantity {
+    margin-left: 17rem;
+    width: 53%
 }
 
 .wrapper_textarea{
     @include setdisplayflex(flex,column,0,0,$p_smal);
-    width: 90%;
-    
-    & textarea{
-        height: 15vh;
-    }
+    width: 100%;
+}
 }
