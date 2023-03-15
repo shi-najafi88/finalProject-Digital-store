@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { GiTurtle } from 'react-icons/gi'
 import { useDispatch, useSelector } from 'react-redux'
 import { Table, TotalBox, Button } from '../../../components'
 import { DashboardHeader, DashboardSidebar } from '../../../dashboardLayouts'
@@ -14,11 +15,7 @@ export const Inventory = () => {
   const [disableBtn , setDisableBtn] = useState(true)
   const { currentPage, rowsPerPage, setTotalPages, renderPaginationButtons } = usePagination(1,5);
 
-  const getAll = () => {
-    axios.get(`http://localhost:3002/products?_page=${state.getPage}&_limit=${5}`)
-    .then(res => dispatch(DATATABEL(res.data)))
-  }
-
+ 
   const getData = (currentPage,rowsPerPage)=> {
     axios.get(`http://localhost:3002/products?_page=${currentPage}&_limit=${rowsPerPage}`)
     .then(res => dispatch(DATATABEL(res.data)))
@@ -43,28 +40,29 @@ export const Inventory = () => {
     dataPagination(rowsPerPage)
   },[])
 
-  //edit price btn
+  //handel change edit price
   const editBtnPrice_handler = () => {
     
     let data = state.priceChange
+    console.log('data',data);
     axios.patch(`http://localhost:3002/products/${state.productId}`,{
       price:data
     })  
     .then()
-    getAll()
+    getData(currentPage,rowsPerPage)
   }
 
-  //quantity
+   //handel change edit quantity
   const quantitytBtn_handler = () => {
     let data = state.quantityChange
     axios.patch(`http://localhost:3002/products/${state.productId}`,{
     quantity:data
     })  
     .then()
-    getAll()
-   
+    getData(currentPage,rowsPerPage)  
   }
 
+  //onclick on save btn
   const editPrice_Quantity_handler =() => {
     if(state.priceChangeMood){
       editBtnPrice_handler()
@@ -73,22 +71,14 @@ export const Inventory = () => {
     }
   }
 
-  // useEffect(()=>{
-  //   if(state.priceChangeMood){
+  //handel disabled save btn
+  useEffect(()=>{
+    if(state.priceChangeMood || state.quantityChangeMood){
 
-  //     setDisableBtn(false)
-  //     editBtnPrice_handler()
-  
-  //   }else if( state.quantityChangeMood){
-  
-  //     setDisableBtn(false)
-  //     editBtnQuantity_handler()
-     
-  //   }
-  // },[])
-
- 
-    
+      setDisableBtn(false)  
+       
+    }
+  },[state.priceChangeMood,state.quantityChangeMood])
 
 return (
    

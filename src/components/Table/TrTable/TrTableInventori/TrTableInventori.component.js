@@ -38,6 +38,7 @@ export const TrTableInventori = ({item}) => {
 
   //change price
   const PriceChangeHandler = (e)=> {
+   
 
     dispatch(PRICECHANGE(e.target.value))
 
@@ -54,6 +55,7 @@ export const TrTableInventori = ({item}) => {
   const QuantityChangeHandler = (e)=> {
 
     dispatch(QUANTITYCHANGE(e.target.value))
+    
 
     // let data = e.target.value
     // axios.patch(`http://localhost:3002/products/${state.productId}`,{
