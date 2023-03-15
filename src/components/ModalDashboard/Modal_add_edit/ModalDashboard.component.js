@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './ModalDashboard.scss'
 import { AiOutlineClose } from 'react-icons/ai'
 import { Button, ModalDetail } from '../../index'
@@ -13,22 +13,21 @@ import axios from 'axios'
 export const ModalDashboard = () => {
     const dispatch = useDispatch()
     const state = useSelector(state => state.shopp)
-    
-
     //custom hook for form validation
     const { reset , register , handleSubmit , errors} = useAuthModalForm()
 
-    //upload image
-    // const uploadHandler = async(data) => {
-    //     let formData = new FormData();
-    //     formData.append("image", img);
-    //     await axios.post('http://localhost:3002/upload',getFormData) 
-    //     .then(res => console.log(res.data.filename))
-    // }
-    
+    // upload image
+    const uploadHandler = async(data) => {
+        let formData = new FormData();
+        formData.append("image", data);
+        const res = await axios.post('http://localhost:3002/upload',formData)  
+        return res.data.filename
+    }
+
+
+    let get = axios.patch(`http://localhost:3002/products/${state.productId}`)
     //edit product
     const EditBtn_modal = async(data) => {  
-        // uploadHandler()
          
         await axios.patch(`http://localhost:3002/products/${state.productId}`,data)  
         .then(()=>{toast.success('Edit is successfule')
@@ -58,17 +57,34 @@ export const ModalDashboard = () => {
     }
 
 
-    const submitForm = (data) => {
+    const submitForm = async(data) => {
+
+        const thumbnail= await uploadHandler(data.thumbnail[0])
+        const imageOne= await uploadHandler(data.image[0])
+        const imagetwo= await uploadHandler(data.image[1])
+        const imagethree= await uploadHandler(data.image[2])
+        const imagefour= await uploadHandler(data.image[3])
+
+        let newObj = {
+            ...data,
+            thumbnail,
+            image:[imageOne, imagetwo, imagethree, imagefour]
+         }    
 
         if(state.modalEdit){
-            EditBtn_modal(data)
+            EditBtn_modal(newObj)
             
         }else if(state.modalAdd){
-            AddBtn_modal(data)
-        }  
+            AddBtn_modal(newObj) 
+        }   
     }
 
-    // useEffect(()=>{},[])
+    // useEffect(()=>{
+    //     console.log(state.productId);
+    //     if(state.productId !== 0){
+    //         reset(get)
+    //     }
+    // },[state.productId])
 
     //close modal
     const CloseModal_handler = ()=> {
@@ -131,10 +147,8 @@ export const ModalDashboard = () => {
                     <CkEditors />      
                 </div>
 
-                <Button type={'submit'} stateBtn={'editPrice'} title={'ویرایش'}/>
+                <Button type={'submit'} stateBtn={'editPrice'} title={'ذخیره'}/>
                 
-                
-
             </form>
         </div>  
     )

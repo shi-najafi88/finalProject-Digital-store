@@ -12,7 +12,12 @@ const initialState ={
     productId:0,
     allProduct:[],
     saveProductInfo:[],
-    getPage:1
+    getPage:1,
+    priceChange:0,
+    priceChangeMood:false,
+    quantityChange:0,
+    quantityChangeMood:false
+
 }
 const ShoppingSlice = createSlice({
     name:'shopping/redux',
@@ -84,9 +89,9 @@ const ShoppingSlice = createSlice({
             state.allProduct.splice(FindeIndex, 1, action.payload);
         },
 
-        ADDPRODUCT:(state,action)=> {
-             state.saveProductInfo = action.payload
-        },
+        // ADDPRODUCT:(state,action)=> {
+        //      state.saveProductInfo = action.payload
+        // },
 
         CURRENTPAGE:(state,action)=> {
             state.getPage = action.payload
@@ -98,6 +103,18 @@ const ShoppingSlice = createSlice({
 
         QUANTITYPRODUCTID:(state,action) => {
             state.productId = action.payload
+        },
+
+        PRICECHANGE:(state,action) => {
+            state.priceChange = action.payload
+            state.priceChangeMood = true
+            state.quantityChangeMood = false
+        },
+
+        QUANTITYCHANGE:(state,action) => {
+            state.quantityChange = action.payload
+            state.quantityChangeMood = true
+            state.priceChangeMood = false
         }
 
     }
@@ -105,5 +122,6 @@ const ShoppingSlice = createSlice({
 export const { OPEN_EDITMODAL, OPEN_DeletMODAL, NO_DELETmodal, YES_DELETmodal,
                CLOSE_MODAL, DATATABEL, OPEN_CheckOrderModal, CLOSE_MODAL_CHECKORDER,
                DATAORDER, COSTOMERDATA, DATAORDERS, OPEN_AddMODAL, ALLPRODUCT,
-               EDITBTNMODAL, ADDPRODUCT,  CURRENTPAGE, PRICEPRODUCTID, QUANTITYPRODUCTID } = ShoppingSlice.actions
+               EDITBTNMODAL, ADDPRODUCT,  CURRENTPAGE, PRICEPRODUCTID, QUANTITYPRODUCTID,
+               PRICECHANGE, QUANTITYCHANGE } = ShoppingSlice.actions
 export default ShoppingSlice.reducer

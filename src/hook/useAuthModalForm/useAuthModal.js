@@ -4,7 +4,15 @@ import * as yup from "yup";
 
 
 export const schema = yup.object({
-    thumbnail:yup.mixed().required('لطفا تصویر را وارد کنید'),
+    thumbnail:yup.mixed()
+    .test(
+        "fileNumber",
+        "وارد کردن تصویر الزامی می باشد.",
+        (files) =>
+        !files || // Check if `files` is defined
+        files.length > 0 // Check if `files` has attachment
+        ).required('لطفا تصویر را وارد کنید'),
+
     image:yup.mixed()
     .test(
         "fileNumber",
@@ -13,6 +21,7 @@ export const schema = yup.object({
         !files || // Check if `files` is defined
         files.length > 0 // Check if `files` has attachment
         ).required('لطفا تصویر را وارد کنید'),
+        
     name:yup.string().required('لطفا نام کالا را وارد کنید'),
     brand:yup.string().required('لطفا برند کالا را وارد کنید'),
     categoryname:yup.string().required('لطفا دسته بندی را انتخاب کنید'),

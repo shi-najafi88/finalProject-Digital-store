@@ -1,0 +1,21 @@
+@import "../../../asets/scss/color";
+@import "../../../asets/scss/variable";
+@import "../../../asets/scss/mixin";
+
+.editPriceDisable {
+    @include setInput( 0,$dark,1px solid $orange,none,5px,$p_smal $p_one-med,$p_3);
+    font-size: .9rem;
+    text-align: center;
+  }
+
+  .editPriceEnable{
+    @include setInput( $orange,$light,0,none,5px,$p_smal $p_one-med,$p_3);
+    font-size: .9rem;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0 1px 0px 0px rgb(255 255 255 / 20%) inset;
+
+    &:hover{
+        font-weight: 600;
+    }
+  }

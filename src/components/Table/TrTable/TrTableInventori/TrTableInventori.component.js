@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { DATATABEL, PRICEPRODUCTID, QUANTITYPRODUCTID } from '../../../../redux/slices'
+import { DATATABEL, PRICECHANGE, PRICEPRODUCTID, QUANTITYCHANGE, QUANTITYPRODUCTID } from '../../../../redux/slices'
 import "./TrTableInventori.scss"
 
 export const TrTableInventori = ({item}) => {
@@ -12,10 +12,10 @@ export const TrTableInventori = ({item}) => {
   const state = useSelector(state => state.shopp);
   const dispatch = useDispatch()
 
-  const getAll = () => {
-    axios.get(`http://localhost:3002/products?_page=${state.getPage}&_limit=${5}`)
-    .then(res => dispatch(DATATABEL(res.data)))
-  }
+  // const getAll = () => {
+  //   axios.get(`http://localhost:3002/products?_page=${state.getPage}&_limit=${5}`)
+  //   .then(res => dispatch(DATATABEL(res.data)))
+  // }
 
   //for chanhe input & span tag
   const handlerPriceData = (id)=> {
@@ -39,25 +39,29 @@ export const TrTableInventori = ({item}) => {
   //change price
   const PriceChangeHandler = (e)=> {
 
-    let data = e.target.value
-    axios.patch(`http://localhost:3002/products/${state.productId}`,{
-      price:data
-    })  
-    .then()
+    dispatch(PRICECHANGE(e.target.value))
 
-    getAll()
+    // let data = e.target.value
+    // axios.patch(`http://localhost:3002/products/${state.productId}`,{
+    //   price:data
+    // })  
+    // .then()
+
+    // getAll()
   }
 
   //change quantity
   const QuantityChangeHandler = (e)=> {
 
-    let data = e.target.value
-    axios.patch(`http://localhost:3002/products/${state.productId}`,{
-      quantity:data
-    })  
-    .then(res=>console.log(res.data))
+    dispatch(QUANTITYCHANGE(e.target.value))
 
-    getAll()
+    // let data = e.target.value
+    // axios.patch(`http://localhost:3002/products/${state.productId}`,{
+    //   quantity:data
+    // })  
+    // .then(res=>console.log(res.data))
+
+    // getAll()
   }
     
 
@@ -67,14 +71,14 @@ export const TrTableInventori = ({item}) => {
 
        <td className='inventori_td'>
         {!priceMood ? 
-        <span onClick={()=>handlerPriceData(item.id)}>{item.price.toLocaleString("fa")}</span>:
+        <span onClick={()=>handlerPriceData(item.id)}>{(+item.price).toLocaleString("fa")}</span>:
         <input onChange={PriceChangeHandler} onBlur={HandelBackSpanPrice} className='inputInventori' type={'text'} /> 
         } 
         </td>
 
        <td className='inventori_td'>
         {!quantityMood ? 
-        <span onClick={()=>handlerQuantityData(item.id)}>{item.quantity.toLocaleString("fa")}</span>:
+        <span onClick={()=>handlerQuantityData(item.id)}>{(+item.quantity).toLocaleString("fa")}</span>:
         <input onChange={QuantityChangeHandler} onBlur={HandelBackSpanQuantity} className='inputInventori' type={'text'} /> 
         } 
         </td> 
