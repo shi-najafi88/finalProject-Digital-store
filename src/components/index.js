@@ -16,6 +16,7 @@ export { ModalDashboard } from "./ModalDashboard/Modal_add_edit/ModalDashboard.c
 export { ModalDelet } from "./ModalDashboard/ModalDelet/ModalDelet.component"
 export { ModalDetail } from "./ModalDashboard/ModalDetail/ModalDetail.component";
 export { ModalCheckOrder } from "./ModalDashboard/ModalCheckOrder/ModalCheckOrder.components"
-export { CkEditors } from "./CkEditor/CkEditor"
+export { CkEditors } from "./CkEditor/CkEditor";
+export { CardOne } from "./Card/cdrd1/CardOne.component"
 
 

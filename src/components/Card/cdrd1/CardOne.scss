@@ -1,0 +1,55 @@
+@import '../../../asets/scss/mixin';
+@import '../../../asets/scss/variable';
+@import '../../../asets/scss/color';
+
+
+.wrapper-container{
+    @include setInput($bg_color,$dark,0,none,10px,0,22vw);
+    @include setdisplayflex(flex,0,center,0,0);
+    position: relative;
+    margin: $p_5 $p_3;
+    cursor: pointer;
+    transition: all ease-in-out .3s!important;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+
+    &:hover {
+        transform: translateY(-10px) scale(1.07)
+    }
+
+    .figure {
+       
+        &:hover:after {
+          @include setdisplayflex(flex,column,center,center,0);
+          @include setInput(rgba(0, 0, 0, 0.3),$light,0,none,10px,0,100%);   
+          content: "مشاهده جزئیات";
+          font-weight: 700;
+          height: 100%;
+          position: absolute;
+          left: 0;
+          top: 0;  
+          box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        }
+    }
+    
+    & img{
+        @include size($p_6,$p_8);
+        overflow: hidden;
+        text-align: center;
+        position: absolute;
+        top: -$p_4;
+        right: $p_6;
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    }
+
+    .wrapper-info{
+        text-align: center;
+        width: 100%;
+        margin-top: $p_6;
+    }
+
+    .wrapper-price{
+        @include setInput($orange,$light,0,none,20px,$p_smal $p_1,$p_7);
+        margin: $p_2 0;
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    }   
+}

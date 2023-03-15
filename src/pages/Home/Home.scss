@@ -1,3 +1,15 @@
+@import'../../asets/scss/color';
+@import'../../asets/scss/variable';
+@import'../../asets/scss/mixin';
+
 .wrapper_sliderShow{
     background-image: url(../../asets/images/sliderShow/slider-background.jpg);
+}
+
+.container-firstCards{
+    @include setdisplayflex(flex,0,0,center,0);
+    flex-wrap: wrap;
+    padding:4rem;
+    height: fit-content;
+    background-color:$bg-gray;
 }
