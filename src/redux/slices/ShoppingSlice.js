@@ -16,7 +16,8 @@ const initialState ={
     priceChange:0,
     priceChangeMood:false,
     quantityChange:0,
-    quantityChangeMood:false
+    quantityChangeMood:false,
+    mobaileCategoryData:[]
 
 }
 const ShoppingSlice = createSlice({
@@ -115,6 +116,11 @@ const ShoppingSlice = createSlice({
             state.quantityChange = action.payload
             state.quantityChangeMood = true
             state.priceChangeMood = false
+        },
+
+        MOBILECATEGORY:(state,action) => {
+           state.mobaileCategoryData = action.payload
+           console.log(state.mobaileCategoryData);
         }
 
     }
@@ -123,5 +129,5 @@ export const { OPEN_EDITMODAL, OPEN_DeletMODAL, NO_DELETmodal, YES_DELETmodal,
                CLOSE_MODAL, DATATABEL, OPEN_CheckOrderModal, CLOSE_MODAL_CHECKORDER,
                DATAORDER, COSTOMERDATA, DATAORDERS, OPEN_AddMODAL, ALLPRODUCT,
                EDITBTNMODAL, ADDPRODUCT,  CURRENTPAGE, PRICEPRODUCTID, QUANTITYPRODUCTID,
-               PRICECHANGE, QUANTITYCHANGE } = ShoppingSlice.actions
+               PRICECHANGE, QUANTITYCHANGE, MOBILECATEGORY } = ShoppingSlice.actions
 export default ShoppingSlice.reducer

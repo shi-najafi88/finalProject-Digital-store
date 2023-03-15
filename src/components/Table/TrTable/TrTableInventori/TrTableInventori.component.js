@@ -39,31 +39,14 @@ export const TrTableInventori = ({item}) => {
   //change price
   const PriceChangeHandler = (e)=> {
    
-
     dispatch(PRICECHANGE(e.target.value))
 
-    // let data = e.target.value
-    // axios.patch(`http://localhost:3002/products/${state.productId}`,{
-    //   price:data
-    // })  
-    // .then()
-
-    // getAll()
   }
 
   //change quantity
   const QuantityChangeHandler = (e)=> {
 
     dispatch(QUANTITYCHANGE(e.target.value))
-    
-
-    // let data = e.target.value
-    // axios.patch(`http://localhost:3002/products/${state.productId}`,{
-    //   quantity:data
-    // })  
-    // .then(res=>console.log(res.data))
-
-    // getAll()
   }
     
 
