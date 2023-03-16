@@ -25,7 +25,16 @@ export const ModalDashboard = () => {
     }
 
 
-    let get = axios.patch(`http://localhost:3002/products/${state.productId}`)
+    // reset hookform for get data & insert in form
+    const get = async() =>{
+        const res= await axios.get(`http://localhost:3002/products/${state.productId}`)
+      
+        if(state.productId !== 0){  
+            reset(res.data)
+        }
+        return res.data[0]
+    }
+   
     //edit product
     const EditBtn_modal = async(data) => {  
          
@@ -79,12 +88,11 @@ export const ModalDashboard = () => {
         }   
     }
 
-    // useEffect(()=>{
-    //     console.log(state.productId);
-    //     if(state.productId !== 0){
-    //         reset(get)
-    //     }
-    // },[state.productId])
+    //call reset    
+    useEffect(()=>{
+        get()   
+    },[])
+    
 
     //close modal
     const CloseModal_handler = ()=> {
@@ -105,10 +113,10 @@ export const ModalDashboard = () => {
 
                 <div className='wrapper-modal-data'>
                     <ModalDetail type={'file'} title={'تصویر کالا:'} 
-                    error={errors.thumbnail?.message} validation={{...register('thumbnail')}} />
+                    error={errors.thumbnail?.message} validation={{...register('thumbnail')}}  />
 
                     <ModalDetail type={'file'} title={'تصاویر کالا:'} 
-                    error={errors.image?.message} validation={{...register('image')}} />
+                    error={errors.image?.message} validation={{...register('image')}} multiple='multiple' />
                 </div>
 
                 <div className='wrapper-modal-data'>

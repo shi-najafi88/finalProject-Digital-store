@@ -37,7 +37,7 @@ export const useAuthModalForm = () => {
     });
 
     return {
-        register ,handleSubmit ,errors
+        reset, register ,handleSubmit ,errors
     }
 }
  

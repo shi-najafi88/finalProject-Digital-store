@@ -7,7 +7,7 @@ export const CardOne = ({item}) => {
     <div className='wrapper-container'>
       <figure className='figure'> 
 
-        <img src={item.thumbnail}/>
+        <img src={`http://localhost:3002/files/${item.thumbnail}`}/>
        
         <div className='wrapper-info'>
             <p>{item.name}</p>
