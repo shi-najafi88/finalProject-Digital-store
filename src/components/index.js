@@ -18,5 +18,6 @@ export { ModalDetail } from "./ModalDashboard/ModalDetail/ModalDetail.component"
 export { ModalCheckOrder } from "./ModalDashboard/ModalCheckOrder/ModalCheckOrder.components"
 export { CkEditors } from "./CkEditor/CkEditor";
 export { CardOne } from "./Card/cdrd1/CardOne.component"
+export { CardTwo } from "./Card/Card2/CardTwo.component"
 
 

@@ -3,7 +3,7 @@
 @import '../../../asets/scss/color';
 
 
-.wrapper-container{
+.container-cardOne{
     @include setInput($bg_color,$dark,0,none,10px,0,22vw);
     @include setdisplayflex(flex,0,center,0,0);
     position: relative;
@@ -14,21 +14,6 @@
 
     &:hover {
         transform: translateY(-10px) scale(1.07)
-    }
-
-    .figure {
-       
-        &:hover:after {
-          @include setdisplayflex(flex,column,center,center,0);
-          @include setInput(rgba(0, 0, 0, 0.3),$light,0,none,10px,0,100%);   
-          content: "مشاهده جزئیات";
-          font-weight: 700;
-          height: 100%;
-          position: absolute;
-          left: 0;
-          top: 0;  
-          box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-        }
     }
     
     & img{
@@ -52,4 +37,20 @@
         margin: $p_2 0;
         box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
     }   
+}
+
+.figure {
+       
+    &:hover:after {
+      @include setdisplayflex(flex,column,center,center,0);
+      @include setInput(rgba(0, 0, 0, 0.3),$bg_color,0,none,10px,0,100%);   
+      content: "مشاهده جزئیات";
+      font-weight: 700;
+      font-size: $p_one-med;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;  
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
 }

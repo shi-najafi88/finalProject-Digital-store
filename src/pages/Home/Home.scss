@@ -2,14 +2,44 @@
 @import'../../asets/scss/variable';
 @import'../../asets/scss/mixin';
 
+.page-container{
+    background-color:$bg-gray;
+}
 .wrapper_sliderShow{
     background-image: url(../../asets/images/sliderShow/slider-background.jpg);
 }
 
 .container-firstCards{
+    @include setdisplayflex(flex,column,0,0,0);
+    background-color:$bg-gray;
+    padding-top: $p_3;
+}
+
+.category-link{
+    text-decoration: none;
+}
+
+h2{
+    text-align: center;
+    color: $orange
+}
+.wrapper-firstCard{
     @include setdisplayflex(flex,0,0,center,0);
     flex-wrap: wrap;
-    padding:4rem;
+    padding-top:$p_2;
     height: fit-content;
     background-color:$bg-gray;
+}
+
+.container-secondCard{
+    @include setdisplayflex(flex,column,0,0,2rem);
+    background-color:$bg-gray;
+    height: fit-content;
+    padding: 0 $p_7 $p_3 $p_7;
+    flex-wrap: wrap;
+
+    .wrapper-secondCard{
+        @include setdisplayflex(flex,0,0,center,$p_6);
+        flex-wrap: wrap;
+    }
 }

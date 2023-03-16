@@ -4,7 +4,7 @@ import './CardOne.scss'
 export const CardOne = ({item}) => {
   return (
     
-    <div className='wrapper-container'>
+    <div className='container-cardOne'>
       <figure className='figure'> 
 
         <img src={`http://localhost:3002/files/${item.thumbnail}`}/>

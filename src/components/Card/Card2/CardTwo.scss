@@ -1,0 +1,40 @@
+@import '../../../asets/scss/mixin';
+@import '../../../asets/scss/variable';
+@import '../../../asets/scss/color';
+
+
+.container-cardTwo{
+    @include setInput($bg_color,$dark,0,none,10px,0,22vw);
+    @include setdisplayflex(flex,column,center,0,0);
+    position: relative;
+    cursor: pointer;
+    margin-top: $p_3;
+    transition: all ease-in-out .3s!important;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+
+    &:hover {
+        transform: translateY(-10px) scale(1.07)
+    }
+
+    .wrapper-img-cardTwo{
+        @include setdisplayflex(flex,0,center,center,0);
+        @include setInput($light,0,0,none,5px,0,$p_13);
+        height: $p_10;
+        position: absolute;
+        top:-$p_2;
+        right: 2.8rem;
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    }
+
+    & img{
+        @include size($p_9,$p_7);
+        overflow: hidden;
+        text-align: center;    
+    }
+
+    .wraper-info-cardTwo{
+        margin-top:$p_9 ;
+        padding-bottom: $p_one-med;
+        @include setdisplayflex(flex,column,center,center,90%);
+    }
+}
