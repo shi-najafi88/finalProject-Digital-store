@@ -6,6 +6,7 @@
 .container-cardTwo{
     @include setInput($bg_color,$dark,0,none,10px,0,22vw);
     @include setdisplayflex(flex,column,center,0,0);
+    @include font(estedad,100,.9rem);
     position: relative;
     cursor: pointer;
     margin-top: $p_3;
@@ -34,11 +35,19 @@
 
     .wraper-info-cardTwo{
         margin-top:$p_9 ;
-        padding-bottom: $p_one-med;
         @include setdisplayflex(flex,column,center,center,90%);
+
+        .title{
+            @include font(estedad,500,$p_1);
+        }
 
         & p{
             text-align: center;
+        }
+
+        .price{
+            @include setInput( $orange,$bg_color,0,none,5px,$p_smal,$p_8);
+            box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
         }
     }
 }

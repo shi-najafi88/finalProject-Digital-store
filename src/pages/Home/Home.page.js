@@ -2,10 +2,11 @@ import axios from "axios";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { CardOne, CardTwo, Slide } from "../../components";
+import { CardOne, CardTwo, Slide, SliderShowTwo } from "../../components";
 import { Header } from "../../layouts";
 import { LAPTOPCATEGORY, MOBILECATEGORY } from "../../redux/slices";
 import './Home.scss'
+import baner from '../../asets/images/baner.jpg'
 
 export const Home = () => {
 
@@ -14,7 +15,7 @@ export const Home = () => {
 
   //get mobile category data
   const getDataMobileCtegory = () => {
-    axios.get(`http://localhost:3002/products?categoryname=${'گوشی موبایل'}`)
+    axios.get(`http://localhost:3002/products?categoryname=${'موبایل'}`)
     .then(res=> dispstch(MOBILECATEGORY(res.data)))
   }
 
@@ -40,35 +41,42 @@ export const Home = () => {
     </div>
 
     <div className="container-firstCards">
-
-      <Link className="category-link" to='/products'>
-      <h2>کالاهای گروه موبایل</h2>
-      </Link>
+      <div className="wrapper-title-category">
+        <Link className="category-link" to={`/products/${'موبایل'}`}>
+          <h2>کالاهای گروه موبایل</h2>
+        </Link>  
+      </div>
 
       <div className="wrapper-firstCard">
       {state.mobaileCategoryData.map(item =>(
         <CardOne item={item} />
       ))}
       </div>  
-
     </div>
 
 
     <div className="container-secondCard">
-
-    <Link className="category-link" to='/products'>
-      <h2>کالاهای گروه لپتاپ</h2>
-    </Link>
+    <div className="wrapper-title-category">
+      <Link className="category-link" to={`/products/${'لپتاپ'}`}>
+        <h2>کالاهای گروه لپتاپ</h2>
+      </Link>
+    </div>
 
     <div className="wrapper-secondCard">
       {state.laptopCategoryData.map(item =>(
         <CardTwo item={item}/>
       ))}
     </div>
-
     </div>
-    
-  
+
+    <div className="container-slider-two">
+      <img src={baner}/>
+
+      <div className="wrapper-sliderTwo">
+        <SliderShowTwo/>
+      </div>
+    </div>
+   
    </div>
   );
 };

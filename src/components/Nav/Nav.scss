@@ -4,13 +4,13 @@
 
 .nav{
     display: flex;
+    @include font(estedad,400,.9rem);
     
     .link{
         text-decoration: none;
         color: $gray;
-        font-weight: 600;
         padding: $p_smal .7rem;
-        @include setdisplayflex(flex,0,0,0,$p_smal);
+        @include setdisplayflex(flex,0,center,0,$p_smal);
 
         &:hover{
             background-color: $medium_gray;

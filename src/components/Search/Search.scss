@@ -6,6 +6,11 @@
     display: flex;
     border-radius:5px;
     height: 6vh;
+
+    .search{
+        @include setInput($bg_color,$gray,none,none,0 5px 5px 0,$p_smal,35vw);
+        @include font(estedad,100,.8rem);
+    }
 }
 
 .search_icon{

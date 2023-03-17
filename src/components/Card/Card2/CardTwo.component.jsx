@@ -13,9 +13,9 @@ export const CardTwo = ({item}) => {
         </div>
         
         <div className='wraper-info-cardTwo' >
-            <p>{item.name}</p>
+            <p className='title'>{item.name}</p>
             <p>{item.description}</p>
-            <p>{(+item.price).toLocaleString("fa")} تومان</p>
+            <p className='price'>{(+item.price).toLocaleString("fa")} تومان</p>
             <div className='wrapper-star'>
                 <TiStarOutline style={{color:'orange'}}/>
                 <TiStarHalfOutline style={{color:'orange'}}/>

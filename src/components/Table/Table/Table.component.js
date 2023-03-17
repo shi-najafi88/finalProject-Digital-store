@@ -68,7 +68,7 @@ export const Table = ({
                 <select onChange={selectChange_handler}>
                   <option className="optionTitle"value={'catagory'}></option>
                   <option value={'همه'}>همه</option>
-                  <option value={'گوشی موبایل'}>گوشی موبایل</option>
+                  <option value={'موبایل'}>موبایل</option>
                   <option value={'لپتاپ'}>لپتاپ</option>
                   <option value={'تبلت'}>تبلت</option>
                   <option value={'هدفون'}>هدفون</option>

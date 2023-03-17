@@ -10,7 +10,7 @@ import { Basket, Dashbord, Faild, Home, Inventory, Login, Orders, Payment, Produ
         <Route exact path="/" element={<Home />} />
         <Route path="/basket" element={<Basket />} />
         <Route path="/loginDashbord" element={<Login />} />
-        <Route path="/products" element={<Products />} />
+        <Route path="/products/:categoryname" element={<Products />} />
         <Route path="/products/productDetail" element={<ProductDetail />} />
         <Route path="/basket/register" element={<Register />} />
         <Route path="/basket/register/payment" element={<Payment />} />

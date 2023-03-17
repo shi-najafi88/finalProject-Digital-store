@@ -4,8 +4,8 @@
 
 .loginBtn {
 
-  @include setInput( $black,$light,1px solid $orange,none,5px,$p_smal $p_one-med,$p_5);
-  font-size: .9rem;
+  @include setInput( $black,$light,1px solid $orange,none,5px,.3rem $p_one-med,$p_5);
+  @include font(estedad,100,.9rem);
   cursor: pointer;
 
   &:hover{

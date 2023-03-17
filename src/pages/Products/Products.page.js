@@ -1,8 +1,10 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { Nav } from '../../components'
 
 export const Products = () => {
+  const params = useParams()
+  console.log(params.categoryname);
   return (
     <div>
       <Nav/>

@@ -9,6 +9,12 @@
     background-image: url(../../asets/images/sliderShow/slider-background.jpg);
 }
 
+.wrapper-title-category{
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    text-align: center;
+    margin-bottom: $p_1
+}
+
 .container-firstCards{
     @include setdisplayflex(flex,column,0,0,0);
     background-color:$bg-gray;
@@ -20,8 +26,14 @@
 }
 
 h2{
+    @include font(estedad,500,1.2rem);
     text-align: center;
-    color: $orange
+    color: $orange;
+    transition: all ease-in-out .3s!important;
+
+    &:hover {
+        transform: translateY(-5px) scale(1.04)
+    }
 }
 .wrapper-firstCard{
     @include setdisplayflex(flex,0,0,center,0);
@@ -35,11 +47,26 @@ h2{
     @include setdisplayflex(flex,column,0,0,2rem);
     background-color:$bg-gray;
     height: fit-content;
-    padding: 0 $p_7 $p_3 $p_7;
+    padding-bottom: $p_3 ;
     flex-wrap: wrap;
 
     .wrapper-secondCard{
         @include setdisplayflex(flex,0,0,center,$p_6);
         flex-wrap: wrap;
     }
+}
+
+.container-slider-two{
+    @include setdisplayflex(flex,0,0,0,$p_1);
+    width: 100vw;
+    padding: $p_2;
+    background-color: $dark;
+
+    & img{
+        margin-left: $p_1;
+    }
+}
+
+.wrapper-sliderTwo{
+    width: 72%;
 }

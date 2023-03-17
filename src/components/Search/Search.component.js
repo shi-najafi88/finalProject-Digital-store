@@ -6,7 +6,7 @@ import './Search.scss'
 export const Search = ({dashboardSearch}) => {
   return (
     <div className='wrapper_search'>
-        <Input placeholder={"جستجو ..."} stateInput={'search'} type={'search'} />
+        <input className='search' placeholder={"جستجو ..."} type={'search'} />
         <div className='search_icon'><GoSearch style={{color:'white'}}/></div>
     </div>
   )
