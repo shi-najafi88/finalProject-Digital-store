@@ -4,9 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { CardOne, CardTwo, Slide, SliderShowTwo } from "../../components";
 import { Header } from "../../layouts";
-import { LAPTOPCATEGORY, MOBILECATEGORY } from "../../redux/slices";
+import { LAPTOPCATEGORY, MOBILECATEGORY, TABLETCATEGORY } from "../../redux/slices";
+import baner from '../../asets/images/baner.jpg';
 import './Home.scss'
-import baner from '../../asets/images/baner.jpg'
 
 export const Home = () => {
 
@@ -20,16 +20,22 @@ export const Home = () => {
   }
 
   //get laptop category data
-  const getDataLaptopeCtegory = () => {
+  const getDataLaptopCtegory = () => {
     axios.get(`http://localhost:3002/products?categoryname=${'لپتاپ'}`)
     .then(res=> dispstch(LAPTOPCATEGORY(res.data)))
   }
 
+  //get tablet category data
+  const getDataTabletCtegory = () => {
+    axios.get(`http://localhost:3002/products?categoryname=${'تبلت'}`)
+    .then(res=> dispstch(TABLETCATEGORY(res.data)))
+  }
 
-  
+
   useEffect(()=>{
     getDataMobileCtegory()
-    getDataLaptopeCtegory()
+    getDataLaptopCtegory()
+    getDataTabletCtegory()
   },[])
 
 
@@ -75,6 +81,20 @@ export const Home = () => {
       <div className="wrapper-sliderTwo">
         <SliderShowTwo/>
       </div>
+    </div>
+
+    <div className="container-firstCards">
+      <div className="wrapper-title-category">
+        <Link className="category-link" to={`/products/${'تبلت'}`}>
+          <h2>کالاهای گروه تبلت</h2>
+        </Link>  
+      </div>
+
+      <div className="wrapper-firstCard">
+      {state.tabletCategoryData.map(item =>(
+        <CardOne item={item} />
+      ))}
+      </div>  
     </div>
    
    </div>

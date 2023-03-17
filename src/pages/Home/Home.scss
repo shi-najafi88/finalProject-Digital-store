@@ -57,13 +57,13 @@ h2{
 }
 
 .container-slider-two{
-    @include setdisplayflex(flex,0,0,0,$p_1);
+    @include setdisplayflex(flex,0,center,0,$p_1);
     width: 100vw;
     padding: $p_2;
     background-color: $dark;
 
     & img{
-        margin-left: $p_1;
+        margin-left: $p_one-med;
     }
 }
 
