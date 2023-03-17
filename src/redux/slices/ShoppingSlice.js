@@ -17,8 +17,8 @@ const initialState ={
     priceChangeMood:false,
     quantityChange:0,
     quantityChangeMood:false,
-    mobaileCategoryData:[]
-
+    mobaileCategoryData:[],
+    laptopCategoryData:[],
 }
 const ShoppingSlice = createSlice({
     name:'shopping/redux',
@@ -120,7 +120,10 @@ const ShoppingSlice = createSlice({
 
         MOBILECATEGORY:(state,action) => {
            state.mobaileCategoryData = action.payload
-           console.log(state.mobaileCategoryData);
+        },
+
+        LAPTOPCATEGORY:(state,action) => {
+            state.laptopCategoryData = action.payload
         }
 
     }
@@ -129,5 +132,5 @@ export const { OPEN_EDITMODAL, OPEN_DeletMODAL, NO_DELETmodal, YES_DELETmodal,
                CLOSE_MODAL, DATATABEL, OPEN_CheckOrderModal, CLOSE_MODAL_CHECKORDER,
                DATAORDER, COSTOMERDATA, DATAORDERS, OPEN_AddMODAL, ALLPRODUCT,
                EDITBTNMODAL, ADDPRODUCT,  CURRENTPAGE, PRICEPRODUCTID, QUANTITYPRODUCTID,
-               PRICECHANGE, QUANTITYCHANGE, MOBILECATEGORY } = ShoppingSlice.actions
+               PRICECHANGE, QUANTITYCHANGE, MOBILECATEGORY, LAPTOPCATEGORY } = ShoppingSlice.actions
 export default ShoppingSlice.reducer

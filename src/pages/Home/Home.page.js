@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { CardOne, CardTwo, Slide } from "../../components";
 import { Header } from "../../layouts";
-import { MOBILECATEGORY } from "../../redux/slices";
+import { LAPTOPCATEGORY, MOBILECATEGORY } from "../../redux/slices";
 import './Home.scss'
 
 export const Home = () => {
@@ -12,15 +12,24 @@ export const Home = () => {
   const state = useSelector(state => state.shopp)
   const dispstch = useDispatch()
 
-  const getData = () => {
+  //get mobile category data
+  const getDataMobileCtegory = () => {
     axios.get(`http://localhost:3002/products?categoryname=${'گوشی موبایل'}`)
     .then(res=> dispstch(MOBILECATEGORY(res.data)))
   }
+
+  //get laptop category data
+  const getDataLaptopeCtegory = () => {
+    axios.get(`http://localhost:3002/products?categoryname=${'لپتاپ'}`)
+    .then(res=> dispstch(LAPTOPCATEGORY(res.data)))
+  }
+
+
   
   useEffect(()=>{
-    getData()
+    getDataMobileCtegory()
+    getDataLaptopeCtegory()
   },[])
-
 
 
   return (
@@ -40,9 +49,10 @@ export const Home = () => {
       {state.mobaileCategoryData.map(item =>(
         <CardOne item={item} />
       ))}
-      </div>
-      
+      </div>  
+
     </div>
+
 
     <div className="container-secondCard">
 
@@ -51,14 +61,13 @@ export const Home = () => {
     </Link>
 
     <div className="wrapper-secondCard">
-      <CardTwo/>
-      <CardTwo/>
-      <CardTwo/>
-      <CardTwo/>
-      <CardTwo/>
-      <CardTwo/>
+      {state.laptopCategoryData.map(item =>(
+        <CardTwo item={item}/>
+      ))}
     </div>
+
     </div>
+    
   
    </div>
   );

@@ -36,5 +36,9 @@
         margin-top:$p_9 ;
         padding-bottom: $p_one-med;
         @include setdisplayflex(flex,column,center,center,90%);
+
+        & p{
+            text-align: center;
+        }
     }
 }
