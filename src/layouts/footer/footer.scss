@@ -1,0 +1,54 @@
+@import '../../asets/scss/color';
+@import '../../asets/scss/variable';
+@import '../../asets/scss/mixin';
+
+.container-footer{
+    @include setInput(#3a3737, $bg_color,none,none,0,$p_1 $p_2,100vw);
+    @include setdisplayflex(flex,0,0,0,$p_4);
+    @include font(estedad,100,.9rem);
+}
+
+.container-footer-contact{
+    & img{
+        width: $p_7;
+    }   
+}
+
+.container-footer-contact{
+    width: 25%;
+    margin: $p_1 0
+}
+
+.section-contact{
+    @include setdisplayflex(flex,column,0,0,$p_1);
+    .info{
+        @include setdisplayflex(flex,0,center,0,$p_smal);
+    }
+
+    .wrapper-social{
+        @include setdisplayflex(flex,0,0,0,$p_smal);
+        font-size: 1.3rem;
+    }
+}
+
+.section-icon{
+    @include setdisplayflex(flex,column,center,0,$p_1); 
+}
+
+.container-svg-footer{
+    @include setdisplayflex(flex,0,0,0,$p_6);
+    height: fit-content;
+    margin-top: $p_1;  
+}
+
+.wrapper-link{
+    @include setdisplayflex(flex,0,center,0,$p_smal);
+    margin: $p_3 0 0 21rem;
+
+    .link-git{
+        color: $bg_color;
+        text-decoration: none;
+        font-size: $p_1;
+    }
+}
+

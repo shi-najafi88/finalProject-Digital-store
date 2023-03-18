@@ -1,0 +1,14 @@
+@import '../../asets/scss/mixin';
+@import '../../asets/scss/variable';
+
+.wrapper-svg-footer{
+    @include setdisplayflex(flex,column,center,center,$p_smal);
+    
+    & img{
+        width: $p_3;
+    }
+
+    & span{
+        font-size: .8rem;
+    }
+}

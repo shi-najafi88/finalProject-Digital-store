@@ -21,5 +21,6 @@ export { CardOne } from "./Card/cdrd1/CardOne.component";
 export { CardTwo } from "./Card/Card2/CardTwo.component";
 export { SliderShowTwo } from "./SliderShow/slider2/SliderShow2.component";
 export { DescCard } from "./Card/DescribtionCard/DescCard.component"
+export { FooterBox } from "./FooterBox/FooterBox.component"
 
 

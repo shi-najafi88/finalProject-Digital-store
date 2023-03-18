@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { CardOne, CardTwo, DescCard, Slide, SliderShowTwo } from "../../components";
-import { Header } from "../../layouts";
+import { Footer, Header } from "../../layouts";
 import { HEADSETCATEGORY, LAPTOPCATEGORY, MOBILECATEGORY, TABLETCATEGORY } from "../../redux/slices";
 import baner from '../../asets/images/baner.jpg';
 import './Home.scss'
@@ -132,6 +132,8 @@ return (
       ))}
     </div>
     </div>
+
+    <Footer/>
    
    </div>
   );
