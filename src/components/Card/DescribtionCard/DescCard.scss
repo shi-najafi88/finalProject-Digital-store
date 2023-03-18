@@ -1,0 +1,29 @@
+@import '../../../asets/scss/mixin';
+@import '../../../asets/scss/variable';
+@import '../../../asets/scss/color';
+
+.container-descCard{
+    @include setInput($bg_color,$dark,0,none,10px,$p_1 $p_2,17vw);
+    @include setdisplayflex(flex,column,center,center,0);
+    @include font(estedad,100,.9rem);
+
+    .wrapper-icon{
+        @include setdisplayflex(flex,0,center,center,0);
+        @include setInput($orange,$bg_color,0,0,50%,0,65px);
+        height: 65px;
+        font-size: $p_one-med;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
+
+    .title{
+        @include font(estedad,400,$p_1);
+        margin-bottom: 0;
+    }
+
+    .desc{
+        text-align: center;
+        color: gray;
+        font-size: .7rem;
+    }
+
+}

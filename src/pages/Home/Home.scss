@@ -70,3 +70,22 @@ h2{
 .wrapper-sliderTwo{
     width: 72%;
 }
+
+.container-desc{
+    background-color: $bg_color;
+    padding: $p_1;
+    margin: 0 $p_1 0 $p_1;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+    & h2{
+        color: $gray;
+        & span{
+            color: $orange;
+        }
+    }
+
+    .wrapper-desk{
+        @include setdisplayflex(flex,0,center,center,$p_2);
+       
+    }
+}
