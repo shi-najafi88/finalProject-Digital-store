@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { CardOne, CardTwo, DescCard, Slide, SliderShowTwo } from "../../components";
 import { Header } from "../../layouts";
-import { LAPTOPCATEGORY, MOBILECATEGORY, TABLETCATEGORY } from "../../redux/slices";
+import { HEADSETCATEGORY, LAPTOPCATEGORY, MOBILECATEGORY, TABLETCATEGORY } from "../../redux/slices";
 import baner from '../../asets/images/baner.jpg';
 import './Home.scss'
 
@@ -32,11 +32,18 @@ export const Home = () => {
     .then(res=> dispstch(TABLETCATEGORY(res.data)))
   }
 
+  //get headset category data
+  const getDataHeadsetCtegory = () => {
+    axios.get(`http://localhost:3002/products?categoryname=${'هدفون'}`)
+    .then(res=> dispstch(HEADSETCATEGORY(res.data)))
+  }
+
 
   useEffect(()=>{
     getDataMobileCtegory()
     getDataLaptopCtegory()
     getDataTabletCtegory()
+    getDataHeadsetCtegory()
   },[])
 
 let str1 = 'جنس بدنه‌ی گوشی شاخصی است که تأثیر مستقیم در طول عمر آن دارد. اکثر گوشی‌های رده‌پایین و رده‌میانی، بدنه‌های پلاستیکی دارند؛ پلاستیک ماده‌ی ارزان‌قیمتی است که هزینه‌ی نهایی تولید گوشی را کاهش می‌دهد؛ ولی در عوض، به‌راحتی آسیب می‌بیند و استحکام زیادی ندارد. در سمت دیگر، گوشی‌های رده‌بالا از بدنه‌هایی تمام فلزی یا ترکیب فلز و شیشه استفاده می‌کنند. برای این دسته از گوشی‌ها، معمولا از آلیاژهای آلومینیوم استفاده می‌شود؛ آلیاژی که در صنایع خودرو و هوا و فضا هم به کار می‌رود.'
@@ -110,6 +117,20 @@ return (
       <DescCard title={'تبلت'} desc={(str3.length > 10) ? str3.substring(0, 100) + "...":''}/>
       <DescCard title={'هدفون'} desc={(str4.length > 10) ? str4.substring(0, 100) + "...":''}/>  
       </div>
+    </div>
+
+    <div className="container-secondCard">
+    <div className="wrapper-title-category">
+      <Link className="category-link" to={`/products/${'هدفون'}`}>
+        <h2>کالاهای گروه هدفون</h2>
+      </Link>
+    </div>
+
+    <div className="wrapper-secondCard">
+      {state.headsetCategoryData.map(item =>(
+        <CardTwo item={item}/>
+      ))}
+    </div>
     </div>
    
    </div>

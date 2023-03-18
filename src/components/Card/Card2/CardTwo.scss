@@ -39,10 +39,12 @@
 
         .title{
             @include font(estedad,500,$p_1);
+            margin-bottom: 0;
         }
 
         & p{
             text-align: center;
+            font-size: .8rem
         }
 
         .price{

@@ -33,7 +33,11 @@
         margin-top: $p_6;
         .title{
             @include font(estedad,500,$p_1);
-        }    
+        } 
+        
+        & p{
+            font-size: .8rem
+        }
     }
 
     .wrapper-price{
@@ -49,6 +53,7 @@
       @include setdisplayflex(flex,column,center,center,0);
       @include setInput(rgba(0, 0, 0, 0.3),$bg_color,0,none,10px,0,100%);   
       content: "مشاهده جزئیات";
+      font-size: 1.3rem;
       height: 100%;
       position: absolute;
       left: 0;
