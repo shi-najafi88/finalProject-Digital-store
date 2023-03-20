@@ -1,0 +1,47 @@
+@import '../../asets/scss/color';
+@import '../../asets/scss/mixin';
+@import '../../asets/scss/variable';
+    
+
+  .sidebar{
+    @include font('estedad',300,$p_1);
+    width: 20%;
+    height: 85%;
+    background-color: $dark;
+
+    & h4{
+        color: $bg_color;
+        text-align: center;
+        border-bottom: 1px solid $bg-gray;
+        margin: $p_2;
+        padding-bottom:$p_smal
+    }
+    
+    .wrapper_item{
+        @include setInput(0,0,none,1px solid rgb(189, 189, 189),5px,0.2rem 0.5rem,16vw);
+        @include setdisplayflex(flex,0,center,0,$p_smal);
+        margin: $p_1 $p_1;
+        filter: brightness(1);
+
+        &:hover{
+            filter: brightness(0.9);
+            transition: 0.3s;
+        }
+
+        & img{
+            color: $bg_color;
+            width: 1.5rem;
+        }
+
+        & a{
+            color: $gray;
+            text-decoration: none;
+        }
+
+        & a:hover{
+            color: $bg-gray;
+            margin-right: $p_1;
+            transition: all ease-in-out .3s!important;
+        }
+    }
+  }

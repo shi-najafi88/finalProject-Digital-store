@@ -44,7 +44,6 @@ export const Inventory = () => {
   const editBtnPrice_handler = () => {
     
     let data = state.priceChange
-    console.log('data',data);
     axios.patch(`http://localhost:3002/products/${state.productId}`,{
       price:data
     })  

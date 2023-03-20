@@ -9,13 +9,8 @@ export const TrTableInventori = ({item}) => {
   const[priceMood,setPriceMood] = useState(false)
   const[quantityMood,setquantityMood] = useState(false)
 
-  const state = useSelector(state => state.shopp);
+  // const state = useSelector(state => state.shopp);
   const dispatch = useDispatch()
-
-  // const getAll = () => {
-  //   axios.get(`http://localhost:3002/products?_page=${state.getPage}&_limit=${5}`)
-  //   .then(res => dispatch(DATATABEL(res.data)))
-  // }
 
   //for chanhe input & span tag
   const handlerPriceData = (id)=> {
