@@ -8,7 +8,7 @@
     @include setdisplayflex(flex,0,center,0,0);
     @include font(estedad,100,.9rem);
     position: relative;
-    margin: $p_5 $p_3;
+    margin: $p_5 $p_1;
     cursor: pointer;
     transition: all ease-in-out .3s!important;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
@@ -33,6 +33,7 @@
         margin-top: $p_6;
         .title{
             @include font(estedad,500,$p_1);
+            margin-top: 0;
         } 
         
         & p{
@@ -41,8 +42,8 @@
     }
 
     .wrapper-price{
-        @include setInput($orange,$light,0,none,20px,$p_smal $p_1,$p_8);
-        margin: $p_2 0;
+        @include setInput($orange,$light,0,none,20px,.4rem $p_1,$p_7);
+        margin: $p_1 0 $p_1 0;
         box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
     }   
 }

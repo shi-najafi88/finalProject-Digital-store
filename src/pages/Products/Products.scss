@@ -6,4 +6,10 @@
 
 .containet-main-product{
     display: flex;
+
+    & main{
+        display: flex;
+        flex-wrap: wrap;
+        padding: $p_2 $p_1;
+    }
 }

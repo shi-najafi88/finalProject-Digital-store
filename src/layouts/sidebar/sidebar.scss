@@ -44,4 +44,20 @@
             transition: all ease-in-out .3s!important;
         }
     }
+
+    //when click on sidebar get active style
+    .active{
+        @include setInput($bg-gray,0,none,1px solid $gray,5px,0.2rem 0.5rem,16vw);
+        @include setdisplayflex(flex,0,center,0,$p_smal);
+        margin: $p_1 $p_1;
+        
+        a{
+            color: $dark;
+            text-decoration: none;
+        }
+        a:hover{
+            margin-right: $p_1;
+            transition: all ease-in-out .3s!important;
+        }
+    }
   }

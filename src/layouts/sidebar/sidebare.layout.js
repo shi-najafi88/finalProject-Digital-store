@@ -7,27 +7,28 @@ import { FaTabletAlt } from 'react-icons/fa'
 import { BsHeadset } from 'react-icons/bs'
 
 
-export const Sidebar = () => {
+export const Sidebar = ({name}) => {
+  
   return (
 
     <div className='sidebar'>
         <h4>دسته بندی محصولات</h4>
-        <div className='wrapper_item'>
-           <ImMobile style={{color:'white'}}/>
+        <div className={name==='موبایل'? 'active' : 'wrapper_item'} >
+            <ImMobile style={{color:'white'}}/>
             <Link className='link' to={`/products/${'موبایل'}`}>موبایل</Link>    
         </div>
 
-        <div className='wrapper_item'>
+        <div className={name==='لپتاپ'? 'active' : 'wrapper_item'}>
             <AiOutlineLaptop style={{color:'white'}}/>
             <Link className='link' to={`/products/${'لپتاپ'}`}>لپتاپ</Link>    
         </div>
 
-        <div className='wrapper_item'>
+        <div className={name==='تبلت'? 'active' : 'wrapper_item'}>
             <FaTabletAlt style={{color:'white'}}/>
             <Link className='link' to={`/products/${'تبلت'}`}>تبلت</Link>    
         </div>
 
-        <div className='wrapper_item'>
+        <div className={name==='هدفون'? 'active' : 'wrapper_item'}>
             <BsHeadset style={{color:'white'}}/>
             <Link className='link' to={`/products/${'هدفون'}`}>هدفون</Link>    
         </div>
