@@ -6,7 +6,7 @@
   .sidebar{
     @include font('estedad',300,$p_1);
     width: 20%;
-    height: 85%;
+    height: 85vh;
     background-color: $dark;
 
     & h4{
@@ -20,11 +20,11 @@
     .wrapper_item{
         @include setInput(0,0,none,1px solid rgb(189, 189, 189),5px,0.2rem 0.5rem,16vw);
         @include setdisplayflex(flex,0,center,0,$p_smal);
-        margin: $p_1 $p_1;
+        margin: $p_1 $p_1 $p_2 $p_1;
         filter: brightness(1);
 
         &:hover{
-            filter: brightness(0.9);
+            filter: brightness(0.7);
             transition: 0.3s;
         }
 
@@ -42,6 +42,27 @@
             color: $bg-gray;
             margin-right: $p_1;
             transition: all ease-in-out .3s!important;
+        }
+    }
+
+    & h5{
+        color: $bg_color;
+        text-align: center;
+        border-bottom: 1px solid $bg-gray;
+        margin: $p_3 $p_2 $p_1 $p_2;
+        padding-bottom:$p_smal
+    }
+
+    .container-radio{
+        @include setdisplayflex(flex,0,0,center,$p_1);
+
+        .wrapper-radio{
+            @include setdisplayflex(flex,0,center,center,.3rem);
+            @include font('estedad',100,.9rem);
+        }
+
+        & lable{
+            color: $bg-gray
         }
     }
 

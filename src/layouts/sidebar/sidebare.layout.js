@@ -32,6 +32,18 @@ export const Sidebar = ({name}) => {
             <BsHeadset style={{color:'white'}}/>
             <Link className='link' to={`/products/${'هدفون'}`}>هدفون</Link>    
         </div>
+
+        <h5>مرتب سازی بر اساس زمان  انتشار</h5>
+        <div className='container-radio'>
+          <div className='wrapper-radio'>
+            <input type={'radio'} name={'radio'} value={'نزولی'} checked={true}/>
+            <lable>نزولی</lable>
+          </div>
+          <div className='wrapper-radio'>
+            <input type={'radio'} name={'radio'} value={'صعودی'}/>
+            <lable>صعودی</lable>
+          </div>
+        </div>
     </div>
   )
 }

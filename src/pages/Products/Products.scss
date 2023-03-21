@@ -5,11 +5,19 @@
 
 
 .containet-main-product{
-    display: flex;
+    @include setdisplayflex(flex,column,center,center,$p_1);
 
-    & main{
+    .wrraper-main-product{
         display: flex;
-        flex-wrap: wrap;
-        padding: $p_2 $p_1;
+        width: 100%;
+        & main{
+            @include setdisplayflex(flex,0,center,space-around,$p_1);
+            flex-wrap: wrap;
+            padding: $p_2 $p_1 ;
+        }
+    }
+
+    .wrapper-pagination{
+        width: $p_3;
     }
 }

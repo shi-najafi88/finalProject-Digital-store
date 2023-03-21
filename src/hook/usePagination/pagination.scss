@@ -4,6 +4,7 @@
 button{
     @include setInput($bg_color,$dark,none,none,3px,.4rem .7rem,95%); 
     filter: brightness(1); 
+    cursor: pointer;
 
     &:hover{
         filter: brightness(0.9);

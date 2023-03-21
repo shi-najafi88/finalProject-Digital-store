@@ -8,13 +8,13 @@
     @include setdisplayflex(flex,0,center,0,0);
     @include font(estedad,100,.9rem);
     position: relative;
-    margin: $p_5 $p_1;
+    margin: $p_6 $p_1 $p_1 $p_1;
     cursor: pointer;
     transition: all ease-in-out .3s!important;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
 
     &:hover {
-        transform: translateY(-10px) scale(1.07)
+        transform: translateY(-8px) scale(1.03)
     }
     
     & img{

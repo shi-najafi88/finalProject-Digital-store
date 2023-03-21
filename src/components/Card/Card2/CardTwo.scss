@@ -4,7 +4,7 @@
 
 
 .container-cardTwo{
-    @include setInput($bg_color,$dark,0,none,10px,0,22vw);
+    @include setInput($bg_color,$dark,0,none,10px,0,21vw);
     @include setdisplayflex(flex,column,center,0,0);
     @include font(estedad,100,.9rem);
     position: relative;
@@ -19,22 +19,22 @@
 
     .wrapper-img-cardTwo{
         @include setdisplayflex(flex,0,center,center,0);
-        @include setInput($light,0,0,none,5px,0,$p_13);
-        height: $p_10;
+        @include setInput($light,0,0,none,5px,0,$p_11);
+        height: $p_9;
         position: absolute;
         top:-$p_2;
-        right: 2.8rem;
+        right: 3.7rem;
         box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
     }
 
     & img{
-        @include size($p_9,$p_7);
+        @include size($p_8,$p_6);
         overflow: hidden;
         text-align: center;    
     }
 
     .wraper-info-cardTwo{
-        margin-top:$p_9 ;
+        margin-top:$p_8 ;
         @include setdisplayflex(flex,column,center,center,90%);
 
         .title{
@@ -48,7 +48,7 @@
         }
 
         .price{
-            @include setInput( $orange,$bg_color,0,none,5px,$p_smal,$p_8);
+            @include setInput( $orange,$bg_color,0,none,5px,.4rem,$p_13);
             box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
         }
     }
