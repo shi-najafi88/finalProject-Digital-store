@@ -16,12 +16,20 @@ export const Products = () => {
   const { currentPage, rowsPerPage, setTotalPages, renderPaginationButtons } = usePagination(1,6);
   const params = useParams()
   let name = params.categoryname
+  console.log(state.radioFilterSidebar_value);
 
   const getByCategory = (name) =>{
-    axios.get(`http://localhost:3002/products?categoryname=${name}&_page=${currentPage}&_limit=${rowsPerPage}`)
-    .then(res => dispatch(DATATABEL(res.data)))
+     axios.get(`http://localhost:3002/products?categoryname=${name}&_page=${currentPage}&_limit=${rowsPerPage}`)
+     .then(res => dispatch(DATATABEL(res.data)))
+
+     //for filtring 
+     if(state.radioFilterSidebar_value === 'صعودی'){
+      axios.get(`http://localhost:3002/products?categoryname=${name}&_sort=createdAt&_order=desc&&_page=${currentPage}&_limit=${rowsPerPage}`)
+      .then(res => dispatch(DATATABEL(res.data)))
+    }
   }
 
+  //for pagination
   const dataPagination = (rowsPerPage) => {
     axios.get(`http://localhost:3002/products?categoryname=${name}`)
     .then(res=> setTotalPages(Math.ceil(res.data.length/rowsPerPage)))
@@ -31,7 +39,7 @@ export const Products = () => {
     dispatch(CURRENTPAGE(currentPage))
     getByCategory(name)
     dataPagination(rowsPerPage)
-  },[currentPage,name])
+  },[currentPage,name,state.radioFilterSidebar_value])
 
   return (
     <div>

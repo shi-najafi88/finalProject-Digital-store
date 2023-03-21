@@ -64,6 +64,10 @@
         & lable{
             color: $bg-gray
         }
+
+        & input{
+            @include size(1.6rem,1.1rem);
+        }
     }
 
     //when click on sidebar get active style

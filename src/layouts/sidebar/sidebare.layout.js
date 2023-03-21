@@ -1,13 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import{ ImMobile } from 'react-icons/im'
 import './sidebar.scss'
 import { AiOutlineLaptop } from 'react-icons/ai'
 import { FaTabletAlt } from 'react-icons/fa'
 import { BsHeadset } from 'react-icons/bs'
+import { useDispatch } from 'react-redux'
+import { RADIOFILTERSIDEBAR } from '../../redux/slices'
 
 
 export const Sidebar = ({name}) => {
+
+  const dispatch = useDispatch()
+
+  const inputhandel = (e)=> {
+    dispatch(RADIOFILTERSIDEBAR(e.target.value))
+  }
   
   return (
 
@@ -36,11 +44,11 @@ export const Sidebar = ({name}) => {
         <h5>مرتب سازی بر اساس زمان  انتشار</h5>
         <div className='container-radio'>
           <div className='wrapper-radio'>
-            <input type={'radio'} name={'radio'} value={'نزولی'} checked={true}/>
+            <input onClick={inputhandel} type={'radio'} name={'radio'} value={'نزولی'} checked={true}/>
             <lable>نزولی</lable>
           </div>
           <div className='wrapper-radio'>
-            <input type={'radio'} name={'radio'} value={'صعودی'}/>
+            <input onMouseDown={inputhandel} type={'radio'} name={'radio'} value={'صعودی'}/>
             <lable>صعودی</lable>
           </div>
         </div>
