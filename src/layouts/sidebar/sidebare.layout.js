@@ -41,7 +41,7 @@ export const Sidebar = ({name}) => {
             <Link className='link' to={`/products/${'هدفون'}`}>هدفون</Link>    
         </div>
 
-        <h5>مرتب سازی بر اساس زمان  انتشار</h5>
+        <h5>مرتب سازی بر اساس زمان انتشار</h5>
         <div className='container-radio'>
           <div className='wrapper-radio'>
             <input onClick={inputhandel} type={'radio'} name={'radio'} value={'نزولی'} checked={true}/>

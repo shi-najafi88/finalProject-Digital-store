@@ -1,5 +1,6 @@
 import React from 'react'
 import {TiStarHalfOutline , TiStarFullOutline ,TiStarOutline } from 'react-icons/ti'
+import { Link } from 'react-router-dom'
 import './CardTwo.scss'
 
 
@@ -8,6 +9,8 @@ export const CardTwo = ({item}) => {
   return (
     <div className='container-cardTwo'>
         <figure className='figure'>
+
+        <Link className='detail' to="/products/productDetail">مشاهده جزئیات</Link>
         <div className='wrapper-img-cardTwo'>
             <img src={`http://localhost:3002/files/${item.thumbnail}`}/>
         </div>

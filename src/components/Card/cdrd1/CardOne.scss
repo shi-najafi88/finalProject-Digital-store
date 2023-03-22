@@ -13,8 +13,26 @@
     transition: all ease-in-out .3s!important;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
 
+    .detail{
+        position: absolute;
+        display: block;
+        top: -1rem;
+        right: 5rem;
+        text-decoration: none;
+        color: $bg_color;
+        font-size: 1.3rem;
+    }
     &:hover {
-        transform: translateY(-8px) scale(1.03)
+        transform: translateY(-8px) scale(1.03);
+
+        .detail{ 
+            position: absolute;
+            top: 5rem;
+            right: 5rem;
+            display: block;
+            z-index: 9999;
+            transition: all ease-in-out .4s!important;  
+        }
     }
     
     & img{
@@ -48,17 +66,17 @@
     }   
 }
 
-.figure {
-       
+.figure {   
+
     &:hover:after {
       @include setdisplayflex(flex,column,center,center,0);
       @include setInput(rgba(0, 0, 0, 0.3),$bg_color,0,none,10px,0,100%);   
-      content: "مشاهده جزئیات";
+      content: " ";
       font-size: 1.3rem;
       height: 100%;
       position: absolute;
       left: 0;
       top: 0;  
-      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    }
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; 
+    }  
 }

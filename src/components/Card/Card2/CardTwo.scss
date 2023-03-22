@@ -13,8 +13,27 @@
     transition: all ease-in-out .3s!important;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
 
+    .detail{
+        position: absolute;
+        display: block;
+        top: -1rem;
+        right: 5rem;
+        text-decoration: none;
+        color: $bg_color;
+        font-size: 1.3rem;
+    }
+
     &:hover {
-        transform: translateY(-10px) scale(1.07)
+        transform: translateY(-10px) scale(1.07);
+
+        .detail{ 
+            position: absolute;
+            top: 7rem;
+            right: 5rem;
+            display: block;
+            z-index: 9999;
+            transition: all ease-in-out .4s!important;  
+        }
     }
 
     .wrapper-img-cardTwo{
