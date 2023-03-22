@@ -10,13 +10,11 @@
 }
 
 .wrapper_formLogin_image{
-    width: 70%;
-    height: 60%;
+    @include size(70% , 60%);
     border-radius: 5px;
     @include setdisplayflex(flex,0,center,center,0);
     & img{
-        width: 65%;
-        height: 100%;
+        @include size(65% , 100%);
     }
 
     & form{
@@ -51,5 +49,5 @@
 
 .inputLogin{
     @include setInput($light_gray,$gray,none,none,3px,.4rem .5rem,65%);
-    margin-bottom: 1rem;
+    margin-bottom: $p_1;
 }
