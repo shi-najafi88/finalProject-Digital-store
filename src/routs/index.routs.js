@@ -11,7 +11,7 @@ import { Basket, Dashbord, Faild, Home, Inventory, Login, Orders, Payment, Produ
         <Route path="/basket" element={<Basket />} />
         <Route path="/loginDashbord" element={<Login />} />
         <Route path="/products/:categoryname" element={<Products />} />
-        <Route path="/products/productDetail" element={<ProductDetail />} />
+        <Route path="/products/productDetail/:id" element={<ProductDetail />} />
         <Route path="/basket/register" element={<Register />} />
         <Route path="/basket/register/payment" element={<Payment />} />
         <Route path="/basket/register/payment/successPayment" element={<Success />} />

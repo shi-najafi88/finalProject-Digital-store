@@ -16,7 +16,6 @@ export const Products = () => {
   const { currentPage, rowsPerPage, setTotalPages, renderPaginationButtons } = usePagination(1,6);
   const params = useParams()
   let name = params.categoryname
-  console.log(state.radioFilterSidebar_value);
 
   const getByCategory = (name) =>{
      axios.get(`http://localhost:3002/products?categoryname=${name}&_page=${currentPage}&_limit=${rowsPerPage}`)
@@ -61,8 +60,6 @@ export const Products = () => {
         <div className='wrapper-pagination'>{renderPaginationButtons()}</div>
       </section>
       <Footer/>
-
-      {/* <Link className='link' to="/products/productDetail">محصول</Link> */}
     </div>
   )
 }

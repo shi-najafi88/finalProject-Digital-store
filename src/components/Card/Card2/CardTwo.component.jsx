@@ -10,7 +10,7 @@ export const CardTwo = ({item}) => {
     <div className='container-cardTwo'>
         <figure className='figure'>
 
-        <Link className='detail' to="/products/productDetail">مشاهده جزئیات</Link>
+        <Link className='detail' to={`/products/productDetail/${item.id}`}>مشاهده جزئیات</Link>
         <div className='wrapper-img-cardTwo'>
             <img src={`http://localhost:3002/files/${item.thumbnail}`}/>
         </div>

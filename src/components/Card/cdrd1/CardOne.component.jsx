@@ -13,7 +13,7 @@ export const CardOne = ({item}) => {
  
       <figure className='figure' onClick={showDetail_handler}>
 
-      <Link className='detail' to="/products/productDetail">مشاهده جزئیات</Link>
+      <Link className='detail' to={`/products/productDetail/${item.id}`}>مشاهده جزئیات</Link>
 
         <img src={`http://localhost:3002/files/${item.thumbnail}`}/>
        
