@@ -4,7 +4,6 @@
 
 .wrapperBox{
     @include setdisplayflex(flex,0,0,center,$p_3); 
+    @include size(100% , fit-content); 
     padding: $p_2; 
-    width: 100%;
-    height: fit-content;
 }

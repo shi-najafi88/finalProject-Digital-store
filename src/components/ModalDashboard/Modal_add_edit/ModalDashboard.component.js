@@ -26,14 +26,14 @@ export const ModalDashboard = () => {
 
 
     // reset hookform for get data & insert in form
-    const get = async() =>{
-        const res= await axios.get(`http://localhost:3002/products/${state.productId}`)
+    // const get = async() =>{
+    //     const res= await axios.get(`http://localhost:3002/products/${state.productId}`)
       
-        if(state.productId !== 0){  
-            reset(res.data)
-        }
-        return res.data[0]
-    }
+    //     if(state.productId !== 0){  
+    //         reset(res.data)
+    //     }
+    //     return res.data[0]
+    // }
    
     //edit product
     const EditBtn_modal = async(data) => {  
@@ -89,9 +89,9 @@ export const ModalDashboard = () => {
     }
 
     //call reset    
-    useEffect(()=>{
-        get()   
-    },[])
+    // useEffect(()=>{
+    //     get()   
+    // },[])
     
 
     //close modal

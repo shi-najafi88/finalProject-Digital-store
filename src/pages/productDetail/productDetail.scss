@@ -33,6 +33,10 @@
 
                 & img{
                     @include size(70% , 35vh);
+                    transition: transform 0.3s;
+                }
+                & img:hover{
+                    transform: scale(1.5);
                 }
             }
 

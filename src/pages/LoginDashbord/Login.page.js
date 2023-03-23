@@ -1,11 +1,41 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Button, IconPass, Input } from '../../components'
 import './Login.scss'
 import login_img from '../../asets/images/admin.jpg'
+import { useAuthLoginForm } from '../../hook'
+import Cookies from "js-cookie";
+import axios from 'axios'
 
 
 export const Login = () => {
+  //hook for validation
+  const { register , handleSubmit , errors} = useAuthLoginForm()
+  const navigate = useNavigate()
+  const { pathname } = useLocation()
+
+  const handleLoginUser = async(data) =>{
+    
+    try {
+          await axios.post('http://localhost:3002/auth/login',data)
+          .then(res => {
+          Cookies.set('token', res.data.accessToken);
+          localStorage.setItem('token', res.data.accessToken)
+          localStorage.setItem('refresh_token', res.data.refreshToken)
+          navigate('/loginDashbord/dashbordOrders');
+          })
+        } catch (err) {
+            console.log(err)
+          }
+  }
+
+  useEffect(() => {
+    handleLoginUser()
+    if (pathname === '/loginDashbord' && Cookies.get('token')) {
+        navigate('/loginDashbord/dashbordOrders')
+    }
+  }, [pathname]);
+
 
   return (
     <div className='container-login'>
@@ -13,10 +43,17 @@ export const Login = () => {
        
         <div className='wrapper_form'>
         <h2>خوش آمدید</h2>
-          <form>
-            <input className='inputLogin' placeholder={'نام کاربری'} type={'text'}/>
-            <IconPass type={"password"}placeholder={" کلمه عبور"} />
-            <Link className='link' to="/loginDashbord/dashbordOrders"><Button title={'ورود'} stateBtn={'dashbord_formBtn'} type={"submit"} ></Button></Link>
+
+          <form onSubmit={handleSubmit(handleLoginUser)}>
+            <input className='inputLogin' {...register("username")} 
+            placeholder={'نام کاربری'} type={'text'}/>
+            <p className="error">{errors.username?.message}</p>
+
+            <IconPass type={"password"} placeholder={"کلمه عبور"} 
+             validation={{...register('password')}} />
+            <p className="error">{errors.password?.message}</p>
+            
+            <Button title={'ورود'} stateBtn={'dashbord_formBtn'} type={"submit"} />
             <Link className='back' to="/">بازگشت به سایت</Link>
           </form>
         </div>

@@ -17,7 +17,7 @@ export const Orders = () => {
 
   const getData = (currentPage, rowsPerPage,deliver)=> {
    
-    axios.get(`http://localhost:3002/orders?delivered=${!deliver}&_page=${currentPage}&_limit=${rowsPerPage}`)
+    axios.get(`http://localhost:3002/orders?delivered=${!deliver}&_sort=createdAt&_order=desc&&_page=${currentPage}&_limit=${rowsPerPage}`)
     .then(res => dispatch(DATAORDER(res.data)) )  
   }
 
