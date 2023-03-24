@@ -3,7 +3,7 @@
 @import '../../asets/scss/mixin';
 
 .container-footer{
-    @include setInput(#3a3737, $bg_color,none,none,0,$p_1 $p_2,100vw);
+    @include setInput($dark-gray, $bg_color,none,none,0,$p_1 $p_2,100vw);
     @include setdisplayflex(flex,0,0,0,$p_4);
     @include font(estedad,100,.9rem);
 }

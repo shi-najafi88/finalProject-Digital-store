@@ -11,11 +11,11 @@ const initialState ={
     ordersData:[],
     productId:0,
     allProduct:[],
-    saveProductInfo:[],
+    // saveProductInfo:[],
     getPage:1,
-    priceChange:0,
+    priceChange:[],
     priceChangeMood:false,
-    quantityChange:0,
+    quantityChange:[],
     quantityChangeMood:false,
     mobaileCategoryData:[],
     laptopCategoryData:[],
@@ -46,8 +46,7 @@ const ShoppingSlice = createSlice({
         },
 
         YES_DELETmodal:(state,action) => {
-            state.modalDelet = false
-            
+            state.modalDelet = false 
             action.payload = action.payload.filter(
                 (item) => item.id !== state.productId
             ); 
@@ -88,13 +87,9 @@ const ShoppingSlice = createSlice({
             state.allProduct = action.payload
         },
 
-        EDITBTNMODAL:(state,action)=> { 
-            const FindeIndex = state.allProduct.findIndex(item => item.id === state.productId);
-            state.allProduct.splice(FindeIndex, 1, action.payload);
-        },
-
-        // ADDPRODUCT:(state,action)=> {
-        //      state.saveProductInfo = action.payload
+        // EDITBTNMODAL:(state,action)=> { 
+        //     const FindeIndex = state.allProduct.findIndex(item => item.id === state.productId);
+        //     state.allProduct.splice(FindeIndex, 1, action.payload);
         // },
 
         CURRENTPAGE:(state,action)=> {
@@ -110,13 +105,17 @@ const ShoppingSlice = createSlice({
         },
 
         PRICECHANGE:(state,action) => {
-            state.priceChange = action.payload
+            const editList = [...state.priceChange]
+            const filterList = editList.filter(item => item.id !== action.payload.id)
+            state.priceChange = [...filterList, action.payload]
             state.priceChangeMood = true
             state.quantityChangeMood = false
         },
 
         QUANTITYCHANGE:(state,action) => {
-            state.quantityChange = action.payload
+            const editList = [...state.quantityChange]
+            const filterList = editList.filter(item => item.id !== action.payload.id)
+            state.quantityChange = [...filterList, action.payload]
             state.quantityChangeMood = true
             state.priceChangeMood = false
         },

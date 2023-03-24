@@ -19,7 +19,6 @@ export const Login = () => {
     try {
           await axios.post('http://localhost:3002/auth/login',data)
           .then(res => {
-          Cookies.set('token', res.data.accessToken);
           localStorage.setItem('token', res.data.accessToken)
           localStorage.setItem('refresh_token', res.data.refreshToken)
           navigate('/loginDashbord/dashbordOrders');
@@ -31,7 +30,7 @@ export const Login = () => {
 
   useEffect(() => {
     handleLoginUser()
-    if (pathname === '/loginDashbord' && Cookies.get('token')) {
+    if (pathname === '/loginDashbord' && localStorage.getItem('token')) {
         navigate('/loginDashbord/dashbordOrders')
     }
   }, [pathname]);

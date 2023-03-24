@@ -1,10 +1,6 @@
 import React from 'react'
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/free-mode";
-import "swiper/css/pagination";
+import Marquee from "react-fast-marquee";
 import './SliderShow2.scss'
-import { FreeMode, Pagination } from "swiper";
 
 import img1 from '../../../asets/images/sliderShow/two-1.jpg'
 import img2 from '../../../asets/images/sliderShow/two-2.jpg'
@@ -14,24 +10,13 @@ import img5 from '../../../asets/images/sliderShow/two-5.jpg'
 
 export const SliderShowTwo = () => {
   return (
-    <>
-      <Swiper
-        slidesPerView={3}
-        spaceBetween={25}
-        freeMode={true}
-        pagination={{
-          clickable: true,
-        }}
-        modules={[FreeMode]}
-        className="mySwiper"
-      >
-        <SwiperSlide><img className='sliderTwo-img' src={img1} /></SwiperSlide>
-        <SwiperSlide><img className='sliderTwo-img' src={img2} /></SwiperSlide>
-        <SwiperSlide><img className='sliderTwo-img' src={img3} /></SwiperSlide>
-        <SwiperSlide><img className='sliderTwo-img' src={img4} /></SwiperSlide>
-        <SwiperSlide><img className='sliderTwo-img' src={img5} /></SwiperSlide>
-      </Swiper>
-    </>
+    <Marquee speed={50}>
+      <img className='sliderTwo-img' src={img1} />
+      <img className='sliderTwo-img' src={img2} />
+      <img className='sliderTwo-img' src={img3} />
+      <img className='sliderTwo-img' src={img4} />
+      <img className='sliderTwo-img' src={img5} />  
+    </Marquee>
   );
 }
 

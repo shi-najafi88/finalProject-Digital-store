@@ -24,7 +24,6 @@ export const Inventory = () => {
      axios.get('http://localhost:3002/products').then(res=> setTotalPages(Math.ceil(res.data.length/rowsPerPage)) )  
   }
 
-  
   //show getdata for table
   useEffect(()=>{
     getData(currentPage,rowsPerPage)  
@@ -36,41 +35,32 @@ export const Inventory = () => {
   },[])
 
   //handel change edit price
-  const editBtnPrice_handler = () => {
-    
-    let data = state.priceChange
-    axios.patch(`http://localhost:3002/products/${state.productId}`,{
-      price:data
-    })  
+  const editBtnPrice_handler = (data,id) => {
+    axios.patch(`http://localhost:3002/products/${id}`,data)  
     .then()
-    getData(currentPage,rowsPerPage)
   }
 
    //handel change edit quantity
-  const quantitytBtn_handler = () => {
-    let data = state.quantityChange
-    axios.patch(`http://localhost:3002/products/${state.productId}`,{
-    quantity:data
-    })  
-    .then()
-    getData(currentPage,rowsPerPage)  
+  const quantitytBtn_handler = (data,id) => {
+    axios.patch(`http://localhost:3002/products/${id}`,data)  
+    .then() 
   }
 
-  //onclick on save btn
-  const editPrice_Quantity_handler =() => {
+  //onclick save btn
+  const editPrice_Quantity_handler = async() => {
+
     if(state.priceChangeMood){
-      editBtnPrice_handler()
-    }else if(state.quantityChange){
-      quantitytBtn_handler()
-    }
+      await Promise.all(state.priceChange.map(item => editBtnPrice_handler(item,item.id)))
+    } 
+    if(state.quantityChange){
+       await Promise.all(state.quantityChange.map(item => quantitytBtn_handler(item,item.id)))
+    }   
   }
 
   //handel disabled save btn
   useEffect(()=>{
     if(state.priceChangeMood || state.quantityChangeMood){
-
-      setDisableBtn(false)  
-       
+      setDisableBtn(false)     
     }
   },[state.priceChangeMood,state.quantityChangeMood])
 
@@ -92,7 +82,6 @@ return (
             <div className='wrapper-pagination'>{renderPaginationButtons()}</div> 
         </section>
       </div>   
-    </div>
-   
+    </div> 
   )
 }

@@ -24,12 +24,11 @@ export const ModalDashboard = () => {
         return res.data.filename
     }
 
-
     // reset hookform for get data & insert in form
-    const get = async() =>{
-        const res= await axios.get(`http://localhost:3002/products/${state.productId}`)
+    const get = async(id) =>{
+        const res= await axios.get(`http://localhost:3002/products/${id}`)
       
-        if(state.productId !== 0){  
+        if(id !== 0){  
             reset(res.data)
         }
         return res.data[0]
@@ -90,15 +89,13 @@ export const ModalDashboard = () => {
 
     //call reset    
     useEffect(()=>{
-        get()   
+        get(state.productId)   
     },[])
     
-
     //close modal
     const CloseModal_handler = ()=> {
         dispatch(CLOSE_MODAL())
     }
-
 
     return(
        
@@ -142,7 +139,6 @@ export const ModalDashboard = () => {
 
                     <ModalDetail type={'text'} title={'قیمت:'} 
                     error={errors.price?.message} validation={{...register('price')}} />
-
                 </div>
 
                 <div className='wrapper-quantity'>

@@ -6,6 +6,7 @@
     @include setInput($bg_color,$dark,0,none,10px,$p_1 $p_2,17vw);
     @include setdisplayflex(flex,column,center,center,0);
     @include font(estedad,100,.9rem);
+    box-shadow: rgba(221, 221, 221, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
 
     .wrapper-icon{
         @include setdisplayflex(flex,0,center,center,0);

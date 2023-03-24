@@ -6,6 +6,7 @@ import "./TrTableInventori.scss"
 
 export const TrTableInventori = ({item}) => {
 
+  const state = useSelector(state => state.shopp)
   const[priceMood,setPriceMood] = useState(false)
   const[quantityMood,setquantityMood] = useState(false)
 
@@ -23,28 +24,18 @@ export const TrTableInventori = ({item}) => {
     dispatch(QUANTITYPRODUCTID(id))
   }
 
-  const HandelBackSpanPrice = () => {
-    setPriceMood(false)
-  }
-
-  const HandelBackSpanQuantity = () => {
-    setquantityMood(false)
-  }
-
   //change price
-  const PriceChangeHandler = (e)=> {
-   
-    dispatch(PRICECHANGE(e.target.value))
-
+  const PriceChangeHandler = (e,item)=> {
+    const editedItem = {...item,price:e.target.value}
+    dispatch(PRICECHANGE(editedItem))
   }
 
   //change quantity
-  const QuantityChangeHandler = (e)=> {
-
-    dispatch(QUANTITYCHANGE(e.target.value))
+  const QuantityChangeHandler = (e,item)=> {
+    const editedItem = {...item,quantity:e.target.value}
+    dispatch(QUANTITYCHANGE(editedItem))
   }
     
-
   return (
     <tr>
        <td className='inventori_first_td'>{item.name}</td>
@@ -52,14 +43,16 @@ export const TrTableInventori = ({item}) => {
        <td className='inventori_td'>
         {!priceMood ? 
         <span onClick={()=>handlerPriceData(item.id)}>{(+item.price).toLocaleString("fa")}</span>:
-        <input onChange={PriceChangeHandler} onBlur={HandelBackSpanPrice} className='inputInventori' type={'text'} /> 
+        <input onChange={(e)=>PriceChangeHandler(e,item)} className='inputInventori' 
+        type={'text'} placeholder={(+item.price).toLocaleString("fa")}/> 
         } 
         </td>
 
        <td className='inventori_td'>
         {!quantityMood ? 
         <span onClick={()=>handlerQuantityData(item.id)}>{(+item.quantity).toLocaleString("fa")}</span>:
-        <input onChange={QuantityChangeHandler} onBlur={HandelBackSpanQuantity} className='inputInventori' type={'text'} /> 
+        <input onChange={(e)=>QuantityChangeHandler(e,item)} className='inputInventori' 
+        type={'text'} placeholder={(+item.quantity).toLocaleString("fa")} /> 
         } 
         </td> 
     </tr>
