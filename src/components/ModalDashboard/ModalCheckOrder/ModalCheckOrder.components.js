@@ -30,7 +30,6 @@ export const ModalCheckOrder = () => {
                 {/* map for show costomer data in modal check order */}
                 {state.costomerData.map(item => (
                 <>
-
                 <div className='wrapper-customerInfo'>
                     <span>نام مشتری :</span>
                     <p>{item.username +' '+ item.lastname}</p>

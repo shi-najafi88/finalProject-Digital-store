@@ -45,6 +45,10 @@
     color: $orange;
     margin-bottom: $p_3;
    }
+
+   & form{
+    @include setdisplayflex(flex,column,center,center,0);
+   }
 }
 
 .inputLogin{

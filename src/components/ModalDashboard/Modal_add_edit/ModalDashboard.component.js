@@ -26,14 +26,14 @@ export const ModalDashboard = () => {
 
 
     // reset hookform for get data & insert in form
-    // const get = async() =>{
-    //     const res= await axios.get(`http://localhost:3002/products/${state.productId}`)
+    const get = async() =>{
+        const res= await axios.get(`http://localhost:3002/products/${state.productId}`)
       
-    //     if(state.productId !== 0){  
-    //         reset(res.data)
-    //     }
-    //     return res.data[0]
-    // }
+        if(state.productId !== 0){  
+            reset(res.data)
+        }
+        return res.data[0]
+    }
    
     //edit product
     const EditBtn_modal = async(data) => {  
@@ -89,9 +89,9 @@ export const ModalDashboard = () => {
     }
 
     //call reset    
-    // useEffect(()=>{
-    //     get()   
-    // },[])
+    useEffect(()=>{
+        get()   
+    },[])
     
 
     //close modal
@@ -133,9 +133,9 @@ export const ModalDashboard = () => {
                         <select {...register("categoryname")}>
                             <option></option>
                             <option value={"لپتاپ"}>لپتاپ</option>
-                            <option value={"گوشی موبایل"}>گوشی موبایل</option>
-                            <option value={"تبلت"}>تبلت</option>
+                            <option value={"موبایل"}>موبایل</option>
                             <option value={"هدفون"}>هدفون</option>
+                            <option value={"تبلت"}>تبلت</option>    
                         </select>
                         <p className="error">{errors.categoryname?.message}</p>
                     </div>
@@ -146,7 +146,7 @@ export const ModalDashboard = () => {
                 </div>
 
                 <div className='wrapper-quantity'>
-                    <ModalDetail type={'number'} title={'تعداد :'} 
+                    <ModalDetail type={'number'} title={'تعداد :'} min={1}
                     error={errors.quantity?.message} validation={{...register('quantity')}} />
                 </div>
 

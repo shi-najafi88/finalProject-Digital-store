@@ -38,9 +38,9 @@ h2{
 .wrapper-firstCard{
     @include setdisplayflex(flex,0,0,center,0);
     flex-wrap: wrap;
-    padding-top:$p_2;
-    height: fit-content;
-    background-color:$bg-gray;
+    padding-top:$p_1;
+    margin-bottom: $p_3;
+    background-color:$bg-gray;   
 }
 
 .container-secondCard{

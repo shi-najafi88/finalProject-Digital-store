@@ -1,6 +1,5 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { GiTurtle } from 'react-icons/gi'
 import { useDispatch, useSelector } from 'react-redux'
 import { Table, TotalBox, Button } from '../../../components'
 import { DashboardHeader, DashboardSidebar } from '../../../dashboardLayouts'
@@ -29,12 +28,8 @@ export const Inventory = () => {
   //show getdata for table
   useEffect(()=>{
     getData(currentPage,rowsPerPage)  
-  },[dispatch])
+  },[dispatch,currentPage])
 
-  //show getdata for pagination
-  useEffect(()=>{
-    getData(currentPage,rowsPerPage) 
-  },[currentPage])
 
   useEffect(()=>{
     dataPagination(rowsPerPage)

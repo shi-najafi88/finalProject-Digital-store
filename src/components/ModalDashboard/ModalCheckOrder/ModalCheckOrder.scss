@@ -5,7 +5,12 @@
 .wrapper-modal-checkOrder{
     @include setdisplayflex(flex,column,center,0,$p_1);
     @include setInput($bg_color,0,none,none,10px,$p_2 $p_1 $p_2 $p_1,47%);
-   
+    @include font('estedad',100,.9rem)  
+}
+
+.headerModal{
+    @include setdisplayflex(flex,0,center,space-between,0);
+    width: 95%
 }
 
 .wrapper-customerInfo{

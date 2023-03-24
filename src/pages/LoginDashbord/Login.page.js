@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { Button, IconPass, Input } from '../../components'
+import { Button, IconPass } from '../../components'
 import './Login.scss'
 import login_img from '../../asets/images/admin.jpg'
 import { useAuthLoginForm } from '../../hook'
