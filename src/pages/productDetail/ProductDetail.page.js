@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom'
 import { Footer, Header } from '../../layouts'
 import './productDetail.scss'
 import { useEffect } from 'react'
-import { DATATABEL } from '../../redux/slices'
+import { CARTPRODUCT_INFO, DATATABEL } from '../../redux/slices'
 import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 import { Button } from '../../components'
@@ -56,6 +56,14 @@ export const ProductDetail = () => {
     setImgTwo(false)
     setImgThree(false)
   }
+
+  //add to cart btn
+  const addToCart_handler = (item) =>{
+    dispatch(CARTPRODUCT_INFO(item))
+    
+  }
+  console.log(state.cartProductArray);
+
  
   return (
     <div>
@@ -113,7 +121,7 @@ export const ProductDetail = () => {
 
             <p>{item.description}</p>
             <input type="number" name="productCounter" className="productCounter" min={1} defaultValue={1}/>
-            <Link className='link' to="/basket"><Button title={'افزودن به سبد خرید'} stateBtn={'basket'} /></Link> 
+            <Button clicked={()=>addToCart_handler(item)} title={'افزودن به سبد خرید'} stateBtn={'basket'} /> 
           </div>
           </>
           ))}

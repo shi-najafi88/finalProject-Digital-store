@@ -21,7 +21,8 @@ const initialState ={
     laptopCategoryData:[],
     tabletCategoryData:[],
     headsetCategoryData:[],
-    radioFilterSidebar_value:''
+    radioFilterSidebar_value:'',
+    cartProductArray:[]
 }
 const ShoppingSlice = createSlice({
     name:'shopping/redux',
@@ -140,6 +141,10 @@ const ShoppingSlice = createSlice({
             state.radioFilterSidebar_value = action.payload
         },
 
+        CARTPRODUCT_INFO:(state,action) => {
+            state.cartProductArray = [...state.cartProductArray , action.payload]
+        },
+
     }
 })
 export const { OPEN_EDITMODAL, OPEN_DeletMODAL, NO_DELETmodal, YES_DELETmodal,
@@ -147,5 +152,5 @@ export const { OPEN_EDITMODAL, OPEN_DeletMODAL, NO_DELETmodal, YES_DELETmodal,
                DATAORDER, COSTOMERDATA, DATAORDERS, OPEN_AddMODAL, ALLPRODUCT,
                EDITBTNMODAL, ADDPRODUCT,  CURRENTPAGE, PRICEPRODUCTID, QUANTITYPRODUCTID,
                PRICECHANGE, QUANTITYCHANGE, MOBILECATEGORY, LAPTOPCATEGORY, TABLETCATEGORY,
-               HEADSETCATEGORY, RADIOFILTERSIDEBAR } = ShoppingSlice.actions
+               HEADSETCATEGORY, RADIOFILTERSIDEBAR,CARTPRODUCT_INFO } = ShoppingSlice.actions
 export default ShoppingSlice.reducer

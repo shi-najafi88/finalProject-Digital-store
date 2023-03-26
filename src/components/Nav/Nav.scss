@@ -9,7 +9,7 @@
     .link{
         text-decoration: none;
         color: $gray;
-        padding: $p_smal .7rem;
+        padding: 0 .7rem;
         @include setdisplayflex(flex,0,center,0,$p_smal);
 
         &:hover{
@@ -19,4 +19,14 @@
             color: $orange;          
         }
     }
+
+    .wrapper-batch{
+         @include setdisplayflex(flex,column,center,center,0); 
+        margin-bottom: .9rem;
+
+        .batchCart{
+            height: 1.1rem;
+            color: $orange;
+        }
+    }    
 }
