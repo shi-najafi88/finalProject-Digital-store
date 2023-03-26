@@ -11,6 +11,7 @@ export const Button = ({title,stateBtn,clicked,type}) => {
    stateBtn === 'addProduct' ? <button onClick={clicked} className='addProduct'>{title}</button> :
    stateBtn === 'deletModal_yes' ? <button onClick={clicked} className='deletModal_yes'>{title}</button> :
    stateBtn === 'deletModal_no' ? <button onClick={clicked} className='deletModal_no'>{title}</button> :
+   stateBtn === 'basket' ? <button onClick={clicked} className='cart-btn'>{title}</button> :
    <button>{title}</button>}
     </>
   )

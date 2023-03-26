@@ -83,18 +83,6 @@
                     cursor: pointer;
                 }
             }
-
-            .addToCart-btn{
-                @include setInput($green,$bg_color,none,0,5px,$p_smal $p_1,$p_9);
-                margin: $p_2 0;
-                font-size: .9rem;
-                filter: brightness(1);
-                
-                &:hover{
-                    cursor: pointer;
-                    filter: brightness(.9);
-                }
-            }
         }
     }
 }

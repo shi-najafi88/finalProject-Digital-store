@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { Footer, Header } from '../../layouts'
 import './productDetail.scss'
 import { useEffect } from 'react'
 import { DATATABEL } from '../../redux/slices'
 import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
+import { Button } from '../../components'
 
 
 export const ProductDetail = () => {
@@ -112,7 +113,7 @@ export const ProductDetail = () => {
 
             <p>{item.description}</p>
             <input type="number" name="productCounter" className="productCounter" min={1} defaultValue={1}/>
-            <div className='addToCart-btn'>افزودن به سبد خرید</div>  
+            <Link className='link' to="/basket"><Button title={'افزودن به سبد خرید'} stateBtn={'basket'} /></Link> 
           </div>
           </>
           ))}

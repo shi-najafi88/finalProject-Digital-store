@@ -62,3 +62,15 @@
   @include setInput($blue,$light,0,none,5px,$p_smal $p_one-med,$p_7);
   cursor: pointer;
 }
+
+.cart-btn{
+  @include setInput($green,$bg_color,none,0,5px,$p_smal $p_1,$p_9);
+  @include font('estedad',100,.8rem);
+  margin: $p_2 0;
+  filter: brightness(1);
+  
+  &:hover{
+      cursor: pointer;
+      filter: brightness(.9);
+  }
+}
