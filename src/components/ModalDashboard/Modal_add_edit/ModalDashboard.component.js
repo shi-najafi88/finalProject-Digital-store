@@ -4,7 +4,7 @@ import { AiOutlineClose } from 'react-icons/ai'
 import { Button, ModalDetail } from '../../index'
 import { CkEditors } from '../../CkEditor/CkEditor'
 import { useDispatch, useSelector } from 'react-redux'
-import {  CLOSE_MODAL, DATATABEL } from '../../../redux/slices'
+import {  CLOSE_MODAL, DATATABEL, REMOVEID } from '../../../redux/slices'
 import { useAuthModalForm } from '../../../hook'
 import { toast, ToastContainer} from 'react-toastify'
 import axios from 'axios'
@@ -41,9 +41,11 @@ export const ModalDashboard = () => {
         .then(()=>{toast.success('Edit is successfule')
 
         //for rerender page after edit
-         axios.get(`http://localhost:3002/products?_page=${state.getPage}&_limit=${5}`)
+        axios.get(`http://localhost:3002/products?_page=${state.getPage}&_limit=${5}`)
         .then(res => dispatch(DATATABEL(res.data)))
-    })   
+    }) 
+    //clear data on add modal
+    dispatch(REMOVEID(0))  
     }
    
     

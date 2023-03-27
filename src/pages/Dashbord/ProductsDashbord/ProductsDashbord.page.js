@@ -63,8 +63,7 @@ export const ProductsDashbord = () => {
  
   //click add product open modal
   const OpenModal_handler = ()=> {
-    dispatch(OPEN_AddMODAL())
-    
+    dispatch(OPEN_AddMODAL())  
   }
 
   const FilterHandler = (e) => {

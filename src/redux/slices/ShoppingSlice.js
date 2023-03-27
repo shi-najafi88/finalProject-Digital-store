@@ -22,7 +22,7 @@ const initialState ={
     tabletCategoryData:[],
     headsetCategoryData:[],
     radioFilterSidebar_value:'',
-    cartProductArray:[]
+    // cartProductArray:[]
 }
 const ShoppingSlice = createSlice({
     name:'shopping/redux',
@@ -30,6 +30,10 @@ const ShoppingSlice = createSlice({
     reducers:{
         OPEN_EDITMODAL:(state,action) => {
             state. modalEdit = true
+            state.productId = action.payload
+        },
+
+        REMOVEID:(state,action) => { 
             state.productId = action.payload
         },
 
@@ -141,9 +145,9 @@ const ShoppingSlice = createSlice({
             state.radioFilterSidebar_value = action.payload
         },
 
-        CARTPRODUCT_INFO:(state,action) => {
-            state.cartProductArray = [...state.cartProductArray , action.payload]
-        },
+        // CARTPRODUCT_INFO:(state,action) => {
+        //     state.cartProductArray = [...state.cartProductArray , action.payload]
+        // },
 
     }
 })
@@ -152,5 +156,6 @@ export const { OPEN_EDITMODAL, OPEN_DeletMODAL, NO_DELETmodal, YES_DELETmodal,
                DATAORDER, COSTOMERDATA, DATAORDERS, OPEN_AddMODAL, ALLPRODUCT,
                EDITBTNMODAL, ADDPRODUCT,  CURRENTPAGE, PRICEPRODUCTID, QUANTITYPRODUCTID,
                PRICECHANGE, QUANTITYCHANGE, MOBILECATEGORY, LAPTOPCATEGORY, TABLETCATEGORY,
-               HEADSETCATEGORY, RADIOFILTERSIDEBAR,CARTPRODUCT_INFO } = ShoppingSlice.actions
+               HEADSETCATEGORY, RADIOFILTERSIDEBAR,CARTPRODUCT_INFO,
+               REMOVEID } = ShoppingSlice.actions
 export default ShoppingSlice.reducer

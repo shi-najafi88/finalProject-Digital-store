@@ -17,7 +17,7 @@ export const Nav = () => {
       <Link className='link' to="/"><RiHomeGearFill style={{fontSize:'1.2rem'}}/>خانه</Link>
       <Link className='link' exact to="/basket">
         <div className='wrapper-batch'>
-          <span className='batchCart'>{state.cartProductArray.length}</span>
+          <span className='batchCart'>1</span>
           <MdShoppingCart style={{fontSize:'1.2rem'}}/>
         </div> سبد خرید</Link>
     </nav>

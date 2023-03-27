@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { DATATABEL, PRICECHANGE, PRICEPRODUCTID, QUANTITYCHANGE, QUANTITYPRODUCTID } from '../../../../redux/slices'
 import "./TrTableInventori.scss"
@@ -35,7 +35,7 @@ export const TrTableInventori = ({item}) => {
     const editedItem = {...item,quantity:e.target.value}
     dispatch(QUANTITYCHANGE(editedItem))
   }
-    
+
   return (
     <tr>
        <td className='inventori_first_td'>{item.name}</td>

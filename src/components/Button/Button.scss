@@ -64,7 +64,7 @@
 }
 
 .cart-btn{
-  @include setInput($green,$bg_color,none,0,5px,$p_smal $p_1,$p_9);
+  @include setInput($green,$bg_color,none,0,5px,$p_smal $p_1,$p_10);
   @include font('estedad',100,.8rem);
   margin: $p_2 0;
   filter: brightness(1);

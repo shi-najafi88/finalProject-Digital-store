@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { TrTabelModalOrderCheck, TrTableInventori, TrTableOrder, TrTableProduct } from "../../index";
+import { TrTabelModalOrderCheck, TrTableCart, TrTableInventori, TrTableOrder, TrTableProduct } from "../../index";
 import "./Table.scss";
 
 export const Table = ({
@@ -9,15 +9,19 @@ export const Table = ({
   titleTwo,
   titleThree,
   titleFour,
+  titleFive,
   onFilterHandler
 }) => {
 
   const state = useSelector(state => state.shopp);
-  
+
  // onchange select 
   const selectChange_handler = (event) => {
     onFilterHandler(event.target.value)
   }
+
+  //get data in local storage & on map for show to cart page
+  let cartArray = JSON.parse(localStorage.getItem('cartProduct'))
 
 
   return (
@@ -98,6 +102,26 @@ export const Table = ({
           { state.costomerData.map(item => (
             <TrTabelModalOrderCheck item={item.products} />
             ))}
+
+          </tbody>
+        </table>
+      ): tableStatus === "tableCart" ? (
+        <table className="table tableCart">
+          <thead>
+            <tr>
+              <th>{titleOne}</th>
+              <th>{titleTwo}</th>
+              <th>{titleThree}</th>
+              <th>{titleFour}</th>
+              <th>{titleFive}</th>
+            </tr>
+          </thead>
+          <tbody>
+         
+            { cartArray? cartArray.map(item => (
+                <TrTableCart item={item} />
+              )) :'' 
+            }
 
           </tbody>
         </table>

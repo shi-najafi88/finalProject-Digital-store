@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { Footer, Header } from '../../layouts'
 import './productDetail.scss'
 import { useEffect } from 'react'
-import { CARTPRODUCT_INFO, DATATABEL } from '../../redux/slices'
+import { DATATABEL } from '../../redux/slices'
 import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 import { Button } from '../../components'
@@ -57,13 +57,29 @@ export const ProductDetail = () => {
     setImgThree(false)
   }
 
+  //count product
+  let count = 1
+  const count_value = (e) => {
+    count = e.target.value
+  }
+
   //add to cart btn
   const addToCart_handler = (item) =>{
-    dispatch(CARTPRODUCT_INFO(item))
-    
-  }
-  console.log(state.cartProductArray);
+    //set array cart to localstorage
+    const oldInfo = JSON.parse(localStorage.getItem('cartProduct') || '[]');
 
+    let obj = {
+      thumbnail: item.thumbnail,
+      name: item.name,
+      price:item.price,
+      count:+count,
+      quantity:item.quantity
+    }
+    oldInfo.push(obj)
+    localStorage.setItem('cartProduct', JSON.stringify(oldInfo)); 
+    console.log(oldInfo); 
+  }
+ 
  
   return (
     <div>
@@ -120,7 +136,7 @@ export const ProductDetail = () => {
             <h3>{(+item.price).toLocaleString("fa")} تومان</h3>
 
             <p>{item.description}</p>
-            <input type="number" name="productCounter" className="productCounter" min={1} defaultValue={1}/>
+            <input onChange={count_value} type="number" name="productCounter" className="productCounter" min={1} defaultValue={1}/>
             <Button clicked={()=>addToCart_handler(item)} title={'افزودن به سبد خرید'} stateBtn={'basket'} /> 
           </div>
           </>

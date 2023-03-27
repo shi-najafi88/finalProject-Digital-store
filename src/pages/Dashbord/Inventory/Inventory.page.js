@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Table, TotalBox, Button } from '../../../components'
 import { DashboardHeader, DashboardSidebar } from '../../../dashboardLayouts'
 import { usePagination } from '../../../hook'
-import { DATATABEL } from '../../../redux/slices'
+import { DATATABEL, SETPRICEQUANTITYMOOD } from '../../../redux/slices'
 import './Inventory.scss'
 
 export const Inventory = () => {
@@ -12,6 +12,7 @@ export const Inventory = () => {
   const dispatch = useDispatch()
   const state = useSelector(state => state.shopp)
   const [disableBtn , setDisableBtn] = useState(true)
+  // const [flag , setFlag] = useState(false)
   const { currentPage, rowsPerPage, setTotalPages, renderPaginationButtons } = usePagination(1,5);
 
  
@@ -26,7 +27,7 @@ export const Inventory = () => {
 
   //show getdata for table
   useEffect(()=>{
-    getData(currentPage,rowsPerPage)  
+    getData(currentPage,rowsPerPage) 
   },[dispatch,currentPage])
 
 
@@ -54,9 +55,9 @@ export const Inventory = () => {
     } 
     if(state.quantityChange){
        await Promise.all(state.quantityChange.map(item => quantitytBtn_handler(item,item.id)))
-    }   
+    } 
   }
-
+  
   //handel disabled save btn
   useEffect(()=>{
     if(state.priceChangeMood || state.quantityChangeMood){
