@@ -3,7 +3,7 @@ import { RiDeleteBinLine } from 'react-icons/ri'
 import './TrTableCart.scss'
 
 export const TrTableCart = ({item}) => {
-    console.log(item);
+   
   return (
     
     <tr >

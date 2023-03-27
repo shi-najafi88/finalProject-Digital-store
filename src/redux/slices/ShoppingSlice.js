@@ -145,8 +145,9 @@ const ShoppingSlice = createSlice({
             state.radioFilterSidebar_value = action.payload
         },
 
-        // CARTPRODUCT_INFO:(state,action) => {
+        // CARTPRODUCT:(state,action) => {
         //     state.cartProductArray = [...state.cartProductArray , action.payload]
+        //     console.log(state.cartProductArray.length);
         // },
 
     }
@@ -157,5 +158,5 @@ export const { OPEN_EDITMODAL, OPEN_DeletMODAL, NO_DELETmodal, YES_DELETmodal,
                EDITBTNMODAL, ADDPRODUCT,  CURRENTPAGE, PRICEPRODUCTID, QUANTITYPRODUCTID,
                PRICECHANGE, QUANTITYCHANGE, MOBILECATEGORY, LAPTOPCATEGORY, TABLETCATEGORY,
                HEADSETCATEGORY, RADIOFILTERSIDEBAR,CARTPRODUCT_INFO,
-               REMOVEID } = ShoppingSlice.actions
+               REMOVEID, CARTPRODUCT } = ShoppingSlice.actions
 export default ShoppingSlice.reducer

@@ -9,6 +9,12 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Button } from '../../components'
 
 
+const getProduct = async(id) =>{
+  const res = await axios.get(`http://localhost:3002/products?id=${id}`)
+  return res.data[0]
+}
+
+
 export const ProductDetail = () => {
 
   const state = useSelector(state => state.shopp) 
@@ -21,16 +27,14 @@ export const ProductDetail = () => {
   const [imgTwo , setImgTwo] = useState(false)
   const [imgOne , setImgOne] = useState(false)
   const [imgZero , setImgZero] = useState(false)
-
-  const getProduct = (id) =>{
-    axios.get(`http://localhost:3002/products?id=${id}`)
-    .then(res => dispatch(DATATABEL(res.data)))
-  }
+  const [item , setItem] = useState(null)
+  
 
   useEffect(()=>{
-    getProduct(id)
+    getProduct(id).then(res => setItem(res))   
   },[id])
 
+ 
   // for show image in thumbnail box
   const clickHandel_img_three = () => {
     setImgThree(true)
@@ -63,30 +67,35 @@ export const ProductDetail = () => {
     count = e.target.value
   }
 
+  //set to local storage
+
+  const setLocal = (item) => {
+  const oldInfo = JSON.parse(localStorage.getItem('cartProduct') || '[]');
+
+  let obj = {
+    thumbnail: item.thumbnail,
+    name: item.name,
+    price:item.price,
+    count:+count,
+    quantity:+item.quantity
+  }
+  oldInfo.push(obj)
+  localStorage.setItem('cartProduct', JSON.stringify(oldInfo)); 
+
+  }
+
   //add to cart btn
   const addToCart_handler = (item) =>{
-    //set array cart to localstorage
-    const oldInfo = JSON.parse(localStorage.getItem('cartProduct') || '[]');
-
-    let obj = {
-      thumbnail: item.thumbnail,
-      name: item.name,
-      price:item.price,
-      count:+count,
-      quantity:item.quantity
-    }
-    oldInfo.push(obj)
-    localStorage.setItem('cartProduct', JSON.stringify(oldInfo)); 
-    console.log(oldInfo); 
+    setLocal(item)
   }
- 
- 
+
+
   return (
     <div>
       <Header/>
       <section className='main-detail'>
         <div className='container-detail'>
-          {state.listData.map(item =>(
+          { item &&
             <>
           <div className='wrraper-detail-img'>
             
@@ -136,11 +145,16 @@ export const ProductDetail = () => {
             <h3>{(+item.price).toLocaleString("fa")} تومان</h3>
 
             <p>{item.description}</p>
-            <input onChange={count_value} type="number" name="productCounter" className="productCounter" min={1} defaultValue={1}/>
-            <Button clicked={()=>addToCart_handler(item)} title={'افزودن به سبد خرید'} stateBtn={'basket'} /> 
+            <input onChange={count_value} type="number" name="productCounter" className="productCounter" min={1} max={item.quantity} defaultValue={1}/>
+
+            {item.quantity === 0 ? 
+            <p className='endQuantity'>اتمام موجودی</p> :
+            <Button clicked={()=>addToCart_handler(item)} title={'افزودن به سبد خرید'} stateBtn={'basket'} />
+            }
+            
           </div>
           </>
-          ))}
+          }
 
         </div>
       </section>

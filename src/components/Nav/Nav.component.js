@@ -1,15 +1,19 @@
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Nav.scss'
 import { Link } from 'react-router-dom'
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { RiHomeGearFill } from 'react-icons/ri'
 import {MdShoppingCart } from 'react-icons/md'
-import { useSelector } from 'react-redux'
 
 export const Nav = () => {
-
-  const state = useSelector(state => state.shopp)
+ 
+  let localData = JSON.parse(localStorage.getItem('cartProduct'))  
+  
+  // useEffect(()=>{
+  //   getLocal()
+   
+  // },[])
 
   return (
     <nav className='nav'>
@@ -17,7 +21,9 @@ export const Nav = () => {
       <Link className='link' to="/"><RiHomeGearFill style={{fontSize:'1.2rem'}}/>خانه</Link>
       <Link className='link' exact to="/basket">
         <div className='wrapper-batch'>
-          <span className='batchCart'>1</span>
+          <span className='batchCart'>
+            {localData? localData.length.toLocaleString("fa") : 0}
+          </span>
           <MdShoppingCart style={{fontSize:'1.2rem'}}/>
         </div> سبد خرید</Link>
     </nav>
