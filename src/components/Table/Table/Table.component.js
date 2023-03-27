@@ -20,10 +20,6 @@ export const Table = ({
     onFilterHandler(event.target.value)
   }
 
-  //get data in local storage & on map for show to cart page
-  // let cartArray = JSON.parse(localStorage.getItem('cartProduct'))
-
-
   return (
     <>
       {tableStatus === "tableOrder" ? (
@@ -123,7 +119,7 @@ export const Table = ({
                 <TrTableCart item={item} />
               )) 
             }
-            
+
           </tbody>
         </table>
       ):
