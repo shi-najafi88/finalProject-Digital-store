@@ -21,7 +21,7 @@ export const Table = ({
   }
 
   //get data in local storage & on map for show to cart page
-  let cartArray = JSON.parse(localStorage.getItem('cartProduct'))
+  // let cartArray = JSON.parse(localStorage.getItem('cartProduct'))
 
 
   return (
@@ -118,11 +118,12 @@ export const Table = ({
           </thead>
           <tbody>
          
-            { cartArray? cartArray.map(item => (
+            { 
+            state.cartProductArray.map(item => (
                 <TrTableCart item={item} />
-              )) :'' 
+              )) 
             }
-
+            
           </tbody>
         </table>
       ):

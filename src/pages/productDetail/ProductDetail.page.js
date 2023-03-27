@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import { Footer, Header } from '../../layouts'
 import './productDetail.scss'
 import { useEffect } from 'react'
-import { DATATABEL } from '../../redux/slices'
+import { CARTPRODUCT } from '../../redux/slices'
 import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 import { Button } from '../../components'
@@ -69,24 +69,32 @@ export const ProductDetail = () => {
 
   //set to local storage
 
-  const setLocal = (item) => {
-  const oldInfo = JSON.parse(localStorage.getItem('cartProduct') || '[]');
+  // const setLocal = (item) => {
+  // const oldInfo = JSON.parse(localStorage.getItem('cartProduct') || '[]');
 
-  let obj = {
-    thumbnail: item.thumbnail,
-    name: item.name,
-    price:item.price,
-    count:+count,
-    quantity:+item.quantity
-  }
-  oldInfo.push(obj)
-  localStorage.setItem('cartProduct', JSON.stringify(oldInfo)); 
+  // let obj = {
+  //   thumbnail: item.thumbnail,
+  //   name: item.name,
+  //   price:item.price,
+  //   count:+count,
+  //   quantity:+item.quantity
+  // }
+  // oldInfo.push(obj)
+  // localStorage.setItem('cartProduct', JSON.stringify(oldInfo)); 
 
-  }
+  // }
 
   //add to cart btn
   const addToCart_handler = (item) =>{
-    setLocal(item)
+
+    let obj = {
+      thumbnail: item.thumbnail,
+      name: item.name,
+      price:item.price,
+      count:+count,
+      quantity:+item.quantity
+    }
+    dispatch(CARTPRODUCT(obj))
   }
 
 

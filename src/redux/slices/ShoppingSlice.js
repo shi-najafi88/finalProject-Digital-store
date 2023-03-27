@@ -22,7 +22,7 @@ const initialState ={
     tabletCategoryData:[],
     headsetCategoryData:[],
     radioFilterSidebar_value:'',
-    // cartProductArray:[]
+    cartProductArray:[]
 }
 const ShoppingSlice = createSlice({
     name:'shopping/redux',
@@ -145,10 +145,9 @@ const ShoppingSlice = createSlice({
             state.radioFilterSidebar_value = action.payload
         },
 
-        // CARTPRODUCT:(state,action) => {
-        //     state.cartProductArray = [...state.cartProductArray , action.payload]
-        //     console.log(state.cartProductArray.length);
-        // },
+        CARTPRODUCT:(state,action) => {
+            state.cartProductArray = [...state.cartProductArray ,action.payload]
+        },
 
     }
 })
