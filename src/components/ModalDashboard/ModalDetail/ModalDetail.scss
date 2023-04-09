@@ -4,6 +4,7 @@
 
 .container_modalDetail{
     @include setdisplayflex(flex,column,0,0,$p_smal);
+    @include font(estedad,300,$p_1);
     width: 90%;
 
     & label{

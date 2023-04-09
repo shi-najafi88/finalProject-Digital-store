@@ -1,5 +1,6 @@
 @import "../../asets/scss/mixin";
 @import "../../asets/scss/variable";
+
 .container-cart{
     @include setdisplayflex(flex,column,0,space-between,0);
     min-height: 100vh;
@@ -7,7 +8,7 @@
     main{
         @include setdisplayflex(flex,column,center,center,0);
         padding: $p_2 0;
-        // height: 45vh;
+    
         & Table{
             margin-top: 0;
         }
