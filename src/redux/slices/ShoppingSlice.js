@@ -22,7 +22,8 @@ const initialState ={
     tabletCategoryData:[],
     headsetCategoryData:[],
     radioFilterSidebar_value:'',
-    cartProductArray:[]
+    cartProductArray:[],
+    modalDeletBasket:false
 }
 const ShoppingSlice = createSlice({
     name:'shopping/redux',
@@ -146,8 +147,28 @@ const ShoppingSlice = createSlice({
         },
 
         CARTPRODUCT:(state,action) => {
-            state.cartProductArray = [...state.cartProductArray ,action.payload]
+            const filtredList = state.cartProductArray.filter(item => item.id !== action.payload.id)
+            state.cartProductArray = [...filtredList
+                 ,action.payload]
         },
+        REMOVEFROMCART:(state,action) => {
+            const filtredList = state.cartProductArray.filter(item => item.id !== action.payload)
+            state.cartProductArray = filtredList
+            state.modalDeletBasket = false
+            state.productId = 0
+        },
+
+        OPEN_DELETBASKETMODAL:(state,action) => {
+            state.modalDeletBasket = true
+            state.productId = action.payload
+        },
+
+        CLOSE_DELETBASKETMODAL:(state) => {
+            state.modalDeletBasket = false
+            state.productId = 0
+        },
+
+
 
     }
 })
@@ -157,5 +178,5 @@ export const { OPEN_EDITMODAL, OPEN_DeletMODAL, NO_DELETmodal, YES_DELETmodal,
                EDITBTNMODAL, ADDPRODUCT,  CURRENTPAGE, PRICEPRODUCTID, QUANTITYPRODUCTID,
                PRICECHANGE, QUANTITYCHANGE, MOBILECATEGORY, LAPTOPCATEGORY, TABLETCATEGORY,
                HEADSETCATEGORY, RADIOFILTERSIDEBAR,CARTPRODUCT_INFO,
-               REMOVEID, CARTPRODUCT } = ShoppingSlice.actions
+               REMOVEID, CARTPRODUCT, REMOVEFROMCART, OPEN_DELETBASKETMODAL, CLOSE_DELETBASKETMODAL } = ShoppingSlice.actions
 export default ShoppingSlice.reducer

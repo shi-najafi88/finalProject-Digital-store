@@ -7,6 +7,7 @@ import { CARTPRODUCT } from '../../redux/slices'
 import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 import { Button } from '../../components'
+import { toast, ToastContainer } from 'react-toastify'
 
 
 const getProduct = async(id) =>{
@@ -88,6 +89,7 @@ export const ProductDetail = () => {
   const addToCart_handler = (item) =>{
 
     let obj = {
+      id: item.id,
       thumbnail: item.thumbnail,
       name: item.name,
       price:item.price,
@@ -95,11 +97,13 @@ export const ProductDetail = () => {
       quantity:+item.quantity
     }
     dispatch(CARTPRODUCT(obj))
+    toast.success('Add is successfule')
   }
 
 
   return (
     <div>
+      <ToastContainer/>
       <Header/>
       <section className='main-detail'>
         <div className='container-detail'>

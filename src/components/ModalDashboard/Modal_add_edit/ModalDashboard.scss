@@ -4,7 +4,7 @@
 
 .overlay{
     @include setdisplayflex(flex,0,center,center,0);
-    position: absolute;
+    // position: absolute;
     top: 0;
     left: 0;
     width: 100%;
