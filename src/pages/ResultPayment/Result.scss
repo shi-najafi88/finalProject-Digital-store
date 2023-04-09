@@ -1,0 +1,27 @@
+@import '../../asets/scss/variable';
+@import '../../asets/scss/mixin';
+@import '../../asets/scss/color';
+
+.container-result{
+   
+    h2{
+        text-align: right;
+        padding: $p_1 $p_2;
+        font-size: $p_one-med;
+    }
+
+    .wrapper-result{
+        @include setdisplayflex(flex,0,center,center,$p_2);
+        
+        img{
+            @include size($p_9 , $p_9)
+        }
+
+        p{
+            @include font(estedad,100,1.2rem);
+            width: 19rem;
+            color: $dark;
+        }
+    }
+   
+}
