@@ -74,3 +74,13 @@
       filter: brightness(.9);
   }
 }
+
+.payment-btn{
+  @include setInput($green,$bg_color,none,0,10px,.7rem $p_1,25rem);
+  @include font(estedad,400,$p_1)
+}
+
+.cancelPayment{
+  @include setInput(rgb(242, 184, 75),$bg_color,none,0,10px,.7rem $p_1,14rem);
+  @include font(estedad,400,$p_1)
+}

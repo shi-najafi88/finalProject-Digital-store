@@ -1,0 +1,25 @@
+@import '../../asets/scss/mixin';
+@import '../../asets/scss/variable';
+
+.container-payment{
+    background-image: url(../../asets/images/payment.png);
+    @include size(70vw,91.8vh);
+    margin-right: $p_11;
+    position: relative;
+    text-align: center;
+
+    .wraper-paymentBtn{
+        background-color: rgb(251, 251, 251);
+        width: 45vw;
+        position: absolute;
+        padding: $p_1 0;
+        top: 38rem;
+        right: 17rem;
+        
+        justify-content: center;
+        @include setdisplayflex(flex,0,center,center,$p_1);
+    }
+
+
+
+}
