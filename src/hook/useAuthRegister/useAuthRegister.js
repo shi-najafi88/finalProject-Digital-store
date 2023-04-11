@@ -6,8 +6,7 @@ export const schema = yup.object({
     name:yup.string().required('لطفا نام را وارد کنید'),
     lastName:yup.string().required('لطفا نام خانوادگی را وارد کنید'),
     address:yup.string().required('لطفا آدرس را وارد کنید'),
-    mobile:yup.string().required('لطفا شماره همراه را وارد کنید'),
-    date:yup.string().required('لطفا تاریخ را وارد کنید'),
+    mobile:yup.string().required('لطفا شماره همراه را وارد کنید')
 })
 
 export const useAuthRegister = () => {

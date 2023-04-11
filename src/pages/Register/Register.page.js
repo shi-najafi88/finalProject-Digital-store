@@ -9,8 +9,12 @@ import persian_en from "react-date-object/locales/persian_en";
 import { useEffect, useState } from "react";
 import * as shamsi from "shamsi-date-converter";
 import "./Register.scss";
+import { useSelector } from "react-redux";
+import { json } from "react-router-dom";
 
 export const Register = () => {
+  const state = useSelector((state) => state.shopp);
+
   //custom hook for form validation
   const { register, handleSubmit, errors } = useAuthRegister();
 
@@ -29,6 +33,8 @@ export const Register = () => {
     setHasDate(true);
   };
 
+  const [date, setDate] = useState(null);
+
   useEffect(() => {
     if (hasDate) {
       const selectedDate = shamsi
@@ -39,7 +45,7 @@ export const Register = () => {
         )
         .join("/");
       if (new Date(`${selectedDate}`).getTime() > Date.now()) {
-        // getDate(selectedDate);
+        setDate(selectedDate);
         setIsValidDate(true);
       } else {
         setIsValidDate(false);
@@ -47,7 +53,26 @@ export const Register = () => {
     }
   }, [value, isValidDate]);
 
-  const submitForm = () => {};
+  const submitForm = (data) => {
+    let totalPrice = 0;
+    state.cartProductArray.forEach(
+      (item) => (totalPrice += item.price * item.count)
+    );
+    const newOrder = {
+      username: data.name,
+      lastname: data.lastName,
+      address: data.address,
+      phonenumber: data.mobile,
+      expectAt: new Date(date).getTime(),
+      products: state.cartProductArray,
+      prices: totalPrice,
+      delivered: "false",
+    };
+    
+    localStorage.setItem('order',JSON.stringify(newOrder))
+
+    window.location.href = "/basket/register/payment"
+  };
 
   return (
     <div className="container_finalCart">
@@ -91,7 +116,8 @@ export const Register = () => {
           <div className="wrapper-date">
             <label>تاریخ تحویل :</label>
 
-            <DatePicker className="datePicker"
+            <DatePicker
+              className="datePicker"
               calendar={persian}
               locale={persian_fa}
               value={value.date}
@@ -100,13 +126,11 @@ export const Register = () => {
             />
 
             {isValidDate === false ? <p>تاریخ وارد شده صحبح نمی باشد</p> : ""}
-
           </div>
 
           <div className="wrapper-paymentBtn">
             <Button type={"submit"} title={"پرداخت"} stateBtn={"basket"} />
-          </div> 
-
+          </div>
         </form>
       </main>
       <Footer />
