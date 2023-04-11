@@ -1,5 +1,6 @@
 @import "../../asets/scss/mixin";
 @import "../../asets/scss/variable";
+@import "../../asets/scss/color";
 
 .container_finalCart{
     @include setdisplayflex(flex,column,0,space-between,0);
@@ -17,12 +18,27 @@
             width: 60% ;
         }
 
-        div{
-            @include setdisplayflex(flex,0,0,space-between,$p_2); 
+        .wrapper-form-row{
+            @include setdisplayflex(flex,0,0,space-between,$p_1); 
+            margin-bottom: $p_1;
         }
 
-        .wraper-date{
-            width: 54% ;
+        .wrapper-date{
+            @include setdisplayflex(flex,column,0,0,$p_smal);
+            @include font(estedad,300,$p_1);
+
+            input{
+                @include setInput($light_gray,$medium_gray,none,none,5px,$p_smal,47%);
+            }
+
+            p{
+                color: $red;
+                font-size: .8rem;
+            }
+        }
+
+        .wrapper-paymentBtn{
+            text-align: center;
         }
     }
 }

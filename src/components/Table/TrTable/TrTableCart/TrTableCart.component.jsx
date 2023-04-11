@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { RiDeleteBinLine } from 'react-icons/ri'
 import { useDispatch } from 'react-redux'
 import { CARTPRODUCT, OPEN_DELETBASKETMODAL, OPEN_DeletMODAL, REMOVEFROMCART } from '../../../../redux/slices'

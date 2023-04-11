@@ -148,9 +148,9 @@ const ShoppingSlice = createSlice({
 
         CARTPRODUCT:(state,action) => {
             const filtredList = state.cartProductArray.filter(item => item.id !== action.payload.id)
-            state.cartProductArray = [...filtredList
-                 ,action.payload]
+            state.cartProductArray = [...filtredList,action.payload]
         },
+
         REMOVEFROMCART:(state,action) => {
             const filtredList = state.cartProductArray.filter(item => item.id !== action.payload)
             state.cartProductArray = filtredList
@@ -167,9 +167,6 @@ const ShoppingSlice = createSlice({
             state.modalDeletBasket = false
             state.productId = 0
         },
-
-
-
     }
 })
 export const { OPEN_EDITMODAL, OPEN_DeletMODAL, NO_DELETmodal, YES_DELETmodal,

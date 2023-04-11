@@ -7,12 +7,12 @@ export const schema = yup.object({
     lastName:yup.string().required('لطفا نام خانوادگی را وارد کنید'),
     address:yup.string().required('لطفا آدرس را وارد کنید'),
     mobile:yup.string().required('لطفا شماره همراه را وارد کنید'),
-    data:yup.string().required('لطفا تاریخ را وارد کنید'),
+    date:yup.string().required('لطفا تاریخ را وارد کنید'),
 })
 
 export const useAuthRegister = () => {
 
-    const {reset , register , handleSubmit , formState:{errors}} = useForm({
+    const { register , handleSubmit , formState:{errors}} = useForm({
         resolver:yupResolver(schema),
         mode:'onChange'
     });

@@ -35,9 +35,11 @@ export const Basket = () => {
             <span>جمع کل: {totalPrice.toLocaleString("fa")}</span>
             <span> تومان</span>
           </div>
+          {state.cartProductArray.length !== 0 && 
           <Link className="link" to="/basket/register">
             <Button title={"نهایی کردن سبد خرید"} stateBtn={"basket"} />
           </Link>
+          }
         </div>
       </main>
       <Footer />
