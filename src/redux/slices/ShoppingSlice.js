@@ -11,7 +11,6 @@ const initialState ={
     ordersData:[],
     productId:0,
     allProduct:[],
-    // saveProductInfo:[],
     getPage:1,
     priceChange:[],
     priceChangeMood:false,
@@ -92,11 +91,6 @@ const ShoppingSlice = createSlice({
         ALLPRODUCT:(state,action)=> {
             state.allProduct = action.payload
         },
-
-        // EDITBTNMODAL:(state,action)=> { 
-        //     const FindeIndex = state.allProduct.findIndex(item => item.id === state.productId);
-        //     state.allProduct.splice(FindeIndex, 1, action.payload);
-        // },
 
         CURRENTPAGE:(state,action)=> {
             state.getPage = action.payload
