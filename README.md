@@ -22,4 +22,8 @@ Project (e-commerce) created with React js and Redux with back and json-server
 
   ![product_detail](https://github.com/shi-najafi88/finalProject-Digital-store/assets/113782959/ddb16969-ba63-4a17-bad2-279f96aac873)
 
-  - Basket
+- Basket
+ 
+  ![basket](https://github.com/shi-najafi88/finalProject-Digital-store/assets/113782959/14488f54-0aad-48a2-b7d9-b524ddd18742)
+
+- Other Photos
