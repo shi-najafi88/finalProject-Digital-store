@@ -18,3 +18,4 @@ Project (e-commerce) created with React js and Redux with back and json-server
   
   ![category](https://github.com/shi-najafi88/finalProject-Digital-store/assets/113782959/af8d9b83-7b1b-4494-8a7a-21fd0a26d5aa)
 
+- Product Detail
