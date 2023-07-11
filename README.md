@@ -27,3 +27,8 @@ Project (e-commerce) created with React js and Redux with back and json-server
   ![basket](https://github.com/shi-najafi88/finalProject-Digital-store/assets/113782959/14488f54-0aad-48a2-b7d9-b524ddd18742)
 
 - Other Photos
+
+  ![orders](https://github.com/shi-najafi88/finalProject-Digital-store/assets/113782959/ce3bb602-6abc-403a-99ab-e436fd58241c)
+  ![products-dashboard](https://github.com/shi-najafi88/finalProject-Digital-store/assets/113782959/b8dbb34b-a6ac-4c0a-a0f0-9aa73b582917)
+  ![add-edit modal](https://github.com/shi-najafi88/finalProject-Digital-store/assets/113782959/5564b81b-7516-43d8-a988-40bbe41e3d39)
+
