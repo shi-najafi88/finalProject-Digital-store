@@ -1,9 +1,11 @@
-# "Digipro" E-Commerce Website
+# <p align="center"> "Digipro" E-Commerce Website </p>
 
 
 
-### Maktab85 Final Project - Parvin Najafi
-Project (e-commerce) created with React js and Redux with back and json-server
+### <p align="center"> Maktab85 Final Project - Parvin Najafi </p>
+<p align="center"> Project (e-commerce) created with React js and Redux with back and json-server <br><br><br> </p>
+
+---
 
 
 #### Pages Photos
@@ -31,4 +33,7 @@ Project (e-commerce) created with React js and Redux with back and json-server
   ![orders](https://github.com/shi-najafi88/finalProject-Digital-store/assets/113782959/ce3bb602-6abc-403a-99ab-e436fd58241c)
   ![products-dashboard](https://github.com/shi-najafi88/finalProject-Digital-store/assets/113782959/b8dbb34b-a6ac-4c0a-a0f0-9aa73b582917)
   ![add-edit modal](https://github.com/shi-najafi88/finalProject-Digital-store/assets/113782959/5564b81b-7516-43d8-a988-40bbe41e3d39)
+
+---
+A complete store with home page, category page, product details page with description, comment parts, and feature display. Use interceptors to pass requests through dedicated filters, such as checking if the admin is Auth. Ability to add a product, the ability to edit products, the ability to delete products by displaying a message, order management and the ability to change the status of orders. Displaying weekly sales of products using charts. Checkout page to enter user information to confirm purchase. Redux, axios and promises have been tried to be used as optimally as possible and only used when necessary.
 
