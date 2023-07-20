@@ -35,5 +35,5 @@
   ![add-edit modal](https://github.com/shi-najafi88/finalProject-Digital-store/assets/113782959/5564b81b-7516-43d8-a988-40bbe41e3d39)
 
 ---
-A complete store with home page, category page, product details page with description, comment parts, and feature display. Use interceptors to pass requests through dedicated filters, such as checking if the admin is Auth. Ability to add a product, the ability to edit products, the ability to delete products by displaying a message, order management and the ability to change the status of orders. Displaying weekly sales of products using charts. Checkout page to enter user information to confirm purchase. Redux, axios and promises have been tried to be used as optimally as possible and only used when necessary.
+A complete store with home page, category page, product details page with description. Use interceptors to pass requests through dedicated filters, such as checking if the admin is Auth. Ability to add a product, the ability to edit products, the ability to delete products by displaying a message, order management and the ability to change the status of orders. Checkout page to enter user information to confirm purchase. Redux, axios and promises have been tried to be used as optimally as possible and only used when necessary.
 
